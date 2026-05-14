@@ -1,0 +1,18 @@
+/*
+Theme Name:        Innovare
+Theme URI:         https://expertsols.com/
+Description:       Standalone Bootstrap 5 theme for modern IT services and business technology sites. Mobile-first, accessible, no page builder required.
+Author:            expertsols
+Author URI:        https://expertsols.com/
+Version:           2.0.0
+Requires at least: 6.0
+Requires PHP:      7.4
+License:           GNU General Public License v2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       innovare
+Tags:              business, technology, custom-menu, featured-images, full-width-template, threaded-comments, translation-ready, bootstrap
+*/
+
+/*
+ * Theme header only — styles are in /assets/css/custom.css (enqueued from functions.php).
+ */

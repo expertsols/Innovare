@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# WordPress local artefacts that shouldn't be in a theme repo
+wp-config.php
+wp-content/uploads/
+
+# Build / vendor (in case you later add a build step)
+node_modules/
+vendor/
+.cache/
