@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Sitemap
+ * Template Name: Innovate — Sitemap
  *
  * Human-readable overview of main site sections plus optional XML sitemap link.
  *

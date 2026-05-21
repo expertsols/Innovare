@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Insights
+ * Template Name: Innovate — Insights
  *
  * Blog archive: pinned/sticky hero → two highlight cards → masonry grid
  * with compact thumbnails. Uses real WP_Query.

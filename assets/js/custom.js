@@ -1,5 +1,5 @@
 /*
- * Andromeda Links — small front-end script.
+ * Innovate — small front-end script.
  *
  * Intentionally minimal:
  *  - toggles `.is-scrolled` on the sticky navbar

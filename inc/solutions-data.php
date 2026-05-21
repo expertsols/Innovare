@@ -1,6 +1,6 @@
 <?php
 /**
- * Innovare — Solutions data.
+ * Innovate — Solutions data.
  *
  * Single source of truth for the Solutions listing (template-solutions.php)
  * AND the per-solution detail pages (template-solution-detail.php).
@@ -15,8 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/** Bump when bundled solution defaults change — triggers DB sync on bootstrap. */
+define( 'ANDROMEDA_SOLUTIONS_DATA_VERSION', 2 );
+
+/** wp_options key for stored solution content. */
+define( 'ANDROMEDA_SOLUTIONS_OPTION', 'andromeda_solutions_data' );
+
+/** wp_options key for stored solutions data version. */
+define( 'ANDROMEDA_SOLUTIONS_VERSION_OPTION', 'andromeda_solutions_data_version' );
+
 /**
- * Return all solutions, keyed by slug.
+ * Return all solutions from the database (seeded from theme defaults).
  *
  * @return array<string, array>
  */
@@ -26,106 +35,23 @@ function andromeda_get_solutions() {
 		return $cached;
 	}
 
+	$stored = get_option( ANDROMEDA_SOLUTIONS_OPTION, null );
+	if ( ! is_array( $stored ) || empty( $stored ) ) {
+		$stored = andromeda_get_solutions_defaults();
+	}
+
+	wp_cache_set( 'innovare_solutions', $stored, 'innovare' );
+
+	return $stored;
+}
+
+/**
+ * Bundled default solution content (used to seed or reset the database).
+ *
+ * @return array<string, array>
+ */
+function andromeda_get_solutions_defaults() {
 	$solutions = array(
-
-		'skilledim-hrm' => array(
-			'anchor'      => 'skilledim',
-			'icon'        => 'identity',
-			'badge'       => __( 'Business Solution', 'innovare' ),
-			'title'       => __( 'SkilledIM HRM', 'innovare' ),
-			// Short, brand-style label used in CTAs ("Discuss SkilledIM"
-			// instead of the longer product name).
-			'short_title' => __( 'SkilledIM', 'innovare' ),
-			'lede'        => __( 'A modern, cloud-based HRM platform for employee records, attendance, payroll and approvals — integrated and supported by our team.', 'innovare' ),
-			'summary'     => __( 'SkilledIM HRM gives your business a single, accountable system for the full employee lifecycle. We deliver it as a cloud-based platform — integrating it with your operational stack, training your team and continuing to support it as you grow. We are actively refactoring SkilledIM HRM to a fully cloud-native architecture for greater scale, security and accessibility.', 'innovare' ),
-			'notice'      => array(
-				'icon'    => 'bi-cloud-arrow-up',
-				'label'   => __( 'Cloud-based & evolving', 'innovare' ),
-				'message' => __( 'SkilledIM HRM is delivered as a cloud-based platform — and we are actively refactoring it to a fully cloud-native architecture for the next major release.', 'innovare' ),
-			),
-			// Two-CTA setup. The "Discuss" button is generated automatically
-			// (label = "Discuss {short_title}"). The "Explore" button below
-			// scrolls to the in-page features section by default — swap the
-			// URL to a real SkilledIM product site / demo URL when ready
-			// and set 'target' => '_blank' to open it in a new tab.
-			'cta'         => array(
-				'explore' => array(
-					'url'    => 'https://www.skilledim.com/',
-					'label'  => __( 'Explore SkilledIM', 'innovare' ),
-					'aria'   => __( 'Open the SkilledIM website in a new tab', 'innovare' ),
-					'target' => '_blank',
-				),
-			),
-			'whats_included' => array(
-				__( 'Employee records & organization structure', 'innovare' ),
-				__( 'Attendance, leaves & approval workflows', 'innovare' ),
-				__( 'Payroll setup with local tax & benefits rules', 'innovare' ),
-				__( 'Self-service portal for staff & managers', 'innovare' ),
-				__( 'Data migration from legacy systems', 'innovare' ),
-				__( 'Role-based access & audit trail', 'innovare' ),
-			),
-			'outcomes' => array(
-				__( 'A single source of truth for HR data — no more scattered spreadsheets.', 'innovare' ),
-				__( 'Faster, auditable payroll & approval cycles each month.', 'innovare' ),
-				__( 'Lower HR admin overhead as you scale headcount.', 'innovare' ),
-			),
-			'engagement' => array(
-				array( 'label' => __( 'Discovery & data audit', 'innovare' ),     'desc' => __( 'Map your current process, employees, structure and reporting needs.', 'innovare' ) ),
-				array( 'label' => __( 'Deploy & integrate', 'innovare' ),         'desc' => __( 'Set up the platform, migrate data and wire it into your stack.', 'innovare' ) ),
-				array( 'label' => __( 'Train, support & evolve', 'innovare' ),    'desc' => __( 'Onboard your team and continue to refine workflows over time.', 'innovare' ) ),
-			),
-			'best_for' => array(
-				__( 'Growing SMEs standardising HR for the first time', 'innovare' ),
-				__( 'Operations leaders replacing fragmented HR tools', 'innovare' ),
-				__( 'Multi-branch teams needing centralised employee data', 'innovare' ),
-			),
-			// Logo above the "Best for" column; image optional — if the file
-			// is missing, `fallback` is shown as a typographic wordmark.
-			'best_for_brand' => array(
-				'file'     => 'assets/images/solutions/skilledim-logo.png',
-				'alt'      => __( 'SkilledIM logo', 'innovare' ),
-				'fallback' => __( 'SkilledIM', 'innovare' ),
-				'tagline'  => __( 'by Innovare', 'innovare' ),
-			),
-		),
-
-		'silver-accounting' => array(
-			'anchor'  => 'silver',
-			'icon'    => 'consulting',
-			'badge'   => __( 'Business Solution', 'innovare' ),
-			'title'   => __( 'Silver Accounting', 'innovare' ),
-			'lede'    => __( 'A practical accounting platform deployed, integrated and supported end-to-end — from chart-of-accounts to reporting.', 'innovare' ),
-			'summary' => __( 'Silver Accounting is an end-to-end accounting platform built for real-world finance teams. We set up the chart of accounts, integrate it with your operations, hand it over to a confident finance team and stay on as support — not a vendor that disappears after go-live.', 'innovare' ),
-			'whats_included' => array(
-				__( 'Chart of accounts & posting rules setup', 'innovare' ),
-				__( 'Invoicing, AR & AP workflows', 'innovare' ),
-				__( 'Bank reconciliation & cash flow tracking', 'innovare' ),
-				__( 'Inventory & stock costing (where applicable)', 'innovare' ),
-				__( 'Reporting pack: P&L, balance sheet, tax summaries', 'innovare' ),
-				__( 'Integration with operational systems', 'innovare' ),
-			),
-			'outcomes' => array(
-				__( 'A finance team that closes the books on time, every month.', 'innovare' ),
-				__( 'Trustworthy numbers leadership can actually make decisions on.', 'innovare' ),
-				__( 'Audit-ready records without a last-minute scramble.', 'innovare' ),
-			),
-			'engagement' => array(
-				array( 'label' => __( 'Process & policy review', 'innovare' ), 'desc' => __( 'Understand current process, gaps, statutory needs.', 'innovare' ) ),
-				array( 'label' => __( 'Deploy & migrate', 'innovare' ),         'desc' => __( 'Set up the platform, migrate prior periods, integrate ops.', 'innovare' ) ),
-				array( 'label' => __( 'Enable & support', 'innovare' ),         'desc' => __( 'Train finance, fine-tune reports and provide ongoing support.', 'innovare' ) ),
-			),
-			'best_for' => array(
-				__( 'Owner-led businesses moving off spreadsheets', 'innovare' ),
-				__( 'Finance teams replacing a system that no longer fits', 'innovare' ),
-				__( 'Multi-branch operations needing consolidated reporting', 'innovare' ),
-			),
-			'best_for_brand' => array(
-				'file'     => 'assets/images/solutions/silver-accounting-logo.png',
-				'alt'      => __( 'Silver Accounting logo', 'innovare' ),
-				'fallback' => __( 'Silver Accounting', 'innovare' ),
-				'tagline'  => __( 'by Innovare', 'innovare' ),
-			),
-		),
 
 		'microsoft-365' => array(
 			'anchor'  => 'm365',
@@ -289,9 +215,53 @@ function andromeda_get_solutions() {
 
 	);
 
-	wp_cache_set( 'innovare_solutions', $solutions, 'innovare' );
-
 	return $solutions;
+}
+
+/**
+ * Seed or update solution content in wp_options from theme defaults.
+ *
+ * @param bool $force_reset When true, overwrite all stored solution content.
+ * @return array{updated: bool, version: int, forced: bool}
+ */
+function andromeda_seed_solutions_data( $force_reset = false ) {
+	$defaults   = andromeda_get_solutions_defaults();
+	$theme_ver  = ANDROMEDA_SOLUTIONS_DATA_VERSION;
+	$stored_ver = (int) get_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, 0 );
+	$existing   = get_option( ANDROMEDA_SOLUTIONS_OPTION, null );
+
+	$needs_seed = ! is_array( $existing ) || empty( $existing );
+	$needs_sync = $stored_ver < $theme_ver;
+	$updated    = false;
+
+	if ( $force_reset || $needs_seed || $needs_sync ) {
+		update_option( ANDROMEDA_SOLUTIONS_OPTION, $defaults, false );
+		update_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, $theme_ver, false );
+		andromeda_clear_solutions_cache();
+		$updated = true;
+	}
+
+	return array(
+		'updated' => $updated,
+		'version' => (int) get_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, $theme_ver ),
+		'forced'  => (bool) $force_reset,
+	);
+}
+
+/**
+ * Reset all solution content in the database to theme defaults.
+ *
+ * @return array{updated: bool, version: int, forced: bool}
+ */
+function andromeda_reset_solutions_data() {
+	return andromeda_seed_solutions_data( true );
+}
+
+/**
+ * Clear cached solution data.
+ */
+function andromeda_clear_solutions_cache() {
+	wp_cache_delete( 'innovare_solutions', 'innovare' );
 }
 
 /**

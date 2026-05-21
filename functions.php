@@ -1,6 +1,6 @@
 <?php
 /**
- * Innovare — WordPress theme bootstrap.
+ * Innovate — WordPress theme bootstrap.
  *
  * Standalone theme (no parent). Loads modular files from /inc.
  *
@@ -20,7 +20,11 @@ require_once INNOVARE_DIR . 'inc/enqueue.php';
 require_once INNOVARE_DIR . 'inc/menus.php';
 require_once INNOVARE_DIR . 'inc/seo.php';
 require_once INNOVARE_DIR . 'inc/helpers.php';
+require_once INNOVARE_DIR . 'inc/footer.php';
+require_once INNOVARE_DIR . 'inc/maintenance.php';
 require_once INNOVARE_DIR . 'inc/insights-rewrites.php';
 require_once INNOVARE_DIR . 'inc/customizer.php';
 require_once INNOVARE_DIR . 'inc/solutions-data.php';
+require_once INNOVARE_DIR . 'inc/team-data.php';
+require_once INNOVARE_DIR . 'inc/site-bootstrap.php';
 require_once INNOVARE_DIR . 'inc/legal-pages.php';

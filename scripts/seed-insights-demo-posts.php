@@ -176,7 +176,7 @@ $created = 0;
 foreach ( $posts_def as $def ) {
 	$p1 = 'Operations leaders rarely get a quiet week — which is why we write infrastructure changes in small batches, with rollback paths and owners named in the ticket.';
 	$p2 = 'This article expands on patterns we use on real engagements. Replace or extend it from the WordPress editor; it is safe demo content tagged for removal by the seed script.';
-	$p3 = 'Demo post for Innovare Insights layout — delete via re-running the seed script or remove the _andromeda_insights_demo meta in the database.';
+	$p3 = 'Demo post for Innovate Insights layout — delete via re-running the seed script or remove the _andromeda_insights_demo meta in the database.';
 
 	$post_id = wp_insert_post(
 		array(

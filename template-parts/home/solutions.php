@@ -8,8 +8,7 @@
  * matching /solutions/<slug>/ detail page directly — no detour through
  * the solutions index page.
  *
- * SkilledIM HRM and Silver Accounting are presented as business
- * solutions under Innovare — not standalone SaaS brands.
+ * IT-focused solution outcomes — infrastructure, security, cloud and continuity.
  *
  * @package Innovare
  */
@@ -22,8 +21,8 @@ $solutions_url = andromeda_page_url( 'solutions' );
 
 		<div class="section-heading">
 			<span class="eyebrow"><?php esc_html_e( 'Solutions', 'innovare' ); ?></span>
-			<h2 id="solutions-home-heading"><?php esc_html_e( 'Enterprise solutions built around real business needs', 'innovare' ); ?></h2>
-			<p><?php esc_html_e( 'Pre-shaped outcomes that combine our infrastructure, support and software expertise into a single, accountable engagement.', 'innovare' ); ?></p>
+			<h2 id="solutions-home-heading"><?php esc_html_e( 'Technology solutions built around real business needs', 'innovare' ); ?></h2>
+			<p><?php esc_html_e( 'Pre-shaped outcomes that combine infrastructure, managed support and cloud expertise into a single, accountable engagement.', 'innovare' ); ?></p>
 		</div>
 
 		<div class="row g-3 g-lg-4">
@@ -49,7 +48,7 @@ $solutions_url = andromeda_page_url( 'solutions' );
 						<?php if ( $points ) : ?>
 							<ul class="solution-card-list">
 								<?php foreach ( $points as $point ) : ?>
-									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( $point ); ?></li>
+									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( andromeda_solution_included_label( $point ) ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>

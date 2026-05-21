@@ -1,6 +1,6 @@
-# Innovare — WordPress theme
+# Innovate — WordPress theme
 
-A modern, lightweight **standalone** WordPress theme for **Innovare** — positioning the business as a **Managed IT & Business Technology Partner**.
+A modern, lightweight **standalone** WordPress theme for **Innovate** — positioning the business as a **Managed IT & Business Technology Partner**.
 
 Built with **Bootstrap 5.3**, custom page templates, reusable template parts, and Gutenberg-friendly markup. No Elementor, no page builders, no parent theme.
 
@@ -10,7 +10,7 @@ Built with **Bootstrap 5.3**, custom page templates, reusable template parts, an
 
 ## What you get
 
-- **No parent theme** — activate **Innovare** only
+- **No parent theme** — activate **Innovate** only
 - Sticky responsive Bootstrap 5 navbar with **Get a Quote** CTA
 - Custom **front-page** assembled from modular sections
 - Page templates for **Services, Solutions, solution detail pages, Insights, Company, Contact**, plus **Privacy / Terms / Sitemap** helpers
@@ -26,7 +26,7 @@ Built with **Bootstrap 5.3**, custom page templates, reusable template parts, an
 
 ## Theme folder and slug
 
-WordPress derives the theme **slug** from the **directory name** under `wp-content/themes/`. For a clean install, name the folder **`innovare`** (recommended). You can keep another folder name; the **Appearance → Themes** label comes from `style.css` (**Theme Name: Innovare**).
+WordPress derives the theme **slug** from the **directory name** under `wp-content/themes/`. The folder may be named **`Innovare`** (or `innovare`); the **Appearance → Themes** label comes from `style.css` (**Theme Name: Innovate**).
 
 Constants in `functions.php`:
 
@@ -40,7 +40,7 @@ Constants in `functions.php`:
 ```
 Home
 Services
-Solutions   (+ child pages per solution, e.g. /solutions/skilledim-hrm/)
+Solutions   (+ child pages per solution, e.g. /solutions/microsoft-365/)
 Insights    (+ blog posts under /insights/post-name/)
 Company
 Contact
@@ -74,7 +74,7 @@ innovare/   (or your theme directory name)
 │
 ├── scripts/
 │   ├── seed-insights-demo-posts.php       # CLI: demo posts for Insights layout
-│   └── migrate-company-to-about-page.php  # CLI: slug company → about-andromeda-links
+│   └── migrate-company-to-about-page.php  # CLI: legacy About slug fixes
 │
 ├── inc/
 │   ├── theme-setup.php
@@ -123,24 +123,41 @@ innovare/   (or your theme directory name)
 
 ### 1. Install the theme
 
-Copy the theme folder into `wp-content/themes/` (ideally as **`innovare`**) and activate **Innovare** under **Appearance → Themes**.
+Copy the theme folder into `wp-content/themes/` and activate **Innovate** under **Appearance → Themes**.
 
-### 2. Create core pages and assign templates
+**Automatic site setup** runs on theme activation, when the bootstrap version is bumped on deploy, and on each request (`inc/site-bootstrap.php`, currently **v2**):
+
+- Creates core pages: **Home**, **Services**, **Solutions**, **Insights**, **Company** (`about`), **Contact**
+- Assigns **Innovate** page templates and syncs solution detail pages under `/solutions/`
+- Ensures **Privacy**, **Terms**, and **Sitemap** pages
+- Sets **Settings → Reading** to a static front page (**Home**) when unset
+- Creates and assigns **Primary Navigation** when no menu is assigned
+- Seeds **Customizer** contact, WhatsApp, address, map, and social URLs when empty
+- Stores **solution content** (modules, outcomes, engagement, summaries) in **`wp_options`** and syncs from theme defaults
+- Runs phone migrations (**+92 333 4106911**) and legacy About slug fixes (`company`, `about-andromeda-links` → **`about`**)
+
+**Manual re-run after deploy:** **Appearance → Site Setup**, or CLI:
+
+```bash
+php wp-content/themes/Innovare/scripts/bootstrap-site-content.php
+```
+
+### 2. Core pages (auto-created — manual table for reference)
 
 | Page title (example) | Slug | Template |
 | -------------------- | ---- | -------- |
 | Home | `home` | Default (`front-page.php` is used for the front page) |
-| Services | `services` | **Innovare — Services** |
-| Solutions | `solutions` | **Innovare — Solutions** |
-| Insights | `insights` | **Innovare — Insights** |
-| Company | `about-andromeda-links` | **Innovare — Company** |
-| Contact | `contact` | **Innovare — Contact** |
+| Services | `services` | **Innovate — Services** |
+| Solutions | `solutions` | **Innovate — Solutions** |
+| Insights | `insights` | **Innovate — Insights** |
+| Company | `about` | **Innovate — Company** |
+| Contact | `contact` | **Innovate — Contact** |
 
 **Settings → Reading**
 
 - **Your homepage displays** → **A static page**
 - **Homepage** → your **Home** page
-- **Posts page** — **Recommended:** do **not** point “Posts page” at the same URL as the Insights page. Use the **Insights** page (`/insights/`) with the Innovare template for the blog experience.
+- **Posts page** — **Recommended:** do **not** point “Posts page” at the same URL as the Insights page. Use the **Insights** page (`/insights/`) with the Innovate template for the blog experience.
 
 ### 3. First load — automatic bootstrap
 
@@ -149,7 +166,7 @@ On **`init`**, `inc/legal-pages.php`:
 1. Migrates legacy **`privacy-policy`** → **`privacy`** once (option `andromeda_privacy_slug_migrated_v1`).
 2. Ensures **published** pages: **`privacy`**, **`terms`**, **`sitemap`** (legal / sitemap templates).
 3. Syncs **Settings → Privacy** when needed.
-4. Under **Solutions**, creates **child pages** from `inc/solutions-data.php` (template **Innovare — Solution Detail**) so `/solutions/{slug}/` works.
+4. Under **Solutions**, creates **child pages** from `inc/solutions-data.php` (template **Innovate — Solution Detail**) so `/solutions/{slug}/` works.
 
 The **`solutions`** parent page must exist and be **published** before children are created. Load any front-end or admin URL once after creating **Solutions**.
 
@@ -166,8 +183,8 @@ The **`solutions`** parent page must exist and be **published** before children 
 
 **Appearance → Customize**
 
-- **Innovare — Contact** — phone, email, WhatsApp, hours, address, map embed URL  
-- **Innovare — Social Links** — social URLs  
+- **Innovate — Contact** — phone, email, WhatsApp, hours, address, map embed URL  
+- **Innovate — Social Links** — social URLs  
 
 (Internal setting IDs may still use the `andromeda_` prefix for backward compatibility.)
 
@@ -241,7 +258,7 @@ Many PHP functions and CSS classes still use the **`andromeda_*`** prefix for st
 | -------- | -------- | ------- |
 | `andromeda_page_url( $slug )` | `inc/helpers.php` | Permalink for a page by slug, or constructed URL if missing. |
 | `andromeda_privacy_policy_url()` | `inc/helpers.php` | Privacy URL (prefers **`/privacy/`**). |
-| `andromeda_about_page_slug()` | `inc/helpers.php` | Company page slug (`about-andromeda-links`). Legacy **`/company/`** may redirect. |
+| `andromeda_about_page_slug()` | `inc/helpers.php` | Company page slug (`about`). Legacy slugs (e.g. **`/company/`**, **`/about-andromeda-links/`**) redirect. |
 | `andromeda_solution_page_url( $slug )` | `inc/solutions-data.php` | Detail URL or fallback. |
 | `andromeda_get_solutions()` / `andromeda_get_solution()` | `inc/solutions-data.php` | Solution listing + detail data. |
 
@@ -252,7 +269,7 @@ Many PHP functions and CSS classes still use the **`andromeda_*`** prefix for st
 | Script | Purpose |
 | ------ | ------- |
 | `scripts/seed-insights-demo-posts.php` | Demo posts for Insights layout testing. |
-| `scripts/migrate-company-to-about-page.php` | One-off: slug **`company`** → **`about-andromeda-links`** and menu fixes. |
+| `scripts/migrate-company-to-about-page.php` | One-off: legacy About slug and menu fixes. |
 
 ---
 
@@ -303,7 +320,7 @@ Self-host: add `bootstrap.min.css` and `bootstrap.bundle.min.js` under `assets/v
 
 ## Logo asset
 
-Default logo path may still reference **`assets/images/andromedalinks-logo.png`**. Replace that file or point `inc/helpers.php` / `inc/seo.php` at your own filename under `assets/images/`.
+Default logo path references **`assets/images/andromedalinks-logo.png`** (legacy filename). Replace that file with your Innovate logo or point `inc/helpers.php` / `inc/seo.php` at your own filename under `assets/images/`.
 
 ---
 

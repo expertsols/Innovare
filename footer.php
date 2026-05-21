@@ -5,10 +5,10 @@
  * @package Innovare
  */
 
-$phone    = get_theme_mod( 'andromeda_contact_phone', '+92 345 4243541' );
-$email    = get_theme_mod( 'andromeda_contact_email', 'info@andromedalinks.com' );
+$phone    = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
+$email    = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
 $address  = get_theme_mod( 'andromeda_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
-$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
+$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', andromeda_default_contact_phone() );
 ?>
 </main><!-- /#site-content -->
 
@@ -32,7 +32,7 @@ $whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
 
 				<div class="col-lg-2 col-md-3 col-6">
 					<h6 class="footer-widget-title"><?php esc_html_e( 'Company', 'innovare' ); ?></h6>
-					<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+					<?php if ( ! andromeda_use_footer_column_defaults( 'footer-1' ) ) : ?>
 						<?php dynamic_sidebar( 'footer-1' ); ?>
 					<?php else : ?>
 						<ul class="footer-links">
@@ -46,7 +46,7 @@ $whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
 
 				<div class="col-lg-2 col-md-3 col-6">
 					<h6 class="footer-widget-title"><?php esc_html_e( 'Services', 'innovare' ); ?></h6>
-					<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+					<?php if ( ! andromeda_use_footer_column_defaults( 'footer-2' ) ) : ?>
 						<?php dynamic_sidebar( 'footer-2' ); ?>
 					<?php else : ?>
 						<ul class="footer-links">
@@ -60,21 +60,21 @@ $whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
 
 				<div class="col-lg-2 col-md-3 col-6">
 					<h6 class="footer-widget-title"><?php esc_html_e( 'Solutions', 'innovare' ); ?></h6>
-					<?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+					<?php if ( ! andromeda_use_footer_column_defaults( 'footer-3' ) ) : ?>
 						<?php dynamic_sidebar( 'footer-3' ); ?>
 					<?php else : ?>
 						<ul class="footer-links">
-							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'skilledim-hrm' ) ); ?>"><?php esc_html_e( 'SkilledIM HRM', 'innovare' ); ?></a></li>
-							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'silver-accounting' ) ); ?>"><?php esc_html_e( 'Silver Accounting', 'innovare' ); ?></a></li>
 							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'microsoft-365' ) ); ?>"><?php esc_html_e( 'Microsoft 365', 'innovare' ); ?></a></li>
 							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'business-continuity' ) ); ?>"><?php esc_html_e( 'Business Continuity', 'innovare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'managed-office-infrastructure' ) ); ?>"><?php esc_html_e( 'Office Infrastructure', 'innovare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( andromeda_solution_page_url( 'network-security' ) ); ?>"><?php esc_html_e( 'Network Security', 'innovare' ); ?></a></li>
 						</ul>
 					<?php endif; ?>
 				</div>
 
 				<div class="col-lg-2 col-md-3 col-6">
 					<h6 class="footer-widget-title"><?php esc_html_e( 'Contact', 'innovare' ); ?></h6>
-					<?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
+					<?php if ( ! andromeda_use_footer_column_defaults( 'footer-4' ) ) : ?>
 						<?php dynamic_sidebar( 'footer-4' ); ?>
 					<?php else : ?>
 						<ul class="footer-contact">

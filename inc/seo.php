@@ -56,7 +56,7 @@ function andromeda_open_graph_tags() {
 		}
 	}
 
-	echo "\n<!-- Innovare baseline OG tags -->\n";
+	echo "\n<!-- Innovate baseline OG tags -->\n";
 	printf( '<meta property="og:type" content="%s" />' . "\n", is_singular() ? 'article' : 'website' );
 	printf( '<meta property="og:site_name" content="%s" />' . "\n", esc_attr( $site_name ) );
 	printf( '<meta property="og:title" content="%s" />' . "\n", esc_attr( $title ) );
@@ -101,8 +101,8 @@ function andromeda_organization_schema() {
 		$schema['logo'] = INNOVARE_URI . 'assets/images/andromedalinks-logo.png';
 	}
 
-	$phone   = get_theme_mod( 'andromeda_contact_phone', '+92 345 4243541' );
-	$email   = get_theme_mod( 'andromeda_contact_email', 'info@andromedalinks.com' );
+	$phone   = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
+	$email   = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
 	$address = get_theme_mod( 'andromeda_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
 
 	if ( $phone ) {
@@ -121,11 +121,11 @@ function andromeda_organization_schema() {
 	}
 
 	$social = array_filter( array(
-		get_theme_mod( 'andromeda_social_facebook', 'https://www.facebook.com/AndromedaLinks' ),
-		get_theme_mod( 'andromeda_social_linkedin', 'https://www.linkedin.com/company/andromedalinks/' ),
-		get_theme_mod( 'andromeda_social_instagram', 'https://www.instagram.com/andromeda.links/' ),
-		get_theme_mod( 'andromeda_social_tiktok', 'https://www.tiktok.com/@andromedalinks' ),
-		get_theme_mod( 'andromeda_social_twitter', 'https://x.com/LinksAndromeda' ),
+		get_theme_mod( 'andromeda_social_facebook', '' ),
+		get_theme_mod( 'andromeda_social_linkedin', '' ),
+		get_theme_mod( 'andromeda_social_instagram', '' ),
+		get_theme_mod( 'andromeda_social_tiktok', '' ),
+		get_theme_mod( 'andromeda_social_twitter', '' ),
 	) );
 	if ( ! empty( $social ) ) {
 		$schema['sameAs'] = array_values( $social );

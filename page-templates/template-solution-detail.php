@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Solution Detail
+ * Template Name: Innovate — Solution Detail
  *
  * Renders a single solution's detail page. The template reads the current
  * page's slug (post_name) and looks up the matching solution from
@@ -37,9 +37,9 @@ $discuss_url   = add_query_arg(
 );
 // Short brand-style label for CTAs (falls back to the full product title).
 $cta_subject   = ! empty( $solution['short_title'] ) ? $solution['short_title'] : $solution['title'];
-/* translators: %s: short product name (e.g. "SkilledIM") */
+/* translators: %s: solution short name */
 $discuss_label = sprintf( __( 'Discuss %s', 'innovare' ), $cta_subject );
-/* translators: %s: short product name (e.g. "SkilledIM") */
+/* translators: %s: solution short name */
 $discuss_aria  = sprintf( __( 'Discuss %s with our team', 'innovare' ), $cta_subject );
 
 // Optional "Explore" CTA — only renders when a destination URL is set in
@@ -50,10 +50,10 @@ $explore_cta = isset( $solution['cta']['explore'] ) && is_array( $solution['cta'
 	: array();
 $explore_url    = ! empty( $explore_cta['url'] ) ? $explore_cta['url'] : '';
 $explore_label  = ! empty( $explore_cta['label'] ) ? $explore_cta['label']
-	/* translators: %s: short product name (e.g. "SkilledIM") */
+	/* translators: %s: solution short name */
 	: sprintf( __( 'Explore %s', 'innovare' ), $cta_subject );
 $explore_aria   = ! empty( $explore_cta['aria'] ) ? $explore_cta['aria']
-	/* translators: %s: short product name (e.g. "SkilledIM") */
+	/* translators: %s: solution short name */
 	: sprintf( __( 'Explore %s in detail', 'innovare' ), $cta_subject );
 $explore_target = ! empty( $explore_cta['target'] ) ? $explore_cta['target'] : '';
 // Classify the link so we can pick the right icon:
@@ -165,7 +165,7 @@ andromeda_page_header(
 									aria-label="<?php echo esc_attr( $bf_alt ); ?>"
 								><?php echo esc_html( $bf_word ); ?></p>
 							<?php endif; ?>
-							<?php if ( $bf_tag ) : ?>
+							<?php if ( $bf_tag && ! $bf_src ) : ?>
 								<span class="solution-detail-aside-brand-tagline"><?php echo esc_html( $bf_tag ); ?></span>
 							<?php endif; ?>
 						</div>
@@ -196,13 +196,36 @@ andromeda_page_header(
 			<h2 id="included-heading"><?php esc_html_e( 'A single, accountable engagement — not just a tool', 'innovare' ); ?></h2>
 		</div>
 		<div class="row g-3">
-			<?php foreach ( $solution['whats_included'] as $item ) : ?>
-				<div class="col-md-6 col-lg-4">
-					<div class="service-item">
-						<i class="bi bi-check2-circle" aria-hidden="true"></i>
-						<span><?php echo esc_html( $item ); ?></span>
+			<?php
+			$module_grid = ! empty( $solution['whats_included'][0] ) && is_array( $solution['whats_included'][0] );
+			foreach ( $solution['whats_included'] as $item ) :
+				if ( $module_grid && is_array( $item ) ) :
+					$mod_title = isset( $item['title'] ) ? $item['title'] : '';
+					$mod_desc  = isset( $item['desc'] ) ? $item['desc'] : '';
+					$mod_icon  = isset( $item['icon'] ) ? $item['icon'] : 'bi-check2-circle';
+					$mod_tone  = isset( $item['tone'] ) ? sanitize_html_class( $item['tone'] ) : 'blue';
+					?>
+					<div class="col-md-6 col-lg-4">
+						<article class="solution-module-card">
+							<span class="solution-module-icon solution-module-icon--<?php echo esc_attr( $mod_tone ); ?>">
+								<i class="bi <?php echo esc_attr( $mod_icon ); ?>" aria-hidden="true"></i>
+							</span>
+							<div class="solution-module-card-body">
+								<h3 class="solution-module-title"><?php echo esc_html( $mod_title ); ?></h3>
+								<?php if ( $mod_desc ) : ?>
+									<p class="solution-module-desc"><?php echo esc_html( $mod_desc ); ?></p>
+								<?php endif; ?>
+							</div>
+						</article>
 					</div>
-				</div>
+				<?php else : ?>
+					<div class="col-md-6 col-lg-4">
+						<div class="service-item">
+							<i class="bi bi-check2-circle" aria-hidden="true"></i>
+							<span><?php echo esc_html( is_array( $item ) ? andromeda_solution_included_label( $item ) : $item ); ?></span>
+						</div>
+					</div>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
@@ -240,7 +263,15 @@ andromeda_page_header(
 	<div class="container">
 		<div class="section-heading mb-4 mb-lg-5">
 			<span class="eyebrow"><?php esc_html_e( 'How we engage', 'innovare' ); ?></span>
-			<h2 id="engagement-heading"><?php esc_html_e( 'A simple, predictable engagement model', 'innovare' ); ?></h2>
+			<h2 id="engagement-heading">
+				<?php
+				echo esc_html(
+					! empty( $solution['engagement_heading'] )
+						? $solution['engagement_heading']
+						: __( 'A simple, predictable engagement model', 'innovare' )
+				);
+				?>
+			</h2>
 		</div>
 		<ol class="engagement-flow" role="list">
 			<?php foreach ( $solution['engagement'] as $i => $step ) : ?>

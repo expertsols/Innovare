@@ -1,5 +1,5 @@
 /*
- * Andromeda Links — custom theme styles.
+ * Innovate — custom theme styles.
  *
  * Built on top of Bootstrap 5.3. Mobile-first.
  *
@@ -24,6 +24,7 @@
  * 18.  Contact page
  * 19.  Company page legacy helpers (about-pillars, value-card, about-community)
  * 20.  Forms / search / pagination / 404
+ * 21.  Maintenance mode
  */
 
 /* ============================================================
@@ -1128,12 +1129,12 @@ body.andromeda-site {
 .solution-detail-summary h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin: .6rem 0 1rem; }
 .solution-detail-lede { color: var(--al-muted); font-size: 1.05rem; line-height: 1.65; margin: 0; }
 
-/* Brand mark above "Best for" (SkilledIM, Silver Accounting): logo file
+/* Brand mark above "Best for" (optional partner logo): logo file
    optional — typographic fallback uses the same accessible name as img alt. */
 .solution-detail-aside-brand {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: stretch;
 	gap: .45rem;
 	margin-bottom: 1.15rem;
 	padding: 1rem 1.15rem;
@@ -1141,14 +1142,16 @@ body.andromeda-site {
 	border: 1px solid var(--al-line);
 	border-radius: var(--al-radius);
 	box-shadow: var(--al-shadow-sm);
+	width: 100%;
 	max-width: 100%;
 }
 .solution-detail-aside-brand-img {
 	display: block;
-	max-height: 44px;
-	width: auto;
-	max-width: 220px;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 360 / 72;
 	object-fit: contain;
+	object-position: center center;
 }
 .solution-detail-aside-brand-fallback {
 	margin: 0;
@@ -1319,6 +1322,68 @@ body.andromeda-site {
 .solution-detail-aside li i { color: var(--al-blue); margin-top: .2rem; flex: 0 0 auto; }
 
 .solution-detail-included { background: var(--al-bg-soft); }
+
+.solution-module-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	gap: 1rem;
+	height: 100%;
+	padding: 1.35rem 1.25rem 1.4rem;
+	background: #fff;
+	border: 1px solid var(--al-line);
+	border-radius: var(--al-radius);
+	box-shadow: var(--al-shadow-sm);
+	transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.solution-module-card:hover {
+	border-color: rgba(31, 111, 235, .35);
+	box-shadow: var(--al-shadow);
+	transform: translateY(-2px);
+}
+.solution-module-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 14px;
+	font-size: 1.35rem;
+	color: #fff;
+	flex: 0 0 auto;
+	box-shadow: 0 8px 18px rgba(11, 31, 58, .12);
+}
+.solution-module-icon--slate  { background: linear-gradient(145deg, #5b6578, #374151); box-shadow: 0 8px 18px rgba(55, 65, 81, .22); }
+.solution-module-icon--blue   { background: linear-gradient(145deg, #4f8ef7, #2563eb); box-shadow: 0 8px 18px rgba(37, 99, 235, .24); }
+.solution-module-icon--green  { background: linear-gradient(145deg, #34d06a, #16a34a); box-shadow: 0 8px 18px rgba(22, 163, 74, .22); }
+.solution-module-icon--purple { background: linear-gradient(145deg, #9b6df8, #7c3aed); box-shadow: 0 8px 18px rgba(124, 58, 237, .22); }
+.solution-module-icon--red    { background: linear-gradient(145deg, #f87171, #dc2626); box-shadow: 0 8px 18px rgba(220, 38, 38, .22); }
+.solution-module-icon--teal   { background: linear-gradient(145deg, #2dd4bf, #0d9488); box-shadow: 0 8px 18px rgba(13, 148, 136, .22); }
+.solution-module-icon--amber  { background: linear-gradient(145deg, #fbbf24, #d97706); box-shadow: 0 8px 18px rgba(217, 119, 6, .22); }
+.solution-module-icon--orange { background: linear-gradient(145deg, #fb923c, #ea580c); box-shadow: 0 8px 18px rgba(234, 88, 12, .22); }
+.solution-module-card-body {
+	display: flex;
+	flex-direction: column;
+	gap: .45rem;
+	min-width: 0;
+}
+.solution-module-title {
+	margin: 0;
+	font-family: var(--al-font-head);
+	font-size: 1.02rem;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--al-navy);
+	letter-spacing: -.01em;
+}
+.solution-module-desc {
+	margin: 0;
+	font-size: .9rem;
+	line-height: 1.55;
+	color: var(--al-muted);
+}
+
 .solution-detail-outcomes h2 { font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin: .55rem 0 .8rem; }
 
 .outcomes-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
@@ -1985,6 +2050,102 @@ body.andromeda-site {
 @media (max-width: 991.98px) {
 	.mt-lg-6 { margin-top: 2.5rem; }
 	.mb-lg-6 { margin-bottom: 2.5rem; }
+}
+
+/* ============================================================
+ * 21. Maintenance mode
+ * ============================================================ */
+body.andromeda-maintenance {
+	min-height: 100vh;
+	background:
+		radial-gradient(circle at top right, rgba(43, 182, 255, .12), transparent 42%),
+		linear-gradient(180deg, var(--al-bg-alt) 0%, var(--al-bg) 100%);
+}
+
+.andromeda-maintenance-shell {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+}
+
+.andromeda-maintenance-card {
+	width: min(100%, 42rem);
+	padding: clamp(2rem, 5vw, 3rem);
+	background: var(--al-bg);
+	border: 1px solid var(--al-line);
+	border-radius: var(--al-radius-lg);
+	box-shadow: var(--al-shadow-lg);
+	text-align: center;
+}
+
+.andromeda-maintenance-brand {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.5rem;
+}
+
+.andromeda-maintenance-brand .custom-logo,
+.andromeda-maintenance-brand .andromeda-brand-img {
+	max-height: 56px;
+	width: auto;
+}
+
+.andromeda-maintenance-eyebrow {
+	display: inline-block;
+	margin: 0 0 .75rem;
+	font-size: .78rem;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--al-blue);
+}
+
+.andromeda-maintenance-title {
+	margin: 0 0 1rem;
+	font-size: clamp(1.75rem, 4vw, 2.35rem);
+}
+
+.andromeda-maintenance-message {
+	margin: 0 auto 1.5rem;
+	max-width: 42ch;
+	color: var(--al-muted);
+}
+
+.andromeda-maintenance-contact {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: .65rem;
+	align-items: center;
+	color: var(--al-muted);
+}
+
+.andromeda-maintenance-contact li {
+	display: flex;
+	align-items: center;
+	gap: .55rem;
+}
+
+.andromeda-maintenance-contact i {
+	color: var(--al-cyan);
+}
+
+.andromeda-maintenance-contact a {
+	color: var(--al-navy);
+	font-weight: 600;
+}
+
+.andromeda-maintenance-socials {
+	justify-content: center;
+}
+
+#wpadminbar .andromeda-maintenance-admin-bar > .ab-item {
+	background: #d63638 !important;
+	color: #fff !important;
 }
 
 /* ============================================================

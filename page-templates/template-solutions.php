@@ -1,10 +1,9 @@
 <?php
 /**
- * Template Name: Innovare — Solutions
+ * Template Name: Innovate — Solutions
  *
  * Solution-led page (NOT a product listing). Each entry frames an outcome
- * and the underlying engagement model — including SkilledIM HRM and Silver
- * Accounting as business solutions under Innovare.
+ * and the underlying engagement model for IT infrastructure and technology.
  *
  * Each card has two CTAs:
  *   - "Explore now" — links to the per-solution detail page when one exists
@@ -22,8 +21,8 @@ $contact_url = andromeda_page_url( 'contact' );
 
 andromeda_page_header(
 	__( 'Solutions', 'innovare' ),
-	__( 'Enterprise solutions built around real business outcomes', 'innovare' ),
-	__( 'Pre-shaped engagements that combine infrastructure, managed support and enterprise software into one accountable solution.', 'innovare' )
+	__( 'Technology solutions built around real business outcomes', 'innovare' ),
+	__( 'Pre-shaped engagements that combine infrastructure, managed support and cloud platforms into one accountable solution.', 'innovare' )
 );
 ?>
 
@@ -59,7 +58,7 @@ andromeda_page_header(
 						<?php if ( $points ) : ?>
 							<ul class="solution-card-list">
 								<?php foreach ( $points as $point ) : ?>
-									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( $point ); ?></li>
+									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( andromeda_solution_included_label( $point ) ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>

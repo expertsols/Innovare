@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Services
+ * Template Name: Innovate — Services
  *
  * Enterprise IT services catalogue. Leads with a visual "Technology Procurement"
  * feature (4 vendor-category tiles + a 4-step workflow strip), then the four

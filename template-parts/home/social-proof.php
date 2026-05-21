@@ -4,7 +4,7 @@
  *
  * Social media here is operational proof of real on-site infrastructure work,
  * not a decorative footer block. Connects to Facebook, LinkedIn, Instagram,
- * TikTok and X/Twitter (configured via Customizer → Innovare — Social Links).
+ * TikTok and X/Twitter (configured via Customizer → Innovate — Social Links).
  *
  * @package Innovare
  */

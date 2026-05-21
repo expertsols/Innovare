@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Contact
+ * Template Name: Innovate — Contact
  *
  * Modern responsive contact form + meta + map.
  *
@@ -16,9 +16,9 @@
 
 get_header();
 
-$phone    = get_theme_mod( 'andromeda_contact_phone', '+92 345 4243541' );
-$email    = get_theme_mod( 'andromeda_contact_email', 'info@andromedalinks.com' );
-$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
+$phone    = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
+$email    = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
+$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', andromeda_default_contact_phone() );
 $address  = get_theme_mod( 'andromeda_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
 $hours    = get_theme_mod( 'andromeda_contact_hours', 'Mon–Sat · 9:00–18:00' );
 $map      = get_theme_mod( 'andromeda_contact_map', 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s' );
@@ -46,8 +46,6 @@ $service_slug_map  = array(
 	'procurement-security'                   => $procurement_label,
 	// Solution slugs (from inc/solutions-data.php) — preselect their nearest
 	// dropdown label; the original slug stays in the URL for context.
-	'solution-skilledim-hrm'                 => __( 'SkilledIM HRM', 'innovare' ),
-	'solution-silver-accounting'             => __( 'Silver Accounting', 'innovare' ),
 	'solution-microsoft-365'                 => __( 'Microsoft 365 Solutions', 'innovare' ),
 	'solution-business-continuity'           => __( 'Backup & Disaster Recovery', 'innovare' ),
 	'solution-managed-office-infrastructure' => __( 'Enterprise Infrastructure', 'innovare' ),
@@ -169,8 +167,6 @@ andromeda_page_header(
 									__( 'Multi-Site Connectivity', 'innovare' ),
 									__( 'Backup & Disaster Recovery', 'innovare' ),
 									__( 'Microsoft 365 Solutions', 'innovare' ),
-									__( 'SkilledIM HRM', 'innovare' ),
-									__( 'Silver Accounting', 'innovare' ),
 									__( 'Technology Procurement (Hardware & Vendors)', 'innovare' ),
 									__( 'IT Consulting', 'innovare' ),
 									__( 'Other / Not sure yet', 'innovare' ),
@@ -247,7 +243,7 @@ andromeda_page_header(
 			<?php else : ?>
 				<div class="contact-map-placeholder">
 					<i class="bi bi-map" aria-hidden="true"></i>
-					<p><?php esc_html_e( 'Map placeholder — paste a Google Maps embed URL in Customizer → Innovare — Contact → Google Maps Embed URL.', 'innovare' ); ?></p>
+					<p><?php esc_html_e( 'Map placeholder — paste a Google Maps embed URL in Customizer → Innovate — Contact → Google Maps Embed URL.', 'innovare' ); ?></p>
 				</div>
 			<?php endif; ?>
 		</div>

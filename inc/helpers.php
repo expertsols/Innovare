@@ -10,6 +10,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Default phone / WhatsApp number for contact settings.
+ *
+ * @return string
+ */
+function andromeda_default_contact_phone() {
+	return '+92 333 4106911';
+}
+
+/**
+ * Label for a solution "what's included" entry (plain string or module array).
+ *
+ * @param string|array $item Included item.
+ * @return string
+ */
+function andromeda_solution_included_label( $item ) {
+	if ( is_array( $item ) ) {
+		return isset( $item['title'] ) ? (string) $item['title'] : '';
+	}
+	return (string) $item;
+}
+
+/**
+ * Default Customizer values for contact details and social links.
+ *
+ * @return array<string, string>
+ */
+function andromeda_theme_mod_defaults() {
+	return array(
+		'andromeda_contact_phone'    => andromeda_default_contact_phone(),
+		'andromeda_contact_email'    => 'info@innovate.com',
+		'andromeda_contact_whatsapp' => andromeda_default_contact_phone(),
+		'andromeda_contact_hours'    => 'Mon–Sat · 9:00–18:00',
+		'andromeda_contact_address'  => 'P-46, Siddiq Trade Center, Gulberg II, Lahore',
+		'andromeda_contact_map'      => 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s',
+		'andromeda_social_facebook'  => '',
+		'andromeda_social_linkedin'  => '',
+		'andromeda_social_instagram' => '',
+		'andromeda_social_tiktok'    => '',
+		'andromeda_social_twitter'   => '',
+		'andromeda_maintenance_mode'     => false,
+		'andromeda_maintenance_heading'  => '',
+		'andromeda_maintenance_message'  => '',
+	);
+}
+
+/**
  * Render an inline SVG/Bootstrap-icon based icon for service cards.
  *
  * @param string $name  Icon shorthand (mapped to Bootstrap Icons class).
@@ -63,11 +109,11 @@ function andromeda_icon( $name, $class = '' ) {
  */
 function andromeda_social_icons( $extra_class = '' ) {
 	$links = array(
-		'facebook'  => array( 'mod' => 'andromeda_social_facebook',  'icon' => 'bi-facebook',  'label' => 'Facebook',  'default' => 'https://www.facebook.com/AndromedaLinks' ),
-		'linkedin'  => array( 'mod' => 'andromeda_social_linkedin',  'icon' => 'bi-linkedin',  'label' => 'LinkedIn',  'default' => 'https://www.linkedin.com/company/andromedalinks/' ),
-		'instagram' => array( 'mod' => 'andromeda_social_instagram', 'icon' => 'bi-instagram', 'label' => 'Instagram', 'default' => 'https://www.instagram.com/andromeda.links/' ),
-		'tiktok'    => array( 'mod' => 'andromeda_social_tiktok',    'icon' => 'bi-tiktok',    'label' => 'TikTok',    'default' => 'https://www.tiktok.com/@andromedalinks' ),
-		'twitter'   => array( 'mod' => 'andromeda_social_twitter',   'icon' => 'bi-twitter-x', 'label' => 'X (Twitter)', 'default' => 'https://x.com/LinksAndromeda' ),
+		'facebook'  => array( 'mod' => 'andromeda_social_facebook',  'icon' => 'bi-facebook',  'label' => 'Facebook',  'default' => '' ),
+		'linkedin'  => array( 'mod' => 'andromeda_social_linkedin',  'icon' => 'bi-linkedin',  'label' => 'LinkedIn',  'default' => '' ),
+		'instagram' => array( 'mod' => 'andromeda_social_instagram', 'icon' => 'bi-instagram', 'label' => 'Instagram', 'default' => '' ),
+		'tiktok'    => array( 'mod' => 'andromeda_social_tiktok',    'icon' => 'bi-tiktok',    'label' => 'TikTok',    'default' => '' ),
+		'twitter'   => array( 'mod' => 'andromeda_social_twitter',   'icon' => 'bi-twitter-x', 'label' => 'X (Twitter)', 'default' => '' ),
 	);
 
 	echo '<ul class="andromeda-socials ' . esc_attr( $extra_class ) . '">';
@@ -151,10 +197,10 @@ function andromeda_insights_primary_cat( $post_id ) {
  * Render the site's CTA contact info bar (phone / email / hours).
  */
 function andromeda_topbar() {
-	$phone    = get_theme_mod( 'andromeda_contact_phone', '+92 345 4243541' );
-	$email    = get_theme_mod( 'andromeda_contact_email', 'info@andromedalinks.com' );
+	$phone    = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
+	$email    = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
 	$hours    = get_theme_mod( 'andromeda_contact_hours', 'Mon–Sat · 9:00–18:00' );
-	$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', '+92 345 4243541' );
+	$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', andromeda_default_contact_phone() );
 	?>
 	<div class="andromeda-topbar d-none d-lg-block">
 		<div class="container d-flex justify-content-between align-items-center">
@@ -180,7 +226,7 @@ function andromeda_topbar() {
  * @return string
  */
 function andromeda_about_page_slug() {
-	return 'about-andromeda-links';
+	return 'about';
 }
 
 /**
@@ -224,8 +270,7 @@ function andromeda_page_url( $slug ) {
 }
 
 /**
- * 301 redirect legacy `/company/` URLs to `/about-andromeda-links/` after the
- * page slug was renamed (bookmarks and external links).
+ * 301 redirect legacy About URLs to `/about/` after slug renames.
  */
 function andromeda_redirect_legacy_company_page() {
 	if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
@@ -247,16 +292,20 @@ function andromeda_redirect_legacy_company_page() {
 		$path = preg_replace( '#^' . preg_quote( untrailingslashit( $home_path ), '#' ) . '#', '', $path );
 	}
 	$path = trim( $path, '/' );
-	if ( 'company' !== $path ) {
+	$canonical = andromeda_about_page_slug();
+	if ( $path === $canonical ) {
 		return;
 	}
-	wp_safe_redirect( andromeda_page_url( andromeda_about_page_slug() ), 301 );
+	if ( ! in_array( $path, andromeda_legacy_about_page_slugs(), true ) ) {
+		return;
+	}
+	wp_safe_redirect( andromeda_page_url( $canonical ), 301 );
 	exit;
 }
 add_action( 'template_redirect', 'andromeda_redirect_legacy_company_page', 1 );
 
 /**
- * Render the Innovare brand:
+ * Render the Innovate brand logo:
  *   - If a custom logo is uploaded in Customizer → Site Identity, that wins.
  *   - Otherwise, fall back to the bundled brand PNG shipped with the theme.
  *

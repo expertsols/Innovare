@@ -155,12 +155,39 @@ function andromeda_ensure_solution_detail_pages() {
 
 	$have = array();
 	foreach ( $children as $p ) {
-		$have[ $p->post_name ] = true;
+		$have[ $p->post_name ] = (int) $p->ID;
 	}
+
+	$detail_template = 'page-templates/template-solution-detail.php';
 
 	foreach ( $solutions as $slug => $data ) {
 		$slug = sanitize_key( $slug );
-		if ( ! $slug || ! empty( $have[ $slug ] ) ) {
+		if ( ! $slug ) {
+			continue;
+		}
+
+		$title = isset( $data['title'] ) ? $data['title'] : $slug;
+		$stub  = '<!-- ' . __( 'Innovate solution detail — primary copy is maintained in the theme. Add optional long-form content here.', 'innovare' ) . ' -->';
+
+		if ( ! empty( $have[ $slug ] ) ) {
+			$post_id = (int) $have[ $slug ];
+			if ( $title && get_the_title( $post_id ) !== $title ) {
+				wp_update_post(
+					array(
+						'ID'         => $post_id,
+						'post_title' => $title,
+					)
+				);
+			}
+			update_post_meta( $post_id, '_wp_page_template', $detail_template );
+			if ( 'publish' !== get_post_status( $post_id ) ) {
+				wp_update_post(
+					array(
+						'ID'          => $post_id,
+						'post_status' => 'publish',
+					)
+				);
+			}
 			continue;
 		}
 
@@ -168,9 +195,6 @@ function andromeda_ensure_solution_detail_pages() {
 		if ( $blocked && 'trash' === $blocked->post_status ) {
 			continue;
 		}
-
-		$title = isset( $data['title'] ) ? $data['title'] : $slug;
-		$stub  = '<!-- ' . __( 'Innovare solution detail — primary copy is maintained in the theme. Add optional long-form content here.', 'innovare' ) . ' -->';
 
 		$post_id = wp_insert_post(
 			array(
@@ -188,7 +212,8 @@ function andromeda_ensure_solution_detail_pages() {
 			continue;
 		}
 
-		update_post_meta( (int) $post_id, '_wp_page_template', 'page-templates/template-solution-detail.php' );
+		update_post_meta( (int) $post_id, '_wp_page_template', $detail_template );
+		update_post_meta( (int) $post_id, '_andromeda_bootstrap_page', 'v1' );
 	}
 }
 

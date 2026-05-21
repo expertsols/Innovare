@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovare — Legal document
+ * Template Name: Innovate — Legal document
  *
  * Use for Privacy Policy and Terms of Use pages. Body copy comes from the editor.
  *

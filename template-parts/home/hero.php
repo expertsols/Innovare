@@ -24,7 +24,7 @@
 					<?php esc_html_e( 'Reliable IT Infrastructure & Business Technology Solutions', 'innovare' ); ?>
 				</h1>
 				<p class="hero-subtitle">
-					<?php esc_html_e( 'Innovare helps businesses design, deploy, secure, and manage stable technology environments with modern infrastructure, managed support, enterprise software, and technology solutions.', 'innovare' ); ?>
+					<?php esc_html_e( 'Innovate helps organizations design, deploy, secure and manage stable technology environments — with modern infrastructure, managed support and accountable engineering.', 'innovare' ); ?>
 				</p>
 				<div class="hero-actions">
 					<a class="btn btn-primary btn-lg" href="<?php echo esc_url( andromeda_page_url( 'contact' ) ); ?>?type=quote">
