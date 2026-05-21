@@ -1,8 +1,8 @@
 <?php
 /**
- * Innovate — WordPress theme bootstrap.
+ * Innovare — WordPress theme bootstrap.
  *
- * Standalone theme (no parent). Loads modular files from /inc.
+ * Standalone theme (no parent). Developed by expertsols (https://expertsols.com/).
  *
  * @package Innovare
  */
@@ -19,6 +19,7 @@ require_once INNOVARE_DIR . 'inc/theme-setup.php';
 require_once INNOVARE_DIR . 'inc/enqueue.php';
 require_once INNOVARE_DIR . 'inc/menus.php';
 require_once INNOVARE_DIR . 'inc/seo.php';
+require_once INNOVARE_DIR . 'inc/theme-brand.php';
 require_once INNOVARE_DIR . 'inc/helpers.php';
 require_once INNOVARE_DIR . 'inc/footer.php';
 require_once INNOVARE_DIR . 'inc/maintenance.php';
@@ -26,5 +27,6 @@ require_once INNOVARE_DIR . 'inc/insights-rewrites.php';
 require_once INNOVARE_DIR . 'inc/customizer.php';
 require_once INNOVARE_DIR . 'inc/solutions-data.php';
 require_once INNOVARE_DIR . 'inc/team-data.php';
+require_once INNOVARE_DIR . 'inc/legacy-prefix-migration.php';
 require_once INNOVARE_DIR . 'inc/site-bootstrap.php';
 require_once INNOVARE_DIR . 'inc/legal-pages.php';

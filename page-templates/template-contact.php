@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovate — Contact
+ * Template Name: Innovare — Contact
  *
  * Modern responsive contact form + meta + map.
  *
@@ -16,12 +16,12 @@
 
 get_header();
 
-$phone    = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
-$email    = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
-$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', andromeda_default_contact_phone() );
-$address  = get_theme_mod( 'andromeda_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
-$hours    = get_theme_mod( 'andromeda_contact_hours', 'Mon–Sat · 9:00–18:00' );
-$map      = get_theme_mod( 'andromeda_contact_map', 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s' );
+$phone    = get_theme_mod( 'innovare_contact_phone', innovare_default_contact_phone() );
+$email    = get_theme_mod( 'innovare_contact_email', 'info@innovare.com' );
+$whatsapp = get_theme_mod( 'innovare_contact_whatsapp', innovare_default_contact_phone() );
+$address  = get_theme_mod( 'innovare_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
+$hours    = get_theme_mod( 'innovare_contact_hours', 'Mon–Sat · 9:00–18:00' );
+$map      = get_theme_mod( 'innovare_contact_map', 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s' );
 
 $type_param    = isset( $_GET['type'] ) ? sanitize_key( wp_unslash( $_GET['type'] ) ) : '';
 $service_param = isset( $_GET['service'] ) ? sanitize_key( wp_unslash( $_GET['service'] ) ) : '';
@@ -64,14 +64,14 @@ if ( $is_quote ) {
 	$header_intro = __( 'Share a bit about your organization, your environment and your goals — we’ll respond with the right next step.', 'innovare' );
 }
 
-andromeda_page_header(
+innovare_page_header(
 	__( 'Contact', 'innovare' ),
 	$header_title,
 	$header_intro
 );
 ?>
 
-<section class="andromeda-section andromeda-contact-page">
+<section class="innovare-section innovare-contact-page">
 	<div class="container">
 
 		<div class="row gx-lg-5 gy-4">
@@ -82,21 +82,21 @@ andromeda_page_header(
 
 					<ul class="contact-list">
 						<li>
-							<span class="contact-list-icon"><?php andromeda_icon( 'pin' ); ?></span>
+							<span class="contact-list-icon"><?php innovare_icon( 'pin' ); ?></span>
 							<div>
 								<strong><?php esc_html_e( 'Address', 'innovare' ); ?></strong>
 								<p class="mb-0"><?php echo esc_html( $address ); ?></p>
 							</div>
 						</li>
 						<li>
-							<span class="contact-list-icon"><?php andromeda_icon( 'phone' ); ?></span>
+							<span class="contact-list-icon"><?php innovare_icon( 'phone' ); ?></span>
 							<div>
 								<strong><?php esc_html_e( 'Phone', 'innovare' ); ?></strong>
 								<p class="mb-0"><a href="tel:<?php echo esc_attr( preg_replace( '/[^+\d]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a></p>
 							</div>
 						</li>
 						<li>
-							<span class="contact-list-icon"><?php andromeda_icon( 'mail' ); ?></span>
+							<span class="contact-list-icon"><?php innovare_icon( 'mail' ); ?></span>
 							<div>
 								<strong><?php esc_html_e( 'Email', 'innovare' ); ?></strong>
 								<p class="mb-0"><a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></p>
@@ -104,7 +104,7 @@ andromeda_page_header(
 						</li>
 						<?php if ( $whatsapp ) : ?>
 							<li>
-								<span class="contact-list-icon"><?php andromeda_icon( 'whatsapp' ); ?></span>
+								<span class="contact-list-icon"><?php innovare_icon( 'whatsapp' ); ?></span>
 								<div>
 									<strong><?php esc_html_e( 'WhatsApp', 'innovare' ); ?></strong>
 									<p class="mb-0"><a href="https://wa.me/<?php echo esc_attr( preg_replace( '/[^\d]/', '', $whatsapp ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $whatsapp ); ?></a></p>
@@ -112,7 +112,7 @@ andromeda_page_header(
 							</li>
 						<?php endif; ?>
 						<li>
-							<span class="contact-list-icon"><?php andromeda_icon( 'clock' ); ?></span>
+							<span class="contact-list-icon"><?php innovare_icon( 'clock' ); ?></span>
 							<div>
 								<strong><?php esc_html_e( 'Working hours', 'innovare' ); ?></strong>
 								<p class="mb-0"><?php echo esc_html( $hours ); ?></p>
@@ -122,7 +122,7 @@ andromeda_page_header(
 
 					<div class="contact-socials">
 						<strong><?php esc_html_e( 'Follow our work', 'innovare' ); ?></strong>
-						<?php andromeda_social_icons( 'contact-socials-list' ); ?>
+						<?php innovare_social_icons( 'contact-socials-list' ); ?>
 					</div>
 				</div>
 			</div>
@@ -172,10 +172,10 @@ andromeda_page_header(
 									__( 'Other / Not sure yet', 'innovare' ),
 								);
 								?>
-								<form class="andromeda-contact-form needs-validation" novalidate action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
-									<input type="hidden" name="action" value="andromeda_contact_fallback">
+								<form class="innovare-contact-form needs-validation" novalidate action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
+									<input type="hidden" name="action" value="innovare_contact_fallback">
 									<input type="hidden" name="enquiry_type" value="<?php echo esc_attr( $type_param ); ?>">
-									<?php wp_nonce_field( 'andromeda_contact', 'andromeda_contact_nonce' ); ?>
+									<?php wp_nonce_field( 'innovare_contact', 'innovare_contact_nonce' ); ?>
 
 									<div class="row g-3">
 										<div class="col-md-6">
@@ -243,7 +243,7 @@ andromeda_page_header(
 			<?php else : ?>
 				<div class="contact-map-placeholder">
 					<i class="bi bi-map" aria-hidden="true"></i>
-					<p><?php esc_html_e( 'Map placeholder — paste a Google Maps embed URL in Customizer → Innovate — Contact → Google Maps Embed URL.', 'innovare' ); ?></p>
+					<p><?php esc_html_e( 'Map placeholder — paste a Google Maps embed URL in Customizer → Innovare — Contact → Google Maps Embed URL.', 'innovare' ); ?></p>
 				</div>
 			<?php endif; ?>
 		</div>

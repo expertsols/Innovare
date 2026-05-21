@@ -1,6 +1,6 @@
 <?php
 /**
- * Innovate — Core team data (About page).
+ * Innovare — Core team data (About page).
  *
  * Stored in wp_options; seeded from theme defaults on bootstrap.
  *
@@ -12,20 +12,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Bump when bundled team defaults change — triggers DB sync on bootstrap. */
-define( 'ANDROMEDA_TEAM_DATA_VERSION', 1 );
+define( 'INNOVARE_TEAM_DATA_VERSION', 1 );
 
 /** wp_options key for stored team members. */
-define( 'ANDROMEDA_TEAM_OPTION', 'andromeda_team_data' );
+define( 'INNOVARE_TEAM_OPTION', 'innovare_team_data' );
 
 /** wp_options key for stored team data version. */
-define( 'ANDROMEDA_TEAM_VERSION_OPTION', 'andromeda_team_data_version' );
+define( 'INNOVARE_TEAM_VERSION_OPTION', 'innovare_team_data_version' );
 
 /**
  * Supported social profile keys for team members.
  *
  * @return string[]
  */
-function andromeda_team_social_platforms() {
+function innovare_team_social_platforms() {
 	return array( 'linkedin', 'x', 'twitter', 'facebook', 'instagram', 'github', 'website' );
 }
 
@@ -34,7 +34,7 @@ function andromeda_team_social_platforms() {
  *
  * @return array<string, string>
  */
-function andromeda_team_social_icons() {
+function innovare_team_social_icons() {
 	return array(
 		'linkedin'  => 'bi-linkedin',
 		'x'         => 'bi-twitter-x',
@@ -51,13 +51,13 @@ function andromeda_team_social_icons() {
  *
  * @return array<int, array<string, mixed>>
  */
-function andromeda_get_team_defaults() {
+function innovare_get_team_defaults() {
 	return array(
 		array(
 			'id'       => 'akhlaq-ahmad',
 			'name'     => __( 'Akhlaq Ahmad', 'innovare' ),
 			'role'     => __( 'Founder', 'innovare' ),
-			'bio'      => __( 'Founder of Innovate — focused on reliable IT infrastructure, managed services and accountable delivery for growing organizations.', 'innovare' ),
+			'bio'      => __( 'Founder of Innovare — focused on reliable IT infrastructure, managed services and accountable delivery for growing organizations.', 'innovare' ),
 			'photo'    => '',
 			'photo_id' => 0,
 			'social'   => array(
@@ -75,7 +75,7 @@ function andromeda_get_team_defaults() {
  * @param array<string, mixed> $member Raw member.
  * @return array<string, mixed>|null
  */
-function andromeda_normalize_team_member( $member ) {
+function innovare_normalize_team_member( $member ) {
 	if ( ! is_array( $member ) ) {
 		return null;
 	}
@@ -89,7 +89,7 @@ function andromeda_normalize_team_member( $member ) {
 	if ( ! empty( $member['social'] ) && is_array( $member['social'] ) ) {
 		foreach ( $member['social'] as $platform => $url ) {
 			$platform = sanitize_key( (string) $platform );
-			if ( ! in_array( $platform, andromeda_team_social_platforms(), true ) ) {
+			if ( ! in_array( $platform, innovare_team_social_platforms(), true ) ) {
 				continue;
 			}
 			$url = esc_url_raw( (string) $url );
@@ -118,17 +118,17 @@ function andromeda_normalize_team_member( $member ) {
  * @param bool $visible_only Skip members marked not visible.
  * @return array<int, array<string, mixed>>
  */
-function andromeda_get_team_members( $visible_only = true ) {
+function innovare_get_team_members( $visible_only = true ) {
 	$cached = wp_cache_get( 'innovare_team', 'innovare' );
 	if ( false === $cached ) {
-		$stored = get_option( ANDROMEDA_TEAM_OPTION, null );
+		$stored = get_option( INNOVARE_TEAM_OPTION, null );
 		if ( ! is_array( $stored ) || empty( $stored ) ) {
-			$stored = andromeda_get_team_defaults();
+			$stored = innovare_get_team_defaults();
 		}
 
 		$cached = array();
 		foreach ( $stored as $member ) {
-			$normalized = andromeda_normalize_team_member( $member );
+			$normalized = innovare_normalize_team_member( $member );
 			if ( $normalized ) {
 				$cached[] = $normalized;
 			}
@@ -164,7 +164,7 @@ function andromeda_get_team_members( $visible_only = true ) {
  * @param array<string, mixed> $member Team member.
  * @return string
  */
-function andromeda_team_member_photo_url( $member ) {
+function innovare_team_member_photo_url( $member ) {
 	if ( ! empty( $member['photo_id'] ) ) {
 		$url = wp_get_attachment_image_url( (int) $member['photo_id'], 'medium' );
 		if ( $url ) {
@@ -181,26 +181,26 @@ function andromeda_team_member_photo_url( $member ) {
  * @param bool $force_reset When true, overwrite all stored team content.
  * @return array{updated: bool, version: int, forced: bool}
  */
-function andromeda_seed_team_data( $force_reset = false ) {
-	$defaults   = andromeda_get_team_defaults();
-	$theme_ver  = ANDROMEDA_TEAM_DATA_VERSION;
-	$stored_ver = (int) get_option( ANDROMEDA_TEAM_VERSION_OPTION, 0 );
-	$existing   = get_option( ANDROMEDA_TEAM_OPTION, null );
+function innovare_seed_team_data( $force_reset = false ) {
+	$defaults   = innovare_get_team_defaults();
+	$theme_ver  = INNOVARE_TEAM_DATA_VERSION;
+	$stored_ver = (int) get_option( INNOVARE_TEAM_VERSION_OPTION, 0 );
+	$existing   = get_option( INNOVARE_TEAM_OPTION, null );
 
 	$needs_seed = ! is_array( $existing ) || empty( $existing );
 	$needs_sync = $stored_ver < $theme_ver;
 	$updated    = false;
 
 	if ( $force_reset || $needs_seed || $needs_sync ) {
-		update_option( ANDROMEDA_TEAM_OPTION, $defaults, false );
-		update_option( ANDROMEDA_TEAM_VERSION_OPTION, $theme_ver, false );
-		andromeda_clear_team_cache();
+		update_option( INNOVARE_TEAM_OPTION, $defaults, false );
+		update_option( INNOVARE_TEAM_VERSION_OPTION, $theme_ver, false );
+		innovare_clear_team_cache();
 		$updated = true;
 	}
 
 	return array(
 		'updated' => $updated,
-		'version' => (int) get_option( ANDROMEDA_TEAM_VERSION_OPTION, $theme_ver ),
+		'version' => (int) get_option( INNOVARE_TEAM_VERSION_OPTION, $theme_ver ),
 		'forced'  => (bool) $force_reset,
 	);
 }
@@ -210,13 +210,13 @@ function andromeda_seed_team_data( $force_reset = false ) {
  *
  * @return array{updated: bool, version: int, forced: bool}
  */
-function andromeda_reset_team_data() {
-	return andromeda_seed_team_data( true );
+function innovare_reset_team_data() {
+	return innovare_seed_team_data( true );
 }
 
 /**
  * Clear cached team data.
  */
-function andromeda_clear_team_cache() {
+function innovare_clear_team_cache() {
 	wp_cache_delete( 'innovare_team', 'innovare' );
 }

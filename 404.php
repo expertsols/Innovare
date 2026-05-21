@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<section class="andromeda-section andromeda-404 text-center">
+<section class="innovare-section innovare-404 text-center">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
@@ -17,7 +17,7 @@ get_header();
 				<p class="error-intro"><?php esc_html_e( 'It may have moved, or the link may be incorrect. Try searching or head back home.', 'innovare' ); ?></p>
 				<div class="error-actions">
 					<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to home', 'innovare' ); ?></a>
-					<a class="btn btn-outline-primary" href="<?php echo esc_url( andromeda_page_url( 'services' ) ); ?>"><?php esc_html_e( 'See services', 'innovare' ); ?></a>
+					<a class="btn btn-outline-primary" href="<?php echo esc_url( innovare_page_url( 'services' ) ); ?>"><?php esc_html_e( 'See services', 'innovare' ); ?></a>
 				</div>
 				<div class="error-search mt-4">
 					<?php get_search_form(); ?>

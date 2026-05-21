@@ -59,9 +59,9 @@ $services = array(
 	),
 );
 
-$services_url = andromeda_page_url( 'services' );
+$services_url = innovare_page_url( 'services' );
 ?>
-<section class="andromeda-section andromeda-services-grid" aria-labelledby="services-grid-heading">
+<section class="innovare-section innovare-services-grid" aria-labelledby="services-grid-heading">
 	<div class="container">
 
 		<div class="section-heading">
@@ -74,7 +74,7 @@ $services_url = andromeda_page_url( 'services' );
 			<?php foreach ( $services as $service ) : ?>
 				<div class="col-md-6 col-lg-4 col-xl-3">
 					<a class="service-card" href="<?php echo esc_url( $services_url . '#' . $service['anchor'] ); ?>">
-						<span class="service-card-icon"><?php andromeda_icon( $service['icon'] ); ?></span>
+						<span class="service-card-icon"><?php innovare_icon( $service['icon'] ); ?></span>
 						<h3 class="service-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
 						<p class="service-card-desc"><?php echo esc_html( $service['desc'] ); ?></p>
 						<span class="service-card-link">

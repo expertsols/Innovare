@@ -5,7 +5,7 @@
  * @package Innovare
  */
 ?>
-<section class="andromeda-hero" aria-labelledby="andromeda-hero-title">
+<section class="innovare-hero" aria-labelledby="innovare-hero-title">
 	<div class="hero-backdrop" aria-hidden="true">
 		<div class="hero-grid"></div>
 		<div class="hero-glow hero-glow--a"></div>
@@ -20,18 +20,18 @@
 					<i class="bi bi-shield-check" aria-hidden="true"></i>
 					<?php esc_html_e( 'IT Infrastructure · Managed Services · Business Technology', 'innovare' ); ?>
 				</span>
-				<h1 id="andromeda-hero-title" class="hero-title">
+				<h1 id="innovare-hero-title" class="hero-title">
 					<?php esc_html_e( 'Reliable IT Infrastructure & Business Technology Solutions', 'innovare' ); ?>
 				</h1>
 				<p class="hero-subtitle">
-					<?php esc_html_e( 'Innovate helps organizations design, deploy, secure and manage stable technology environments — with modern infrastructure, managed support and accountable engineering.', 'innovare' ); ?>
+					<?php esc_html_e( 'Innovare helps organizations design, deploy, secure and manage stable technology environments — with modern infrastructure, managed support and accountable engineering.', 'innovare' ); ?>
 				</p>
 				<div class="hero-actions">
-					<a class="btn btn-primary btn-lg" href="<?php echo esc_url( andromeda_page_url( 'contact' ) ); ?>?type=quote">
+					<a class="btn btn-primary btn-lg" href="<?php echo esc_url( innovare_page_url( 'contact' ) ); ?>?type=quote">
 						<?php esc_html_e( 'Get a Quote', 'innovare' ); ?>
 						<i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
 					</a>
-					<a class="btn btn-outline-light btn-lg" href="<?php echo esc_url( andromeda_page_url( 'services' ) ); ?>">
+					<a class="btn btn-outline-light btn-lg" href="<?php echo esc_url( innovare_page_url( 'services' ) ); ?>">
 						<?php esc_html_e( 'Explore Services', 'innovare' ); ?>
 					</a>
 				</div>

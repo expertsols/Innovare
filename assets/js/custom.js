@@ -1,5 +1,5 @@
 /*
- * Innovate — small front-end script.
+ * Innovare — small front-end script.
  *
  * Intentionally minimal:
  *  - toggles `.is-scrolled` on the sticky navbar
@@ -12,8 +12,8 @@
 	'use strict';
 
 	document.addEventListener('DOMContentLoaded', function () {
-		var navbar = document.querySelector('.andromeda-navbar');
-		var navCollapse = document.getElementById('andromeda-primary-nav');
+		var navbar = document.querySelector('.innovare-navbar');
+		var navCollapse = document.getElementById('innovare-primary-nav');
 
 		if (navbar) {
 			var lastScrolled = false;
@@ -43,7 +43,7 @@
 		}
 
 		// Active anchor highlight for services-nav (matches #anchor sections).
-		var servicesNav = document.querySelector('.andromeda-services-page .services-nav');
+		var servicesNav = document.querySelector('.innovare-services-page .services-nav');
 		if (servicesNav) {
 			var anchorLinks = servicesNav.querySelectorAll('a[href^="#"]');
 			var sections = Array.prototype.map.call(anchorLinks, function (a) {
@@ -66,7 +66,7 @@
 		}
 
 		// Bootstrap validation for fallback contact form.
-		document.querySelectorAll('form.andromeda-contact-form').forEach(function (form) {
+		document.querySelectorAll('form.innovare-contact-form').forEach(function (form) {
 			form.addEventListener('submit', function (e) {
 				if (!form.checkValidity()) {
 					e.preventDefault();

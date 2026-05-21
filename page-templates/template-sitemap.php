@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovate — Sitemap
+ * Template Name: Innovare — Sitemap
  *
  * Human-readable overview of main site sections plus optional XML sitemap link.
  *
@@ -11,27 +11,27 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-	andromeda_page_header(
+	innovare_page_header(
 		__( 'Site map', 'innovare' ),
 		get_the_title(),
 		__( 'Jump to the main areas of our site.', 'innovare' )
 	);
 
-	$about_slug = andromeda_about_page_slug();
-	$privacy = function_exists( 'andromeda_privacy_policy_url' ) ? andromeda_privacy_policy_url() : andromeda_page_url( 'privacy' );
+	$about_slug = innovare_about_page_slug();
+	$privacy = function_exists( 'innovare_privacy_policy_url' ) ? innovare_privacy_policy_url() : innovare_page_url( 'privacy' );
 
 	$nav_groups = array(
 		__( 'Main pages', 'innovare' ) => array(
 			__( 'Home', 'innovare' )       => home_url( '/' ),
-			__( 'Services', 'innovare' )   => andromeda_page_url( 'services' ),
-			__( 'Solutions', 'innovare' )  => andromeda_page_url( 'solutions' ),
-			__( 'Insights', 'innovare' )   => andromeda_page_url( 'insights' ),
-			__( 'Company', 'innovare' )    => andromeda_page_url( $about_slug ),
-			__( 'Contact', 'innovare' )    => andromeda_page_url( 'contact' ),
+			__( 'Services', 'innovare' )   => innovare_page_url( 'services' ),
+			__( 'Solutions', 'innovare' )  => innovare_page_url( 'solutions' ),
+			__( 'Insights', 'innovare' )   => innovare_page_url( 'insights' ),
+			__( 'Company', 'innovare' )    => innovare_page_url( $about_slug ),
+			__( 'Contact', 'innovare' )    => innovare_page_url( 'contact' ),
 		),
 		__( 'Legal', 'innovare' ) => array(
 			__( 'Privacy Policy', 'innovare' ) => $privacy,
-			__( 'Terms of Use', 'innovare' )     => andromeda_page_url( 'terms' ),
+			__( 'Terms of Use', 'innovare' )     => innovare_page_url( 'terms' ),
 		),
 	);
 
@@ -42,10 +42,10 @@ while ( have_posts() ) :
 		$xml_sitemap = home_url( '/wp-sitemap.xml' );
 	}
 	?>
-	<section class="andromeda-section andromeda-sitemap-page">
+	<section class="innovare-section innovare-sitemap-page">
 		<div class="container">
 			<div class="row justify-content-center mb-4">
-				<div class="col-lg-9 col-xl-8 andromeda-legal-content entry-content">
+				<div class="col-lg-9 col-xl-8 innovare-legal-content entry-content">
 					<?php the_content(); ?>
 				</div>
 			</div>
@@ -53,9 +53,9 @@ while ( have_posts() ) :
 			<div class="row g-4 justify-content-center">
 				<?php foreach ( $nav_groups as $group_title => $links ) : ?>
 					<div class="col-md-6 col-lg-5">
-						<div class="andromeda-sitemap-card">
+						<div class="innovare-sitemap-card">
 							<h2 class="h5 mb-3"><?php echo esc_html( $group_title ); ?></h2>
-							<ul class="andromeda-sitemap-list list-unstyled mb-0">
+							<ul class="innovare-sitemap-list list-unstyled mb-0">
 								<?php foreach ( $links as $label => $url ) : ?>
 									<?php if ( $url ) : ?>
 										<li>

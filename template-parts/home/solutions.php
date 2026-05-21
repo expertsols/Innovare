@@ -13,10 +13,10 @@
  * @package Innovare
  */
 
-$solutions     = andromeda_get_solutions();
-$solutions_url = andromeda_page_url( 'solutions' );
+$solutions     = innovare_get_solutions();
+$solutions_url = innovare_page_url( 'solutions' );
 ?>
-<section class="andromeda-section andromeda-solutions-home" aria-labelledby="solutions-home-heading">
+<section class="innovare-section innovare-solutions-home" aria-labelledby="solutions-home-heading">
 	<div class="container">
 
 		<div class="section-heading">
@@ -28,7 +28,7 @@ $solutions_url = andromeda_page_url( 'solutions' );
 		<div class="row g-3 g-lg-4">
 			<?php foreach ( $solutions as $slug => $s ) : ?>
 				<?php
-				$detail_url   = andromeda_get_solution_url( $slug );
+				$detail_url   = innovare_get_solution_url( $slug );
 				$anchor       = isset( $s['anchor'] ) ? $s['anchor'] : $slug;
 				// Fall back to the listing anchor only if no detail page exists yet.
 				$explore_url  = $detail_url ? $detail_url : ( $solutions_url . '#' . $anchor );
@@ -38,7 +38,7 @@ $solutions_url = andromeda_page_url( 'solutions' );
 				<div class="col-md-6 col-lg-4">
 					<article class="solution-card solution-card--home">
 						<div class="solution-card-head">
-							<span class="solution-card-icon"><?php andromeda_icon( $s['icon'] ); ?></span>
+							<span class="solution-card-icon"><?php innovare_icon( $s['icon'] ); ?></span>
 							<span class="solution-card-badge"><?php echo esc_html( $s['badge'] ); ?></span>
 						</div>
 						<h3 class="solution-card-title"><?php echo esc_html( $s['title'] ); ?></h3>
@@ -48,7 +48,7 @@ $solutions_url = andromeda_page_url( 'solutions' );
 						<?php if ( $points ) : ?>
 							<ul class="solution-card-list">
 								<?php foreach ( $points as $point ) : ?>
-									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( andromeda_solution_included_label( $point ) ); ?></li>
+									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( innovare_solution_included_label( $point ) ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>

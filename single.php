@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <section class="andromeda-section andromeda-single">
-	<div class="container">
+	<div class="container-xxl">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'andromeda-article' ); ?>>
 

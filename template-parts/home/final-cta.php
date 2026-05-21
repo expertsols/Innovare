@@ -7,7 +7,7 @@
  * @package Innovare
  */
 ?>
-<section class="andromeda-final-cta" aria-labelledby="final-cta-heading">
+<section class="innovare-final-cta" aria-labelledby="final-cta-heading">
 	<div class="container">
 		<div class="final-cta-card">
 			<div class="row align-items-center gy-4">
@@ -20,11 +20,11 @@
 					<p><?php esc_html_e( 'Share your environment, your goals and the gaps you want to close — and we’ll respond with a practical, engineered plan forward.', 'innovare' ); ?></p>
 				</div>
 				<div class="col-lg-4 text-lg-end">
-					<a class="btn btn-light me-2 mb-2" href="<?php echo esc_url( andromeda_page_url( 'contact' ) ); ?>">
+					<a class="btn btn-light me-2 mb-2" href="<?php echo esc_url( innovare_page_url( 'contact' ) ); ?>">
 						<?php esc_html_e( 'Contact Us', 'innovare' ); ?>
 						<i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
 					</a>
-					<a class="btn btn-outline-light mb-2" href="<?php echo esc_url( andromeda_page_url( 'contact' ) ); ?>?type=consultation">
+					<a class="btn btn-outline-light mb-2" href="<?php echo esc_url( innovare_page_url( 'contact' ) ); ?>?type=consultation">
 						<?php esc_html_e( 'Request Consultation', 'innovare' ); ?>
 					</a>
 				</div>

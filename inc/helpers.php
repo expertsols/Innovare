@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return string
  */
-function andromeda_default_contact_phone() {
+function innovare_default_contact_phone() {
 	return '+92 333 4106911';
 }
 
@@ -24,7 +24,7 @@ function andromeda_default_contact_phone() {
  * @param string|array $item Included item.
  * @return string
  */
-function andromeda_solution_included_label( $item ) {
+function innovare_solution_included_label( $item ) {
 	if ( is_array( $item ) ) {
 		return isset( $item['title'] ) ? (string) $item['title'] : '';
 	}
@@ -36,22 +36,22 @@ function andromeda_solution_included_label( $item ) {
  *
  * @return array<string, string>
  */
-function andromeda_theme_mod_defaults() {
+function innovare_theme_mod_defaults() {
 	return array(
-		'andromeda_contact_phone'    => andromeda_default_contact_phone(),
-		'andromeda_contact_email'    => 'info@innovate.com',
-		'andromeda_contact_whatsapp' => andromeda_default_contact_phone(),
-		'andromeda_contact_hours'    => 'Mon–Sat · 9:00–18:00',
-		'andromeda_contact_address'  => 'P-46, Siddiq Trade Center, Gulberg II, Lahore',
-		'andromeda_contact_map'      => 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s',
-		'andromeda_social_facebook'  => '',
-		'andromeda_social_linkedin'  => '',
-		'andromeda_social_instagram' => '',
-		'andromeda_social_tiktok'    => '',
-		'andromeda_social_twitter'   => '',
-		'andromeda_maintenance_mode'     => false,
-		'andromeda_maintenance_heading'  => '',
-		'andromeda_maintenance_message'  => '',
+		'innovare_contact_phone'    => innovare_default_contact_phone(),
+		'innovare_contact_email'    => 'info@innovare.com',
+		'innovare_contact_whatsapp' => innovare_default_contact_phone(),
+		'innovare_contact_hours'    => 'Mon–Sat · 9:00–18:00',
+		'innovare_contact_address'  => 'P-46, Siddiq Trade Center, Gulberg II, Lahore',
+		'innovare_contact_map'      => 'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3400.7399635671154!2d74.35023902484548!3d31.53130122420893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sP-198%2C%20Siddique%20Trade%20Center%2C%20Gulberg%20II%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1771649949690!5m2!1sen!2s',
+		'innovare_social_facebook'  => '',
+		'innovare_social_linkedin'  => '',
+		'innovare_social_instagram' => '',
+		'innovare_social_tiktok'    => '',
+		'innovare_social_twitter'   => '',
+		'innovare_maintenance_mode'     => false,
+		'innovare_maintenance_heading'  => '',
+		'innovare_maintenance_message'  => '',
 	);
 }
 
@@ -61,7 +61,7 @@ function andromeda_theme_mod_defaults() {
  * @param string $name  Icon shorthand (mapped to Bootstrap Icons class).
  * @param string $class Extra classes.
  */
-function andromeda_icon( $name, $class = '' ) {
+function innovare_icon( $name, $class = '' ) {
 	$icons = array(
 		'managed'        => 'bi-gear-wide-connected',
 		'infrastructure' => 'bi-diagram-3',
@@ -107,16 +107,16 @@ function andromeda_icon( $name, $class = '' ) {
  *
  * @param string $extra_class Optional wrapper classes.
  */
-function andromeda_social_icons( $extra_class = '' ) {
+function innovare_social_icons( $extra_class = '' ) {
 	$links = array(
-		'facebook'  => array( 'mod' => 'andromeda_social_facebook',  'icon' => 'bi-facebook',  'label' => 'Facebook',  'default' => '' ),
-		'linkedin'  => array( 'mod' => 'andromeda_social_linkedin',  'icon' => 'bi-linkedin',  'label' => 'LinkedIn',  'default' => '' ),
-		'instagram' => array( 'mod' => 'andromeda_social_instagram', 'icon' => 'bi-instagram', 'label' => 'Instagram', 'default' => '' ),
-		'tiktok'    => array( 'mod' => 'andromeda_social_tiktok',    'icon' => 'bi-tiktok',    'label' => 'TikTok',    'default' => '' ),
-		'twitter'   => array( 'mod' => 'andromeda_social_twitter',   'icon' => 'bi-twitter-x', 'label' => 'X (Twitter)', 'default' => '' ),
+		'facebook'  => array( 'mod' => 'innovare_social_facebook',  'icon' => 'bi-facebook',  'label' => 'Facebook',  'default' => '' ),
+		'linkedin'  => array( 'mod' => 'innovare_social_linkedin',  'icon' => 'bi-linkedin',  'label' => 'LinkedIn',  'default' => '' ),
+		'instagram' => array( 'mod' => 'innovare_social_instagram', 'icon' => 'bi-instagram', 'label' => 'Instagram', 'default' => '' ),
+		'tiktok'    => array( 'mod' => 'innovare_social_tiktok',    'icon' => 'bi-tiktok',    'label' => 'TikTok',    'default' => '' ),
+		'twitter'   => array( 'mod' => 'innovare_social_twitter',   'icon' => 'bi-twitter-x', 'label' => 'X (Twitter)', 'default' => '' ),
 	);
 
-	echo '<ul class="andromeda-socials ' . esc_attr( $extra_class ) . '">';
+	echo '<ul class="innovare-socials ' . esc_attr( $extra_class ) . '">';
 	foreach ( $links as $key => $cfg ) {
 		$url = get_theme_mod( $cfg['mod'], $cfg['default'] );
 		if ( ! $url ) {
@@ -139,9 +139,9 @@ function andromeda_social_icons( $extra_class = '' ) {
  * @param string $title   Main title.
  * @param string $intro   Subtitle / intro copy.
  */
-function andromeda_page_header( $eyebrow, $title, $intro = '' ) {
+function innovare_page_header( $eyebrow, $title, $intro = '' ) {
 	?>
-	<section class="andromeda-page-header" aria-labelledby="andromeda-page-header-title">
+	<section class="innovare-page-header" aria-labelledby="innovare-page-header-title">
 		<div class="page-header-backdrop" aria-hidden="true">
 			<div class="page-header-grid"></div>
 			<div class="page-header-glow page-header-glow--a"></div>
@@ -156,7 +156,7 @@ function andromeda_page_header( $eyebrow, $title, $intro = '' ) {
 							<?php echo esc_html( $eyebrow ); ?>
 						</span>
 					<?php endif; ?>
-					<h1 id="andromeda-page-header-title" class="page-header-title"><?php echo esc_html( $title ); ?></h1>
+					<h1 id="innovare-page-header-title" class="page-header-title"><?php echo esc_html( $title ); ?></h1>
 					<?php if ( $intro ) : ?>
 						<p class="page-header-intro"><?php echo esc_html( $intro ); ?></p>
 					<?php endif; ?>
@@ -173,7 +173,7 @@ function andromeda_page_header( $eyebrow, $title, $intro = '' ) {
  * @param string $content HTML content.
  * @return int Minutes (minimum 1).
  */
-function andromeda_reading_time( $content ) {
+function innovare_reading_time( $content ) {
 	$word_count = str_word_count( wp_strip_all_tags( $content ) );
 	$minutes    = (int) ceil( $word_count / 220 );
 	return max( 1, $minutes );
@@ -185,7 +185,7 @@ function andromeda_reading_time( $content ) {
  * @param int $post_id Post ID.
  * @return string
  */
-function andromeda_insights_primary_cat( $post_id ) {
+function innovare_insights_primary_cat( $post_id ) {
 	$terms = get_the_terms( (int) $post_id, 'category' );
 	if ( ! $terms || is_wp_error( $terms ) ) {
 		return '';
@@ -196,23 +196,23 @@ function andromeda_insights_primary_cat( $post_id ) {
 /**
  * Render the site's CTA contact info bar (phone / email / hours).
  */
-function andromeda_topbar() {
-	$phone    = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
-	$email    = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
-	$hours    = get_theme_mod( 'andromeda_contact_hours', 'Mon–Sat · 9:00–18:00' );
-	$whatsapp = get_theme_mod( 'andromeda_contact_whatsapp', andromeda_default_contact_phone() );
+function innovare_topbar() {
+	$phone    = get_theme_mod( 'innovare_contact_phone', innovare_default_contact_phone() );
+	$email    = get_theme_mod( 'innovare_contact_email', 'info@innovare.com' );
+	$hours    = get_theme_mod( 'innovare_contact_hours', 'Mon–Sat · 9:00–18:00' );
+	$whatsapp = get_theme_mod( 'innovare_contact_whatsapp', innovare_default_contact_phone() );
 	?>
-	<div class="andromeda-topbar d-none d-lg-block">
+	<div class="innovare-topbar d-none d-lg-block">
 		<div class="container d-flex justify-content-between align-items-center">
 			<div class="topbar-meta">
-				<span><?php andromeda_icon( 'clock' ); ?> <?php echo esc_html( $hours ); ?></span>
-				<span><?php andromeda_icon( 'pin' ); ?> <?php esc_html_e( 'Lahore, Pakistan · Nationwide Support', 'innovare' ); ?></span>
+				<span><?php innovare_icon( 'clock' ); ?> <?php echo esc_html( $hours ); ?></span>
+				<span><?php innovare_icon( 'pin' ); ?> <?php esc_html_e( 'Lahore, Pakistan · Nationwide Support', 'innovare' ); ?></span>
 			</div>
 			<div class="topbar-actions">
-				<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php andromeda_icon( 'mail' ); ?> <?php echo esc_html( $email ); ?></a>
-				<a href="tel:<?php echo esc_attr( preg_replace( '/[^+\d]/', '', $phone ) ); ?>"><?php andromeda_icon( 'phone' ); ?> <?php echo esc_html( $phone ); ?></a>
+				<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php innovare_icon( 'mail' ); ?> <?php echo esc_html( $email ); ?></a>
+				<a href="tel:<?php echo esc_attr( preg_replace( '/[^+\d]/', '', $phone ) ); ?>"><?php innovare_icon( 'phone' ); ?> <?php echo esc_html( $phone ); ?></a>
 				<?php if ( $whatsapp ) : ?>
-					<a class="topbar-whatsapp" href="https://wa.me/<?php echo esc_attr( preg_replace( '/[^\d]/', '', $whatsapp ) ); ?>" target="_blank" rel="noopener"><?php andromeda_icon( 'whatsapp' ); ?> <?php esc_html_e( 'WhatsApp', 'innovare' ); ?></a>
+					<a class="topbar-whatsapp" href="https://wa.me/<?php echo esc_attr( preg_replace( '/[^\d]/', '', $whatsapp ) ); ?>" target="_blank" rel="noopener"><?php innovare_icon( 'whatsapp' ); ?> <?php esc_html_e( 'WhatsApp', 'innovare' ); ?></a>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -225,7 +225,7 @@ function andromeda_topbar() {
  *
  * @return string
  */
-function andromeda_about_page_slug() {
+function innovare_about_page_slug() {
 	return 'about';
 }
 
@@ -234,7 +234,7 @@ function andromeda_about_page_slug() {
  *
  * @return string
  */
-function andromeda_privacy_policy_url() {
+function innovare_privacy_policy_url() {
 	$page = get_page_by_path( 'privacy', OBJECT, 'page' );
 	if ( $page && 'publish' === $page->post_status ) {
 		return get_permalink( $page );
@@ -252,7 +252,7 @@ function andromeda_privacy_policy_url() {
 		}
 	}
 
-	return andromeda_page_url( 'privacy' );
+	return innovare_page_url( 'privacy' );
 }
 
 /**
@@ -261,7 +261,7 @@ function andromeda_privacy_policy_url() {
  * @param string $slug Page slug.
  * @return string
  */
-function andromeda_page_url( $slug ) {
+function innovare_page_url( $slug ) {
 	$page = get_page_by_path( $slug );
 	if ( $page ) {
 		return get_permalink( $page );
@@ -272,7 +272,7 @@ function andromeda_page_url( $slug ) {
 /**
  * 301 redirect legacy About URLs to `/about/` after slug renames.
  */
-function andromeda_redirect_legacy_company_page() {
+function innovare_redirect_legacy_company_page() {
 	if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
 		return;
 	}
@@ -292,34 +292,34 @@ function andromeda_redirect_legacy_company_page() {
 		$path = preg_replace( '#^' . preg_quote( untrailingslashit( $home_path ), '#' ) . '#', '', $path );
 	}
 	$path = trim( $path, '/' );
-	$canonical = andromeda_about_page_slug();
+	$canonical = innovare_about_page_slug();
 	if ( $path === $canonical ) {
 		return;
 	}
-	if ( ! in_array( $path, andromeda_legacy_about_page_slugs(), true ) ) {
+	if ( ! in_array( $path, innovare_legacy_about_page_slugs(), true ) ) {
 		return;
 	}
-	wp_safe_redirect( andromeda_page_url( $canonical ), 301 );
+	wp_safe_redirect( innovare_page_url( $canonical ), 301 );
 	exit;
 }
-add_action( 'template_redirect', 'andromeda_redirect_legacy_company_page', 1 );
+add_action( 'template_redirect', 'innovare_redirect_legacy_company_page', 1 );
 
 /**
- * Render the Innovate brand logo:
+ * Render the Innovare brand logo:
  *   - If a custom logo is uploaded in Customizer → Site Identity, that wins.
  *   - Otherwise, fall back to the bundled brand PNG shipped with the theme.
  *
  * @param string $variant 'navbar' | 'footer' — controls wrapper class only.
  */
-function andromeda_brand_logo( $variant = 'navbar' ) {
+function innovare_brand_logo( $variant = 'navbar' ) {
 	if ( has_custom_logo() ) {
 		the_custom_logo();
 		return;
 	}
 
-	$src = INNOVARE_URI . 'assets/images/andromedalinks-logo.png';
+	$src = INNOVARE_URI . 'assets/images/innovare-logo.png';
 	printf(
-		'<img class="andromeda-brand-img andromeda-brand-img--%1$s" src="%2$s" alt="%3$s" width="160" height="160" decoding="async" %4$s />',
+		'<img class="innovare-brand-img innovare-brand-img--%1$s" src="%2$s" alt="%3$s" width="160" height="160" decoding="async" %4$s />',
 		esc_attr( $variant ),
 		esc_url( $src ),
 		esc_attr( get_bloginfo( 'name' ) ),

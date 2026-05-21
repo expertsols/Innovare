@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovate — Insights
+ * Template Name: Innovare — Insights
  *
  * Blog archive: pinned/sticky hero → two highlight cards → masonry grid
  * with compact thumbnails. Uses real WP_Query.
@@ -12,7 +12,7 @@
 
 get_header();
 
-andromeda_page_header(
+innovare_page_header(
 	__( 'Insights', 'innovare' ),
 	__( 'Field notes, guides and best practices', 'innovare' ),
 	__( 'Practical thinking from our engineering team on infrastructure, security, productivity and managed operations.', 'innovare' )
@@ -89,7 +89,7 @@ $samples = array(
 );
 ?>
 
-<section class="andromeda-section andromeda-insights-page">
+<section class="innovare-section innovare-insights-page">
 	<div class="container">
 
 		<?php if ( $has_posts ) : ?>
@@ -100,7 +100,7 @@ $samples = array(
 				$badge     = $is_pinned
 					? __( 'Pinned', 'innovare' )
 					: __( 'Featured', 'innovare' );
-				$cat_label = andromeda_insights_primary_cat( get_the_ID() );
+				$cat_label = innovare_insights_primary_cat( get_the_ID() );
 				?>
 				<article class="insight-feature insight-feature--hero">
 					<div class="insight-feature-frame">
@@ -111,7 +111,7 @@ $samples = array(
 									<?php if ( has_post_thumbnail() ) : ?>
 										<?php
 										the_post_thumbnail(
-											'andromeda-hero',
+											'innovare-hero',
 											array(
 												'loading' => 'eager',
 												'class'   => 'insight-feature-img',
@@ -132,7 +132,7 @@ $samples = array(
 									<h2 class="insight-feature-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 									<p class="insight-feature-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 32, '…' ) ); ?></p>
 									<div class="insight-meta">
-										<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), andromeda_reading_time( get_the_content() ) ) ); ?></span>
+										<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), innovare_reading_time( get_the_content() ) ) ); ?></span>
 										<span><i class="bi bi-calendar3" aria-hidden="true"></i> <?php echo esc_html( get_the_date() ); ?></span>
 									</div>
 									<a class="btn btn-primary insight-feature-cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read article', 'innovare' ); ?><i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></a>
@@ -152,13 +152,13 @@ $samples = array(
 							<?php
 							$pid   = (int) $hp->ID;
 							$plink = get_permalink( $pid );
-							$hc    = andromeda_insights_primary_cat( $pid );
+							$hc    = innovare_insights_primary_cat( $pid );
 							?>
 							<div class="col-md-6">
 								<article class="insight-highlight-card h-100">
 									<a class="insight-highlight-media" href="<?php echo esc_url( $plink ); ?>" tabindex="-1" aria-hidden="true">
 										<?php if ( has_post_thumbnail( $pid ) ) : ?>
-											<?php echo get_the_post_thumbnail( $pid, 'andromeda-thumb', array( 'class' => 'insight-highlight-img', 'loading' => 'lazy', 'alt' => wp_strip_all_tags( get_the_title( $pid ) ) ) ); ?>
+											<?php echo get_the_post_thumbnail( $pid, 'innovare-thumb', array( 'class' => 'insight-highlight-img', 'loading' => 'lazy', 'alt' => wp_strip_all_tags( get_the_title( $pid ) ) ) ); ?>
 										<?php else : ?>
 											<span class="insight-highlight-placeholder"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
 										<?php endif; ?>
@@ -170,7 +170,7 @@ $samples = array(
 										<h3 class="insight-highlight-title"><a href="<?php echo esc_url( $plink ); ?>"><?php echo esc_html( get_the_title( $pid ) ); ?></a></h3>
 										<p class="insight-highlight-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $pid ), 18, '…' ) ); ?></p>
 										<div class="insight-meta insight-meta--compact">
-											<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), andromeda_reading_time( $hp->post_content ) ) ); ?></span>
+											<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), innovare_reading_time( $hp->post_content ) ) ); ?></span>
 											<span><i class="bi bi-calendar3" aria-hidden="true"></i> <?php echo esc_html( get_the_date( '', $pid ) ); ?></span>
 										</div>
 										<a class="insight-highlight-link" href="<?php echo esc_url( $plink ); ?>"><?php esc_html_e( 'Continue reading', 'innovare' ); ?><i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
@@ -189,12 +189,12 @@ $samples = array(
 						<?php
 						while ( $masonry_query->have_posts() ) :
 							$masonry_query->the_post();
-							$mc = andromeda_insights_primary_cat( get_the_ID() );
+							$mc = innovare_insights_primary_cat( get_the_ID() );
 							?>
 							<article class="insight-mason-card" role="listitem">
 								<a class="insight-mason-media" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
 									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'andromeda-thumb', array( 'class' => 'insight-mason-img', 'loading' => 'lazy', 'alt' => wp_strip_all_tags( get_the_title() ) ) ); ?>
+										<?php the_post_thumbnail( 'innovare-thumb', array( 'class' => 'insight-mason-img', 'loading' => 'lazy', 'alt' => wp_strip_all_tags( get_the_title() ) ) ); ?>
 									<?php else : ?>
 										<span class="insight-mason-placeholder"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
 									<?php endif; ?>
@@ -205,7 +205,7 @@ $samples = array(
 									<?php endif; ?>
 									<h3 class="insight-mason-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 									<div class="insight-meta insight-meta--compact">
-										<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), andromeda_reading_time( get_the_content() ) ) ); ?></span>
+										<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), innovare_reading_time( get_the_content() ) ) ); ?></span>
 										<span><?php echo esc_html( get_the_date() ); ?></span>
 									</div>
 								</div>

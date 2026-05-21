@@ -12,21 +12,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register primary + footer menus.
  */
-function andromeda_register_menus() {
+function innovare_register_menus() {
 	register_nav_menus( array(
 		'primary'    => __( 'Primary Navigation', 'innovare' ),
 		'footer'     => __( 'Footer Navigation', 'innovare' ),
 		'social'     => __( 'Social Links', 'innovare' ),
 	) );
 }
-add_action( 'after_setup_theme', 'andromeda_register_menus' );
+add_action( 'after_setup_theme', 'innovare_register_menus' );
 
 /**
  * A small, self-contained Bootstrap 5 nav walker.
  *
  * Outputs valid Bootstrap 5 dropdowns with proper ARIA attributes.
  */
-class Andromeda_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
+class Innovare_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 
 	/**
 	 * Start level — open dropdown menu.
@@ -84,7 +84,7 @@ class Andromeda_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * Home · Services · Solutions · Insights · About · Contact.
 	 */
 	public static function fallback( $args ) {
-		$about_path = '/' . andromeda_about_page_slug() . '/';
+		$about_path = '/' . innovare_about_page_slug() . '/';
 		$pages      = array(
 			'/'           => __( 'Home', 'innovare' ),
 			'/services/'  => __( 'Services', 'innovare' ),

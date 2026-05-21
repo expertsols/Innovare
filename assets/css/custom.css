@@ -1,5 +1,5 @@
 /*
- * Innovate — custom theme styles.
+ * Innovare — custom theme styles.
  *
  * Built on top of Bootstrap 5.3. Mobile-first.
  *
@@ -19,7 +19,7 @@
  * 13.  Homepage — Final CTA
  * 14.  Inner pages — Services
  * 15.  Inner pages — Solutions
- * 16.  Inner pages — Company (uses `.andromeda-about-page`)
+ * 16.  Inner pages — Company (uses `.innovare-about-page`)
  * 17.  Insights / blog / single
  * 18.  Contact page
  * 19.  Company page legacy helpers (about-pillars, value-card, about-community)
@@ -60,7 +60,7 @@
  * ============================================================ */
 html { scroll-behavior: smooth; }
 
-body.andromeda-site {
+body.innovare-site {
 	font-family: var(--al-font-sans);
 	color: var(--al-text);
 	background: var(--al-bg);
@@ -70,12 +70,12 @@ body.andromeda-site {
 	line-height: 1.6;
 }
 
-.andromeda-site h1,
-.andromeda-site h2,
-.andromeda-site h3,
-.andromeda-site h4,
-.andromeda-site h5,
-.andromeda-site h6 {
+.innovare-site h1,
+.innovare-site h2,
+.innovare-site h3,
+.innovare-site h4,
+.innovare-site h5,
+.innovare-site h6 {
 	font-family: var(--al-font-head);
 	color: var(--al-navy);
 	font-weight: 700;
@@ -83,13 +83,13 @@ body.andromeda-site {
 	margin-top: 0;
 }
 
-.andromeda-site h1 { font-size: clamp(1.9rem, 3.5vw, 2.75rem); line-height: 1.15; }
-.andromeda-site h2 { font-size: clamp(1.55rem, 2.6vw, 2.15rem); line-height: 1.2; }
-.andromeda-site h3 { font-size: clamp(1.15rem, 1.5vw, 1.35rem); line-height: 1.3; }
-.andromeda-site p  { color: var(--al-text); }
+.innovare-site h1 { font-size: clamp(1.9rem, 3.5vw, 2.75rem); line-height: 1.15; }
+.innovare-site h2 { font-size: clamp(1.55rem, 2.6vw, 2.15rem); line-height: 1.2; }
+.innovare-site h3 { font-size: clamp(1.15rem, 1.5vw, 1.35rem); line-height: 1.3; }
+.innovare-site p  { color: var(--al-text); }
 
-.andromeda-site a { color: var(--al-blue); text-decoration: none; transition: color .15s ease; }
-.andromeda-site a:hover { color: var(--al-blue-600); }
+.innovare-site a { color: var(--al-blue); text-decoration: none; transition: color .15s ease; }
+.innovare-site a:hover { color: var(--al-blue-600); }
 
 .eyebrow {
 	display: inline-block;
@@ -118,81 +118,81 @@ body.andromeda-site {
 /* ============================================================
  * 3. Bootstrap overrides
  * ============================================================ */
-.andromeda-site .btn {
+.innovare-site .btn {
 	border-radius: 10px;
 	font-weight: 600;
 	padding: .6rem 1.1rem;
 	letter-spacing: .01em;
 	transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
 }
-.andromeda-site .btn-lg { padding: .85rem 1.4rem; font-size: 1rem; }
-.andromeda-site .btn-sm { padding: .4rem .8rem; font-size: .85rem; }
+.innovare-site .btn-lg { padding: .85rem 1.4rem; font-size: 1rem; }
+.innovare-site .btn-sm { padding: .4rem .8rem; font-size: .85rem; }
 
-.andromeda-site .btn-primary {
+.innovare-site .btn-primary {
 	background: var(--al-blue);
 	border-color: var(--al-blue);
 	color: #fff;
 }
-.andromeda-site .btn-primary:active {
+.innovare-site .btn-primary:active {
 	color: #fff;
 }
-.andromeda-site .btn-primary:hover,
-.andromeda-site .btn-primary:focus,
-.andromeda-site .btn-primary:focus-visible {
+.innovare-site .btn-primary:hover,
+.innovare-site .btn-primary:focus,
+.innovare-site .btn-primary:focus-visible {
 	background: var(--al-blue-600);
 	border-color: var(--al-blue-600);
 	color: #fff;
 	box-shadow: 0 6px 16px rgba(31, 111, 235, .25);
 }
 
-.andromeda-site .btn-outline-primary {
+.innovare-site .btn-outline-primary {
 	color: var(--al-blue);
 	border-color: var(--al-blue);
 	background: transparent;
 }
-.andromeda-site .btn-outline-primary:hover {
+.innovare-site .btn-outline-primary:hover {
 	background: var(--al-blue);
 	color: #fff;
 }
 
-.andromeda-site .btn-outline-light {
+.innovare-site .btn-outline-light {
 	color: #fff;
 	border-color: rgba(255,255,255,.6);
 }
-.andromeda-site .btn-outline-light:hover {
+.innovare-site .btn-outline-light:hover {
 	background: #fff;
 	color: var(--al-navy);
 	border-color: #fff;
 }
 
-.andromeda-site .btn-link {
+.innovare-site .btn-link {
 	color: var(--al-blue);
 	font-weight: 600;
 	text-decoration: none;
 }
-.andromeda-site .btn-link:hover { color: var(--al-blue-600); text-decoration: underline; }
+.innovare-site .btn-link:hover { color: var(--al-blue-600); text-decoration: underline; }
 
-.andromeda-site .badge.text-bg-light { background: var(--al-bg-alt); color: var(--al-muted); font-weight: 500; }
+.innovare-site .badge.text-bg-light { background: var(--al-bg-alt); color: var(--al-muted); font-weight: 500; }
 
 /* ============================================================
  * 4. Header / topbar / navbar
  * ============================================================ */
-.andromeda-header { position: sticky; top: 0; z-index: 1030; }
+.innovare-header { position: sticky; top: 0; z-index: 1030; }
 
-.andromeda-topbar {
+.innovare-topbar {
 	background: var(--al-navy);
 	color: rgba(255,255,255,.85);
 	font-size: .82rem;
 	padding: .45rem 0;
 }
-.andromeda-topbar a { color: rgba(255,255,255,.88); margin-left: 1.1rem; }
-.andromeda-topbar a:hover { color: #fff; }
-.andromeda-topbar .topbar-meta span { margin-right: 1.25rem; }
-.andromeda-topbar .topbar-meta i,
-.andromeda-topbar .topbar-actions i { margin-right: .35rem; }
-.andromeda-topbar .topbar-whatsapp { color: #22d36b; }
+.innovare-topbar a { color: rgba(255,255,255,.88); margin-left: 1.1rem; }
+.innovare-topbar a:hover { color: #fff; }
+.innovare-topbar .topbar-meta span { margin-right: 1.25rem; }
+.innovare-topbar .topbar-meta i,
+.innovare-topbar .topbar-actions i { margin-right: .35rem; }
+.innovare-topbar .topbar-whatsapp { color: #22d36b; }
 
-.andromeda-navbar {
+.innovare-navbar {
 	background: rgba(255, 255, 255, .92);
 	backdrop-filter: saturate(180%) blur(10px);
 	-webkit-backdrop-filter: saturate(180%) blur(10px);
@@ -200,16 +200,16 @@ body.andromeda-site {
 	padding: .55rem 0;
 	transition: box-shadow .25s ease, background-color .25s ease;
 }
-.andromeda-navbar.is-scrolled { box-shadow: var(--al-shadow); background: rgba(255, 255, 255, .98); }
+.innovare-navbar.is-scrolled { box-shadow: var(--al-shadow); background: rgba(255, 255, 255, .98); }
 
-.andromeda-navbar .navbar-brand {
+.innovare-navbar .navbar-brand {
 	display: inline-flex;
 	align-items: center;
 	padding: 0;
 	margin-right: 1rem;
 }
-.andromeda-navbar .navbar-brand .custom-logo,
-.andromeda-navbar .navbar-brand .andromeda-brand-img {
+.innovare-navbar .navbar-brand .custom-logo,
+.innovare-navbar .navbar-brand .innovare-brand-img {
 	width: auto;
 	max-width: 220px;
 	height: 80px;
@@ -217,12 +217,12 @@ body.andromeda-site {
 	display: block;
 }
 @media (max-width: 575.98px) {
-	.andromeda-navbar .navbar-brand .custom-logo,
-	.andromeda-navbar .navbar-brand .andromeda-brand-img { height: 64px; }
+	.innovare-navbar .navbar-brand .custom-logo,
+	.innovare-navbar .navbar-brand .innovare-brand-img { height: 64px; }
 }
 
-.andromeda-navbar .navbar-nav { gap: .1rem; }
-.andromeda-navbar .nav-link {
+.innovare-navbar .navbar-nav { gap: .1rem; }
+.innovare-navbar .nav-link {
 	color: var(--al-navy);
 	font-weight: 600;
 	font-size: .94rem;
@@ -230,53 +230,53 @@ body.andromeda-site {
 	border-radius: 8px;
 	transition: color .15s ease, background-color .15s ease;
 }
-.andromeda-navbar .nav-link:hover { color: var(--al-blue); background: var(--al-blue-100); }
-.andromeda-navbar .nav-item.active > .nav-link,
-.andromeda-navbar .nav-link.active,
-.andromeda-navbar .current-menu-item > .nav-link,
-.andromeda-navbar .current_page_item > .nav-link { color: var(--al-blue); background: var(--al-blue-100); }
+.innovare-navbar .nav-link:hover { color: var(--al-blue); background: var(--al-blue-100); }
+.innovare-navbar .nav-item.active > .nav-link,
+.innovare-navbar .nav-link.active,
+.innovare-navbar .current-menu-item > .nav-link,
+.innovare-navbar .current_page_item > .nav-link { color: var(--al-blue); background: var(--al-blue-100); }
 
-.andromeda-navbar .dropdown-menu {
+.innovare-navbar .dropdown-menu {
 	border: 1px solid var(--al-line);
 	border-radius: var(--al-radius);
 	padding: .5rem;
 	box-shadow: var(--al-shadow);
 	margin-top: .25rem;
 }
-.andromeda-navbar .dropdown-item {
+.innovare-navbar .dropdown-item {
 	border-radius: 8px;
 	padding: .55rem .75rem;
 	color: var(--al-navy);
 	font-weight: 500;
 }
-.andromeda-navbar .dropdown-item:hover,
-.andromeda-navbar .dropdown-item:focus { background: var(--al-blue-100); color: var(--al-blue); }
+.innovare-navbar .dropdown-item:hover,
+.innovare-navbar .dropdown-item:focus { background: var(--al-blue-100); color: var(--al-blue); }
 
-.andromeda-navbar .navbar-toggler { border: 1px solid var(--al-line); padding: .4rem .6rem; }
-.andromeda-navbar .navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgba(31,111,235,.15); }
+.innovare-navbar .navbar-toggler { border: 1px solid var(--al-line); padding: .4rem .6rem; }
+.innovare-navbar .navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgba(31,111,235,.15); }
 
-.andromeda-navbar .navbar-cta { margin-left: 1rem; }
-.andromeda-navbar .navbar-cta .btn { white-space: nowrap; }
+.innovare-navbar .navbar-cta { margin-left: 1rem; }
+.innovare-navbar .navbar-cta .btn { white-space: nowrap; }
 
 @media (max-width: 991.98px) {
-	.andromeda-navbar .navbar-collapse { padding-top: 1rem; }
-	.andromeda-navbar .nav-link { padding: .65rem .25rem; }
-	.andromeda-navbar .navbar-cta { margin-left: 0; margin-top: .5rem; }
-	.andromeda-navbar .dropdown-menu { box-shadow: none; border: 0; padding-left: .75rem; }
+	.innovare-navbar .navbar-collapse { padding-top: 1rem; }
+	.innovare-navbar .nav-link { padding: .65rem .25rem; }
+	.innovare-navbar .navbar-cta { margin-left: 0; margin-top: .5rem; }
+	.innovare-navbar .dropdown-menu { box-shadow: none; border: 0; padding-left: .75rem; }
 }
 
 /* ============================================================
  * 5. Footer
  * ============================================================ */
-.andromeda-footer {
+.innovare-footer {
 	margin-top: 0;
 	background: var(--al-navy);
 	color: rgba(255,255,255,.78);
 	padding-top: 0;
 }
-.andromeda-footer .footer-main { padding: 4rem 0 2.5rem; }
-.andromeda-footer .footer-brand { display: flex; align-items: center; margin-bottom: 1rem; }
-.andromeda-footer .footer-brand a {
+.innovare-footer .footer-main { padding: 4rem 0 2.5rem; }
+.innovare-footer .footer-brand { display: flex; align-items: center; margin-bottom: 1rem; }
+.innovare-footer .footer-brand a {
 	display: inline-flex;
 	align-items: center;
 	background: #fff;
@@ -284,26 +284,26 @@ body.andromeda-site {
 	border-radius: var(--al-radius-sm);
 	box-shadow: 0 1px 0 rgba(255,255,255,.06);
 }
-.andromeda-footer .footer-brand .custom-logo,
-.andromeda-footer .footer-brand .andromeda-brand-img {
+.innovare-footer .footer-brand .custom-logo,
+.innovare-footer .footer-brand .innovare-brand-img {
 	width: auto;
 	max-width: 220px;
 	height: 80px;
 	object-fit: contain;
 	display: block;
 }
-.andromeda-footer .footer-tagline { color: rgba(255,255,255,.7); margin-bottom: 1.25rem; max-width: 28rem; }
-.andromeda-footer .footer-widget-title { color: #fff; font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; font-weight: 700; }
-.andromeda-footer .footer-links { list-style: none; padding: 0; margin: 0; }
-.andromeda-footer .footer-links li { margin-bottom: .55rem; }
-.andromeda-footer .footer-links a { color: rgba(255,255,255,.75); font-size: .92rem; }
-.andromeda-footer .footer-links a:hover { color: #fff; }
-.andromeda-footer .footer-contact { list-style: none; padding: 0; margin: 0; }
-.andromeda-footer .footer-contact li { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .65rem; font-size: .92rem; color: rgba(255,255,255,.78); }
-.andromeda-footer .footer-contact a { color: rgba(255,255,255,.85); }
-.andromeda-footer .footer-contact i { color: var(--al-cyan); margin-top: 3px; }
+.innovare-footer .footer-tagline { color: rgba(255,255,255,.7); margin-bottom: 1.25rem; max-width: 28rem; }
+.innovare-footer .footer-widget-title { color: #fff; font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; font-weight: 700; }
+.innovare-footer .footer-links { list-style: none; padding: 0; margin: 0; }
+.innovare-footer .footer-links li { margin-bottom: .55rem; }
+.innovare-footer .footer-links a { color: rgba(255,255,255,.75); font-size: .92rem; }
+.innovare-footer .footer-links a:hover { color: #fff; }
+.innovare-footer .footer-contact { list-style: none; padding: 0; margin: 0; }
+.innovare-footer .footer-contact li { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .65rem; font-size: .92rem; color: rgba(255,255,255,.78); }
+.innovare-footer .footer-contact a { color: rgba(255,255,255,.85); }
+.innovare-footer .footer-contact i { color: var(--al-cyan); margin-top: 3px; }
 
-.andromeda-footer .footer-bottom {
+.innovare-footer .footer-bottom {
 	background: rgba(0,0,0,.18);
 	padding: 1rem 0;
 	border-top: 1px solid rgba(255,255,255,.06);
@@ -311,11 +311,11 @@ body.andromeda-site {
 	line-height: 1.55;
 	color: rgba(255,255,255,.78);
 }
-.andromeda-footer .footer-bottom a { color: rgba(255,255,255,.85); font-weight: 500; }
-.andromeda-footer .footer-bottom a:hover { color: #fff; }
-.andromeda-footer .footer-bottom-links { list-style: none; padding: 0; margin: 0; display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-.andromeda-footer .footer-bottom-links li { font-size: 0.9375rem; }
-.andromeda-footer .footer-copy {
+.innovare-footer .footer-bottom a { color: rgba(255,255,255,.85); font-weight: 500; }
+.innovare-footer .footer-bottom a:hover { color: #fff; }
+.innovare-footer .footer-bottom-links { list-style: none; padding: 0; margin: 0; display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+.innovare-footer .footer-bottom-links li { font-size: 0.9375rem; }
+.innovare-footer .footer-copy {
 	font-family: var(--al-font-sans);
 	font-size: 0.9375rem;
 	line-height: 1.55;
@@ -323,18 +323,28 @@ body.andromeda-site {
 	text-align: center;
 	max-width: 100%;
 }
-.andromeda-footer .footer-copy-line { display: inline-block; }
+.innovare-footer .footer-copy-line { display: inline-block; }
+.innovare-footer .footer-theme-credit {
+	margin-top: 0.35rem;
+	font-size: 0.8125rem;
+	color: rgba(255, 255, 255, 0.55);
+}
+.innovare-footer .footer-theme-credit a {
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 500;
+}
+.innovare-footer .footer-theme-credit a:hover { color: #fff; }
 @media (min-width: 768px) {
-	.andromeda-footer .footer-bottom .container.d-flex { align-items: center !important; }
-	.andromeda-footer .footer-copy { text-align: left; }
-	.andromeda-footer .footer-bottom-links { justify-content: flex-end; }
+	.innovare-footer .footer-bottom .container.d-flex { align-items: center !important; }
+	.innovare-footer .footer-copy { text-align: left; }
+	.innovare-footer .footer-bottom-links { justify-content: flex-end; }
 }
 
-.andromeda-socials {
+.innovare-socials {
 	list-style: none; padding: 0; margin: 0;
 	display: inline-flex; gap: .5rem; flex-wrap: wrap;
 }
-.andromeda-socials a {
+.innovare-socials a {
 	width: 38px; height: 38px;
 	display: inline-flex; align-items: center; justify-content: center;
 	border-radius: 50%;
@@ -343,7 +353,7 @@ body.andromeda-site {
 	transition: background .2s ease, transform .15s ease, color .2s ease;
 	font-size: 1rem;
 }
-.andromeda-socials a:hover { background: var(--al-blue); color: #fff; transform: translateY(-2px); }
+.innovare-socials a:hover { background: var(--al-blue); color: #fff; transform: translateY(-2px); }
 
 /* On light backgrounds use blue tint */
 .about-socials a,
@@ -359,14 +369,14 @@ body.andromeda-site {
 /* ============================================================
  * 6. Reusable section primitives
  * ============================================================ */
-.andromeda-section { padding: 4.5rem 0; }
-.andromeda-section + .andromeda-section { border-top: 1px solid var(--al-line); }
+.innovare-section { padding: 4.5rem 0; }
+.innovare-section + .innovare-section { border-top: 1px solid var(--al-line); }
 
 .section-heading { text-align: center; max-width: 760px; margin: 0 auto 2.5rem; }
 .section-heading p { color: var(--al-muted); }
 .section-heading .eyebrow { margin-bottom: .85rem; }
 
-.andromeda-page-header {
+.innovare-page-header {
 	position: relative;
 	overflow: hidden;
 	padding: 4.5rem 0 3.25rem;
@@ -374,8 +384,8 @@ body.andromeda-site {
 	color: #fff;
 	border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
-.andromeda-page-header .page-header-backdrop { position: absolute; inset: 0; pointer-events: none; }
-.andromeda-page-header .page-header-grid {
+.innovare-page-header .page-header-backdrop { position: absolute; inset: 0; pointer-events: none; }
+.innovare-page-header .page-header-grid {
 	position: absolute; inset: 0;
 	background-image:
 		linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
@@ -383,11 +393,11 @@ body.andromeda-site {
 	background-size: 48px 48px;
 	mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
 }
-.andromeda-page-header .page-header-glow { position: absolute; width: 420px; height: 420px; filter: blur(80px); opacity: .32; border-radius: 50%; }
-.andromeda-page-header .page-header-glow--a { top: -140px; left: -120px; background: var(--al-blue); }
-.andromeda-page-header .page-header-glow--b { bottom: -180px; right: -120px; background: var(--al-cyan); }
+.innovare-page-header .page-header-glow { position: absolute; width: 420px; height: 420px; filter: blur(80px); opacity: .32; border-radius: 50%; }
+.innovare-page-header .page-header-glow--a { top: -140px; left: -120px; background: var(--al-blue); }
+.innovare-page-header .page-header-glow--b { bottom: -180px; right: -120px; background: var(--al-cyan); }
 
-.andromeda-page-header .page-header-eyebrow {
+.innovare-page-header .page-header-eyebrow {
 	display: inline-flex; align-items: center; gap: .5rem;
 	background: rgba(255,255,255,.08);
 	color: #cfe1ff;
@@ -400,14 +410,14 @@ body.andromeda-site {
 	margin-bottom: 1.1rem;
 	text-transform: uppercase;
 }
-.andromeda-page-header .page-header-eyebrow i { color: var(--al-cyan); }
-.andromeda-page-header .page-header-title { color: #fff; font-size: clamp(1.9rem, 3.5vw, 2.6rem); line-height: 1.15; margin: .25rem 0 1rem; }
-.andromeda-page-header .page-header-intro { color: rgba(255,255,255,.82); font-size: 1.05rem; max-width: 680px; margin: 0 auto; }
+.innovare-page-header .page-header-eyebrow i { color: var(--al-cyan); }
+.innovare-page-header .page-header-title { color: #fff; font-size: clamp(1.9rem, 3.5vw, 2.6rem); line-height: 1.15; margin: .25rem 0 1rem; }
+.innovare-page-header .page-header-intro { color: rgba(255,255,255,.82); font-size: 1.05rem; max-width: 680px; margin: 0 auto; }
 
 /* ============================================================
  * 7. Homepage — Hero
  * ============================================================ */
-.andromeda-hero {
+.innovare-hero {
 	position: relative;
 	overflow: hidden;
 	padding: 5rem 0 5.5rem;
@@ -415,9 +425,9 @@ body.andromeda-site {
 		linear-gradient(180deg, #0b1f3a 0%, #102a52 100%);
 	color: #fff;
 }
-.andromeda-hero .hero-title { color: #fff; max-width: 22ch; }
-.andromeda-hero .hero-subtitle { color: rgba(255,255,255,.82); font-size: 1.1rem; max-width: 60ch; margin: 1rem 0 1.75rem; }
-.andromeda-hero .hero-eyebrow {
+.innovare-hero .hero-title { color: #fff; max-width: 22ch; }
+.innovare-hero .hero-subtitle { color: rgba(255,255,255,.82); font-size: 1.1rem; max-width: 60ch; margin: 1rem 0 1.75rem; }
+.innovare-hero .hero-eyebrow {
 	display: inline-flex; align-items: center; gap: .5rem;
 	background: rgba(255,255,255,.08);
 	color: #cfe1ff;
@@ -429,17 +439,17 @@ body.andromeda-site {
 	border: 1px solid rgba(255,255,255,.12);
 	margin-bottom: 1.25rem;
 }
-.andromeda-hero .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-.andromeda-hero .hero-meta {
+.innovare-hero .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.innovare-hero .hero-meta {
 	list-style: none; padding: 0; margin: 2rem 0 0;
 	display: flex; flex-wrap: wrap; gap: 1rem 1.5rem;
 	color: rgba(255,255,255,.8);
 	font-size: .92rem;
 }
-.andromeda-hero .hero-meta i { color: var(--al-cyan); margin-right: .35rem; }
+.innovare-hero .hero-meta i { color: var(--al-cyan); margin-right: .35rem; }
 
-.andromeda-hero .hero-backdrop { position: absolute; inset: 0; pointer-events: none; }
-.andromeda-hero .hero-grid {
+.innovare-hero .hero-backdrop { position: absolute; inset: 0; pointer-events: none; }
+.innovare-hero .hero-grid {
 	position: absolute; inset: 0;
 	background-image:
 		linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
@@ -447,9 +457,9 @@ body.andromeda-site {
 	background-size: 48px 48px;
 	mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
 }
-.andromeda-hero .hero-glow { position: absolute; width: 480px; height: 480px; filter: blur(80px); opacity: .35; border-radius: 50%; }
-.andromeda-hero .hero-glow--a { top: -120px; left: -120px; background: var(--al-blue); }
-.andromeda-hero .hero-glow--b { bottom: -160px; right: -120px; background: var(--al-cyan); }
+.innovare-hero .hero-glow { position: absolute; width: 480px; height: 480px; filter: blur(80px); opacity: .35; border-radius: 50%; }
+.innovare-hero .hero-glow--a { top: -120px; left: -120px; background: var(--al-blue); }
+.innovare-hero .hero-glow--b { bottom: -160px; right: -120px; background: var(--al-cyan); }
 
 .hero-card {
 	background: rgba(255,255,255,.06);
@@ -472,7 +482,7 @@ body.andromeda-site {
 /* ============================================================
  * 8. Homepage — Services grid
  * ============================================================ */
-.andromeda-services-grid { background: var(--al-bg-soft); }
+.innovare-services-grid { background: var(--al-bg-soft); }
 .service-card {
 	display: flex; flex-direction: column; gap: .65rem;
 	padding: 1.5rem;
@@ -503,7 +513,7 @@ body.andromeda-site {
 /* ============================================================
  * 9. Homepage — Solutions
  * ============================================================ */
-.andromeda-solutions-home { background: #fff; }
+.innovare-solutions-home { background: #fff; }
 /* Homepage solutions section reuses the .solution-card markup from the
    /solutions/ listing so both stay visually aligned. The actual card
    rules live in section 15 below. */
@@ -511,7 +521,7 @@ body.andromeda-site {
 /* ============================================================
  * 10. Homepage — Industries
  * ============================================================ */
-.andromeda-industries { background: var(--al-bg-soft); }
+.innovare-industries { background: var(--al-bg-soft); }
 .industry-card {
 	display: flex; align-items: flex-start; gap: 1rem;
 	padding: 1.25rem;
@@ -529,7 +539,7 @@ body.andromeda-site {
 /* ============================================================
  * 11. Homepage — Social proof / Follow our work
  * ============================================================ */
-.andromeda-social-proof { background: #fff; }
+.innovare-social-proof { background: #fff; }
 .proof-card {
 	background: #fff;
 	border: 1px solid var(--al-line);
@@ -555,19 +565,19 @@ body.andromeda-site {
 /* ============================================================
  * 12. Homepage — Insights
  * ============================================================ */
-.andromeda-insights-home { background: var(--al-bg-soft); }
-.andromeda-insights-home .insight-card { background: #fff; border: 1px solid var(--al-line); border-radius: var(--al-radius); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-.andromeda-insights-home .insight-card:hover { transform: translateY(-3px); box-shadow: var(--al-shadow); border-color: rgba(31,111,235,.4); }
-.andromeda-insights-home .insight-card-body { padding: 1.25rem; flex: 1 1 auto; display: flex; flex-direction: column; }
-.andromeda-insights-home .insight-card-body h3 { font-size: 1.08rem; margin: .35rem 0 .5rem; }
-.andromeda-insights-home .insight-card-body h3 a { color: var(--al-navy); }
-.andromeda-insights-home .insight-card-body h3 a:hover { color: var(--al-blue); }
-.andromeda-insights-home .insight-card-body p { color: var(--al-muted); font-size: .93rem; margin: 0 0 .75rem; flex: 1 1 auto; }
+.innovare-insights-home { background: var(--al-bg-soft); }
+.innovare-insights-home .insight-card { background: #fff; border: 1px solid var(--al-line); border-radius: var(--al-radius); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.innovare-insights-home .insight-card:hover { transform: translateY(-3px); box-shadow: var(--al-shadow); border-color: rgba(31,111,235,.4); }
+.innovare-insights-home .insight-card-body { padding: 1.25rem; flex: 1 1 auto; display: flex; flex-direction: column; }
+.innovare-insights-home .insight-card-body h3 { font-size: 1.08rem; margin: .35rem 0 .5rem; }
+.innovare-insights-home .insight-card-body h3 a { color: var(--al-navy); }
+.innovare-insights-home .insight-card-body h3 a:hover { color: var(--al-blue); }
+.innovare-insights-home .insight-card-body p { color: var(--al-muted); font-size: .93rem; margin: 0 0 .75rem; flex: 1 1 auto; }
 
 /* ============================================================
  * 13. Homepage — Final CTA
  * ============================================================ */
-.andromeda-final-cta { padding: 4rem 0 5rem; background: #fff; }
+.innovare-final-cta { padding: 4rem 0 5rem; background: #fff; }
 .final-cta-card {
 	background:
 		radial-gradient(ellipse at top right, rgba(43,182,255,.4), transparent 60%),
@@ -591,8 +601,8 @@ body.andromeda-site {
 	border-radius: 999px;
 	border: 1px solid rgba(255,255,255,.18);
 }
-.andromeda-final-cta .btn-light { color: var(--al-navy); }
-.andromeda-final-cta .btn-light:hover { background: #fff; color: var(--al-blue); }
+.innovare-final-cta .btn-light { color: var(--al-navy); }
+.innovare-final-cta .btn-light:hover { background: #fff; color: var(--al-blue); }
 
 /* ============================================================
  * 14. Inner pages — Services
@@ -1013,8 +1023,8 @@ body.andromeda-site {
 .solution-card:hover { border-color: rgba(31,111,235,.4); box-shadow: var(--al-shadow); transform: translateY(-3px); }
 /* Soft background on the homepage variant to match the rest of the home
    sections without breaking the listing page's pure-white card. */
-.andromeda-solutions-home .solution-card { background: var(--al-bg-soft); }
-.andromeda-solutions-home .solution-card:hover { background: #fff; }
+.innovare-solutions-home .solution-card { background: var(--al-bg-soft); }
+.innovare-solutions-home .solution-card:hover { background: #fff; }
 .solution-card-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .25rem; }
 .solution-card-icon {
 	width: 48px; height: 48px;
@@ -1120,7 +1130,7 @@ body.andromeda-site {
  * 15b. Solution detail pages
  * ============================================================ */
 /* Keep comfortable space above the section divider (the next
-   .andromeda-section draws border-top: 1px solid var(--al-line)). */
+   .innovare-section draws border-top: 1px solid var(--al-line)). */
 .solution-detail-intro { padding-bottom: 3.5rem; }
 .solution-detail-summary .eyebrow {
 	background: var(--al-blue-100);
@@ -1129,7 +1139,7 @@ body.andromeda-site {
 .solution-detail-summary h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin: .6rem 0 1rem; }
 .solution-detail-lede { color: var(--al-muted); font-size: 1.05rem; line-height: 1.65; margin: 0; }
 
-/* Brand mark above "Best for" (optional partner logo): logo file
+/* Brand mark above "Best for" (SkilledIM, Silver Accounting): logo file
    optional — typographic fallback uses the same accessible name as img alt. */
 .solution-detail-aside-brand {
 	display: flex;
@@ -1194,9 +1204,9 @@ body.andromeda-site {
 }
 .solution-detail-cta-row .btn i { font-size: .95rem; }
 
-/* Primary Discuss — must beat .andromeda-site .btn-primary:hover (flat
+/* Primary Discuss — must beat .innovare-site .btn-primary:hover (flat
    solid) so the gradient + glow stay on hover. */
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss {
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss {
 	color: #fff;
 	background: linear-gradient(135deg, var(--al-blue), var(--al-cyan));
 	border-color: transparent;
@@ -1204,8 +1214,8 @@ body.andromeda-site {
 	transition: transform .18s ease, box-shadow .18s ease, filter .18s ease,
 		background .18s ease, border-color .18s ease, color .18s ease;
 }
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss:hover,
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss:focus-visible {
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss:hover,
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss:focus-visible {
 	color: #fff;
 	background: linear-gradient(135deg, #1d4ed8, #06b6d4);
 	border-color: transparent;
@@ -1216,7 +1226,7 @@ body.andromeda-site {
 		0 0 0 3px rgba(43, 182, 255, .28);
 	filter: brightness(1.05);
 }
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss:active {
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss:active {
 	transform: translateY(-1px);
 	filter: brightness(0.98);
 }
@@ -1239,12 +1249,12 @@ body.andromeda-site {
 
 /* Icon micro-motion — direction matches link type. */
 .solution-detail-cta-explore i,
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss i { transition: transform .18s ease; }
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss i { transition: transform .18s ease; }
 .solution-detail-cta-explore:hover .bi-arrow-right        { transform: translateX(2px); }
 .solution-detail-cta-explore:hover .bi-arrow-down         { transform: translateY(2px); }
 .solution-detail-cta-explore:hover .bi-box-arrow-up-right { transform: translate(2px, -2px); }
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss:hover i,
-.andromeda-site .btn.btn-primary.solution-detail-cta-discuss:focus-visible i { transform: translateX(3px); }
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss:hover i,
+.innovare-site .btn.btn-primary.solution-detail-cta-discuss:focus-visible i { transform: translateX(3px); }
 
 /* When the Explore CTA jumps to the in-page #features anchor, leave a
    little breathing room above the heading so it doesn't sit flush under
@@ -1612,7 +1622,7 @@ body.andromeda-site {
 /* ============================================================
  * 17. Insights / blog / single
  * ============================================================ */
-.andromeda-insights-page { background: var(--al-bg-soft); }
+.innovare-insights-page { background: var(--al-bg-soft); }
 
 /* Hero featured / pinned */
 .insight-feature--hero { padding: 0 0 2.5rem; margin-bottom: 2.5rem; border-bottom: 0; }
@@ -1879,18 +1889,169 @@ body.andromeda-site {
 .insights-grid .insight-card-body h3 a { color: var(--al-navy); }
 .insights-grid .insight-card-body h3 a:hover { color: var(--al-blue); }
 
-.andromeda-single .andromeda-article { max-width: 800px; margin: 0 auto; }
-.andromeda-single .andromeda-article-meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; color: var(--al-muted); font-size: .9rem; }
-.andromeda-single .andromeda-article-title { margin-bottom: 1.25rem; }
-.andromeda-article-content > * { margin-bottom: 1.1rem; }
-.andromeda-article-content h2, .andromeda-article-content h3 { margin-top: 2rem; }
-.andromeda-article-content blockquote { border-left: 4px solid var(--al-blue); padding: .25rem 0 .25rem 1rem; color: var(--al-muted); font-style: italic; background: var(--al-bg-soft); border-radius: 0 var(--al-radius-sm) var(--al-radius-sm) 0; }
-.andromeda-article-tags { margin-top: 2rem; color: var(--al-muted); font-size: .9rem; }
-.andromeda-article-tags i { margin-right: .35rem; color: var(--al-blue); }
+.innovare-single .innovare-article { max-width: 800px; margin: 0 auto; }
+.innovare-single .innovare-article-meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; color: var(--al-muted); font-size: .9rem; }
+.innovare-single .innovare-article-title { margin-bottom: 1.25rem; }
+.innovare-article-content > * { margin-bottom: 1.1rem; }
+.innovare-article-content h2, .innovare-article-content h3 { margin-top: 2rem; }
+.innovare-article-content blockquote { border-left: 4px solid var(--al-blue); padding: .25rem 0 .25rem 1rem; color: var(--al-muted); font-style: italic; background: var(--al-bg-soft); border-radius: 0 var(--al-radius-sm) var(--al-radius-sm) 0; }
+.innovare-article-tags { margin-top: 2rem; color: var(--al-muted); font-size: .9rem; }
+.innovare-article-tags i { margin-right: .35rem; color: var(--al-blue); }
 
-.andromeda-post-nav { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--al-line); }
+.innovare-post-nav { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--al-line); }
 .post-nav-link { padding: .85rem 1rem; border: 1px solid var(--al-line); border-radius: var(--al-radius-sm); display: block; color: var(--al-navy); font-weight: 600; transition: background .2s ease, border-color .2s ease; }
 .post-nav-link:hover { background: var(--al-bg-soft); border-color: rgba(31,111,235,.4); }
+
+/* Comments — single / insights posts */
+.innovare-comments {
+	max-width: 800px;
+	margin: 3rem auto 0;
+	padding-top: 2rem;
+	border-top: 1px solid var(--al-line);
+}
+
+.innovare-comments-title,
+.innovare-comments-reply-title {
+	font-size: 1.35rem;
+	margin-bottom: 1rem;
+}
+
+.innovare-comment-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem;
+}
+
+.innovare-comment-list .innovare-comment {
+	margin-bottom: 1rem;
+}
+
+.innovare-comment-body {
+	background: var(--al-bg-soft);
+	border: 1px solid var(--al-line);
+	border-radius: var(--al-radius);
+	padding: 1.15rem 1.25rem;
+}
+
+.innovare-comment-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem 1rem;
+	margin-bottom: .65rem;
+	font-size: .88rem;
+	color: var(--al-muted);
+}
+
+.innovare-comment-author {
+	color: var(--al-navy);
+	font-size: .95rem;
+}
+
+.innovare-comment-content {
+	color: var(--al-text);
+	font-size: .95rem;
+	line-height: 1.6;
+}
+
+.innovare-comment-content > *:last-child {
+	margin-bottom: 0;
+}
+
+.innovare-comment-awaiting {
+	margin: 0 0 .65rem;
+	font-size: .88rem;
+	color: var(--al-blue-600);
+}
+
+.innovare-comment-reply {
+	margin-top: .75rem;
+}
+
+.innovare-comment-form-card {
+	background: #fff;
+	border: 1px solid var(--al-line);
+	border-radius: var(--al-radius-lg);
+	padding: 1.75rem;
+	box-shadow: var(--al-shadow-sm);
+}
+
+.innovare-comment-notes,
+.innovare-comment-logged-in {
+	color: var(--al-muted);
+	font-size: .9rem;
+	margin-bottom: 1rem;
+}
+
+.innovare-comment-form .comment-form-comment,
+.innovare-comment-form .comment-form-author,
+.innovare-comment-form .comment-form-email,
+.innovare-comment-form .comment-form-url,
+.innovare-comment-form .comment-form-cookies-consent {
+	margin: 0;
+}
+
+.innovare-comment-form .form-label {
+	display: block;
+	font-weight: 600;
+	color: var(--al-navy);
+	font-size: .9rem;
+	margin-bottom: .35rem;
+}
+
+.innovare-comment-form .form-control {
+	display: block;
+	width: 100%;
+	border-radius: 10px;
+	border: 1px solid var(--al-line);
+	padding: .65rem .85rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--al-text);
+	background-color: #fff;
+}
+
+.innovare-comment-form textarea.form-control {
+	min-height: 9rem;
+	resize: vertical;
+}
+
+.innovare-comment-form .form-control:focus {
+	border-color: var(--al-blue);
+	box-shadow: 0 0 0 .2rem rgba(31, 111, 235, .15);
+	outline: 0;
+}
+
+.innovare-comment-form .form-check {
+	display: flex;
+	align-items: flex-start;
+	gap: .55rem;
+}
+
+.innovare-comment-form .form-check-input {
+	margin-top: .2rem;
+	flex-shrink: 0;
+}
+
+.innovare-comment-form .form-check-label {
+	color: var(--al-muted);
+	font-size: .9rem;
+	line-height: 1.45;
+}
+
+.innovare-comment-form .required,
+.innovare-comment-form .required-field-message {
+	color: var(--al-blue-600);
+}
+
+.innovare-comment-form-fields {
+	margin-bottom: 0;
+}
+
+.innovare-comments-closed {
+	color: var(--al-muted);
+	margin: 0;
+}
 
 /* ============================================================
  * 18. Contact page
@@ -1921,15 +2082,15 @@ body.andromeda-site {
 }
 .contact-form-card h2 { font-size: 1.35rem; margin-bottom: .25rem; }
 .contact-form-intro { color: var(--al-muted); margin-bottom: 1.5rem; }
-.andromeda-contact-form .form-label { font-weight: 600; color: var(--al-navy); font-size: .9rem; }
+.innovare-contact-form .form-label { font-weight: 600; color: var(--al-navy); font-size: .9rem; }
 /* Do not use symmetric padding on .form-select — Bootstrap reserves ~2.25rem on the
    right for the chevron; a uniform padding squeezes the label and clips placeholder text. */
-.andromeda-contact-form .form-control {
+.innovare-contact-form .form-control {
 	border-radius: 10px;
 	border-color: var(--al-line);
 	padding: .65rem .85rem;
 }
-.andromeda-contact-form .form-select {
+.innovare-contact-form .form-select {
 	display: block;
 	width: 100%;
 	max-width: 100%;
@@ -1938,9 +2099,9 @@ body.andromeda-site {
 	padding: .65rem 2.5rem .65rem .85rem;
 	line-height: 1.5;
 }
-.andromeda-contact-form .form-control:focus,
-.andromeda-contact-form .form-select:focus { border-color: var(--al-blue); box-shadow: 0 0 0 .2rem rgba(31,111,235,.15); }
-.andromeda-contact-form .form-note { font-size: .8rem; color: var(--al-muted); margin: .75rem 0 0; }
+.innovare-contact-form .form-control:focus,
+.innovare-contact-form .form-select:focus { border-color: var(--al-blue); box-shadow: 0 0 0 .2rem rgba(31,111,235,.15); }
+.innovare-contact-form .form-note { font-size: .8rem; color: var(--al-muted); margin: .75rem 0 0; }
 
 .contact-map { border-radius: var(--al-radius-lg); overflow: hidden; border: 1px solid var(--al-line); }
 .contact-map-placeholder {
@@ -1953,35 +2114,35 @@ body.andromeda-site {
 }
 .contact-map-placeholder i { font-size: 2rem; color: var(--al-blue); }
 
-.andromeda-legal-page .andromeda-legal-content,
-.andromeda-sitemap-page .andromeda-legal-content { font-size: 1rem; color: var(--al-text); }
-.andromeda-legal-page .andromeda-legal-content > *:first-child,
-.andromeda-sitemap-page .andromeda-legal-content > *:first-child { margin-top: 0; }
-.andromeda-sitemap-card {
+.innovare-legal-page .innovare-legal-content,
+.innovare-sitemap-page .innovare-legal-content { font-size: 1rem; color: var(--al-text); }
+.innovare-legal-page .innovare-legal-content > *:first-child,
+.innovare-sitemap-page .innovare-legal-content > *:first-child { margin-top: 0; }
+.innovare-sitemap-card {
 	background: var(--al-bg-soft);
 	border: 1px solid var(--al-line);
 	border-radius: var(--al-radius);
 	padding: 1.25rem 1.35rem;
 	height: 100%;
 }
-.andromeda-sitemap-card h2 { color: var(--al-navy); font-family: var(--al-font-head); }
-.andromeda-sitemap-list li { padding: .35rem 0; border-bottom: 1px dashed var(--al-line); }
-.andromeda-sitemap-list li:last-child { border-bottom: 0; }
-.andromeda-sitemap-list a { font-weight: 500; color: var(--al-navy); }
-.andromeda-sitemap-list a:hover { color: var(--al-blue); }
+.innovare-sitemap-card h2 { color: var(--al-navy); font-family: var(--al-font-head); }
+.innovare-sitemap-list li { padding: .35rem 0; border-bottom: 1px dashed var(--al-line); }
+.innovare-sitemap-list li:last-child { border-bottom: 0; }
+.innovare-sitemap-list a { font-weight: 500; color: var(--al-navy); }
+.innovare-sitemap-list a:hover { color: var(--al-blue); }
 
 /* ============================================================
- * 19. Company page (legacy `.andromeda-about-page` class kept)
+ * 19. Company page (legacy `.innovare-about-page` class kept)
  * ============================================================ */
-.andromeda-about-page .about-pillars { display: grid; gap: 1rem; }
-.andromeda-about-page .about-pillar {
+.innovare-about-page .about-pillars { display: grid; gap: 1rem; }
+.innovare-about-page .about-pillar {
 	padding: 1.4rem;
 	background: var(--al-bg-soft);
 	border-left: 4px solid var(--al-blue);
 	border-radius: var(--al-radius-sm);
 }
-.andromeda-about-page .about-pillar strong { display: block; font-family: var(--al-font-head); color: var(--al-navy); font-size: 1.05rem; margin-bottom: .25rem; }
-.andromeda-about-page .about-pillar p { margin: 0; color: var(--al-text); }
+.innovare-about-page .about-pillar strong { display: block; font-family: var(--al-font-head); color: var(--al-navy); font-size: 1.05rem; margin-bottom: .25rem; }
+.innovare-about-page .about-pillar p { margin: 0; color: var(--al-text); }
 
 .value-card {
 	padding: 1.5rem;
@@ -2008,11 +2169,11 @@ body.andromeda-site {
 /* ============================================================
  * 20. Forms / search / pagination / 404
  * ============================================================ */
-.andromeda-search-form .form-control { border-radius: 10px 0 0 10px; }
-.andromeda-search-form .btn { border-radius: 0 10px 10px 0; }
+.innovare-search-form .form-control { border-radius: 10px 0 0 10px; }
+.innovare-search-form .btn { border-radius: 0 10px 10px 0; }
 
-.andromeda-pagination { display: flex; justify-content: center; margin-top: 2.5rem; }
-.andromeda-pagination .page-numbers {
+.innovare-pagination { display: flex; justify-content: center; margin-top: 2.5rem; }
+.innovare-pagination .page-numbers {
 	display: inline-block;
 	padding: .55rem .9rem;
 	margin: 0 .15rem;
@@ -2023,14 +2184,14 @@ body.andromeda-site {
 	background: #fff;
 	transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
-.andromeda-pagination .page-numbers.current,
-.andromeda-pagination .page-numbers:hover {
+.innovare-pagination .page-numbers.current,
+.innovare-pagination .page-numbers:hover {
 	background: var(--al-blue);
 	color: #fff;
 	border-color: var(--al-blue);
 }
 
-.andromeda-404 .error-code {
+.innovare-404 .error-code {
 	font-family: var(--al-font-head);
 	font-weight: 800;
 	font-size: clamp(5rem, 16vw, 9rem);
@@ -2040,9 +2201,9 @@ body.andromeda-site {
 	background-clip: text;
 	color: transparent;
 }
-.andromeda-404 .error-title { margin-bottom: .5rem; }
-.andromeda-404 .error-intro { color: var(--al-muted); max-width: 50ch; margin: 0 auto 1.5rem; }
-.andromeda-404 .error-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.innovare-404 .error-title { margin-bottom: .5rem; }
+.innovare-404 .error-intro { color: var(--al-muted); max-width: 50ch; margin: 0 auto 1.5rem; }
+.innovare-404 .error-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
 
 /* Bootstrap doesn't ship spacer "6" — add it for slightly larger gaps. */
 .mt-lg-6 { margin-top: 4rem; }
@@ -2055,14 +2216,14 @@ body.andromeda-site {
 /* ============================================================
  * 21. Maintenance mode
  * ============================================================ */
-body.andromeda-maintenance {
+body.innovare-maintenance {
 	min-height: 100vh;
 	background:
 		radial-gradient(circle at top right, rgba(43, 182, 255, .12), transparent 42%),
 		linear-gradient(180deg, var(--al-bg-alt) 0%, var(--al-bg) 100%);
 }
 
-.andromeda-maintenance-shell {
+.innovare-maintenance-shell {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
@@ -2070,7 +2231,7 @@ body.andromeda-maintenance {
 	padding: 2rem 1rem;
 }
 
-.andromeda-maintenance-card {
+.innovare-maintenance-card {
 	width: min(100%, 42rem);
 	padding: clamp(2rem, 5vw, 3rem);
 	background: var(--al-bg);
@@ -2080,19 +2241,19 @@ body.andromeda-maintenance {
 	text-align: center;
 }
 
-.andromeda-maintenance-brand {
+.innovare-maintenance-brand {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 1.5rem;
 }
 
-.andromeda-maintenance-brand .custom-logo,
-.andromeda-maintenance-brand .andromeda-brand-img {
+.innovare-maintenance-brand .custom-logo,
+.innovare-maintenance-brand .innovare-brand-img {
 	max-height: 56px;
 	width: auto;
 }
 
-.andromeda-maintenance-eyebrow {
+.innovare-maintenance-eyebrow {
 	display: inline-block;
 	margin: 0 0 .75rem;
 	font-size: .78rem;
@@ -2102,18 +2263,18 @@ body.andromeda-maintenance {
 	color: var(--al-blue);
 }
 
-.andromeda-maintenance-title {
+.innovare-maintenance-title {
 	margin: 0 0 1rem;
 	font-size: clamp(1.75rem, 4vw, 2.35rem);
 }
 
-.andromeda-maintenance-message {
+.innovare-maintenance-message {
 	margin: 0 auto 1.5rem;
 	max-width: 42ch;
 	color: var(--al-muted);
 }
 
-.andromeda-maintenance-contact {
+.innovare-maintenance-contact {
 	list-style: none;
 	padding: 0;
 	margin: 0 0 1.25rem;
@@ -2124,26 +2285,39 @@ body.andromeda-maintenance {
 	color: var(--al-muted);
 }
 
-.andromeda-maintenance-contact li {
+.innovare-maintenance-contact li {
 	display: flex;
 	align-items: center;
 	gap: .55rem;
 }
 
-.andromeda-maintenance-contact i {
+.innovare-maintenance-contact i {
 	color: var(--al-cyan);
 }
 
-.andromeda-maintenance-contact a {
+.innovare-maintenance-contact a {
 	color: var(--al-navy);
 	font-weight: 600;
 }
 
-.andromeda-maintenance-socials {
+.innovare-maintenance-socials {
 	justify-content: center;
 }
 
-#wpadminbar .andromeda-maintenance-admin-bar > .ab-item {
+.innovare-maintenance-credit {
+	margin-top: 1.75rem;
+	margin-bottom: 0;
+	font-size: 0.8125rem;
+	color: var(--al-muted, #64748b);
+	text-align: center;
+}
+
+.innovare-maintenance-credit a {
+	color: var(--al-navy);
+	font-weight: 600;
+}
+
+#wpadminbar .innovare-maintenance-admin-bar > .ab-item {
 	background: #d63638 !important;
 	color: #fff !important;
 }
@@ -2152,9 +2326,9 @@ body.andromeda-maintenance {
  * Responsive tweaks
  * ============================================================ */
 @media (max-width: 767.98px) {
-	.andromeda-section { padding: 3rem 0; }
-	.andromeda-hero { padding: 3.5rem 0 4rem; }
-	.andromeda-page-header { padding: 3rem 0 2rem; }
+	.innovare-section { padding: 3rem 0; }
+	.innovare-hero { padding: 3.5rem 0 4rem; }
+	.innovare-page-header { padding: 3rem 0 2rem; }
 	.final-cta-card { padding: 1.75rem; }
 	.contact-meta-card, .contact-form-card { padding: 1.5rem; }
 	.solution-card, .service-card, .industry-card { padding: 1.25rem; }

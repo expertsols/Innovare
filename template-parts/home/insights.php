@@ -9,7 +9,7 @@
  * @package Innovare
  */
 
-$insights_url = andromeda_page_url( 'insights' );
+$insights_url = innovare_page_url( 'insights' );
 
 $query = new WP_Query( array(
 	'post_type'           => 'post',
@@ -39,7 +39,7 @@ $samples = array(
 	),
 );
 ?>
-<section class="andromeda-section andromeda-insights-home" aria-labelledby="insights-home-heading">
+<section class="innovare-section innovare-insights-home" aria-labelledby="insights-home-heading">
 	<div class="container">
 
 		<div class="row align-items-end mb-4 mb-lg-5 gy-3">
@@ -64,7 +64,7 @@ $samples = array(
 						<article class="insight-card">
 							<a class="insight-card-media" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'andromeda-card', array( 'loading' => 'lazy', 'class' => 'img-fluid' ) ); ?>
+									<?php the_post_thumbnail( 'innovare-card', array( 'loading' => 'lazy', 'class' => 'img-fluid' ) ); ?>
 								<?php else : ?>
 									<span class="insight-card-placeholder"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
 								<?php endif; ?>
@@ -79,7 +79,7 @@ $samples = array(
 								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
 								<div class="insight-meta">
-									<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), andromeda_reading_time( get_the_content() ) ) ); ?></span>
+									<span><i class="bi bi-clock" aria-hidden="true"></i> <?php echo esc_html( sprintf( __( '%d min read', 'innovare' ), innovare_reading_time( get_the_content() ) ) ); ?></span>
 									<span><i class="bi bi-calendar3" aria-hidden="true"></i> <?php echo esc_html( get_the_date() ); ?></span>
 								</div>
 							</div>

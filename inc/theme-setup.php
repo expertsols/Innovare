@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Declare theme support.
  */
-function andromeda_theme_setup() {
+function innovare_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'automatic-feed-links' );
@@ -26,18 +26,18 @@ function andromeda_theme_setup() {
 		'flex-width'  => true,
 	) );
 
-	add_image_size( 'andromeda-card', 720, 480, true );
-	add_image_size( 'andromeda-hero', 1920, 900, true );
-	add_image_size( 'andromeda-thumb', 480, 320, true );
+	add_image_size( 'innovare-card', 720, 480, true );
+	add_image_size( 'innovare-hero', 1920, 900, true );
+	add_image_size( 'innovare-thumb', 480, 320, true );
 
 	load_theme_textdomain( 'innovare', INNOVARE_DIR . 'languages' );
 }
-add_action( 'after_setup_theme', 'andromeda_theme_setup', 15 );
+add_action( 'after_setup_theme', 'innovare_theme_setup', 15 );
 
 /**
  * Register footer widget areas.
  */
-function andromeda_register_sidebars() {
+function innovare_register_sidebars() {
 	$columns = array(
 		'footer-1' => __( 'Footer Column 1 — Company', 'innovare' ),
 		'footer-2' => __( 'Footer Column 2 — Services', 'innovare' ),
@@ -57,15 +57,15 @@ function andromeda_register_sidebars() {
 		) );
 	}
 }
-add_action( 'widgets_init', 'andromeda_register_sidebars' );
+add_action( 'widgets_init', 'innovare_register_sidebars' );
 
 /**
  * Editor styles so the block editor matches the front-end.
  */
-function andromeda_editor_styles() {
+function innovare_editor_styles() {
 	add_editor_style( 'assets/css/editor.css' );
 }
-add_action( 'after_setup_theme', 'andromeda_editor_styles' );
+add_action( 'after_setup_theme', 'innovare_editor_styles' );
 
 /**
  * Body classes — add a marker for the front-end stylesheet.
@@ -73,22 +73,22 @@ add_action( 'after_setup_theme', 'andromeda_editor_styles' );
  * @param array $classes Body classes.
  * @return array
  */
-function andromeda_body_classes( $classes ) {
-	$classes[] = 'andromeda-site';
+function innovare_body_classes( $classes ) {
+	$classes[] = 'innovare-site';
 	$classes[] = 'innovare-theme';
 	if ( is_front_page() ) {
-		$classes[] = 'andromeda-home';
+		$classes[] = 'innovare-home';
 	}
 	return $classes;
 }
-add_filter( 'body_class', 'andromeda_body_classes' );
+add_filter( 'body_class', 'innovare_body_classes' );
 
 /**
  * Custom templates that render full-width sections (no extra theme wrapper).
  *
  * @return array
  */
-function andromeda_custom_templates() {
+function innovare_custom_templates() {
 	return array(
 		'page-templates/template-services.php',
 		'page-templates/template-solutions.php',

@@ -2,13 +2,13 @@
 /**
  * Core team section — About page.
  *
- * Data source: andromeda_get_team_members() (wp_options).
+ * Data source: innovare_get_team_members() (wp_options).
  *
  * @package Innovare
  */
 
-$core_team              = andromeda_get_team_members( true );
-$core_team_social_icons = andromeda_team_social_icons();
+$core_team              = innovare_get_team_members( true );
+$core_team_social_icons = innovare_team_social_icons();
 
 if ( empty( $core_team ) ) {
 	return;
@@ -29,7 +29,7 @@ $team_col_class  = $core_team_count > 1 ? 'col-12 col-lg-6' : 'col-12';
 			$m_name   = isset( $member['name'] ) ? $member['name'] : '';
 			$m_role   = isset( $member['role'] ) ? $member['role'] : '';
 			$m_bio    = isset( $member['bio'] ) ? $member['bio'] : '';
-			$m_photo  = andromeda_team_member_photo_url( $member );
+			$m_photo  = innovare_team_member_photo_url( $member );
 			$m_social = isset( $member['social'] ) && is_array( $member['social'] ) ? array_filter( $member['social'] ) : array();
 			?>
 			<div class="<?php echo esc_attr( $team_col_class ); ?>">

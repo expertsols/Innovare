@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return array<string, array{title: string, template: string, content: string}>
  */
-function andromeda_legal_page_definitions() {
+function innovare_legal_page_definitions() {
 	return array(
 		'privacy' => array(
 			'title'    => __( 'Privacy Policy', 'innovare' ),
@@ -40,14 +40,14 @@ function andromeda_legal_page_definitions() {
 /**
  * Rename legacy `privacy-policy` slug to `privacy` so the site uses /privacy/.
  */
-function andromeda_migrate_privacy_page_slug() {
-	if ( wp_installing() || get_option( 'andromeda_privacy_slug_migrated_v1', false ) ) {
+function innovare_migrate_privacy_page_slug() {
+	if ( wp_installing() || get_option( 'innovare_privacy_slug_migrated_v1', false ) ) {
 		return;
 	}
 
 	$privacy = get_page_by_path( 'privacy', OBJECT, 'page' );
 	if ( $privacy && 'publish' === $privacy->post_status ) {
-		update_option( 'andromeda_privacy_slug_migrated_v1', true, false );
+		update_option( 'innovare_privacy_slug_migrated_v1', true, false );
 		return;
 	}
 
@@ -61,18 +61,18 @@ function andromeda_migrate_privacy_page_slug() {
 		);
 	}
 
-	update_option( 'andromeda_privacy_slug_migrated_v1', true, false );
+	update_option( 'innovare_privacy_slug_migrated_v1', true, false );
 }
 
 /**
  * Create published legal pages when missing (not in trash).
  */
-function andromeda_ensure_legal_pages() {
+function innovare_ensure_legal_pages() {
 	if ( wp_installing() ) {
 		return;
 	}
 
-	$definitions = andromeda_legal_page_definitions();
+	$definitions = innovare_legal_page_definitions();
 	$slugs       = array_keys( $definitions );
 
 	$existing = get_posts(
@@ -124,8 +124,8 @@ function andromeda_ensure_legal_pages() {
 /**
  * Create /solutions/<slug>/ child pages for each entry in solutions data.
  */
-function andromeda_ensure_solution_detail_pages() {
-	if ( wp_installing() || ! function_exists( 'andromeda_get_solutions' ) ) {
+function innovare_ensure_solution_detail_pages() {
+	if ( wp_installing() || ! function_exists( 'innovare_get_solutions' ) ) {
 		return;
 	}
 
@@ -135,7 +135,7 @@ function andromeda_ensure_solution_detail_pages() {
 	}
 
 	$parent_id = (int) $parent->ID;
-	$solutions = andromeda_get_solutions();
+	$solutions = innovare_get_solutions();
 	if ( empty( $solutions ) || ! is_array( $solutions ) ) {
 		return;
 	}
@@ -167,7 +167,7 @@ function andromeda_ensure_solution_detail_pages() {
 		}
 
 		$title = isset( $data['title'] ) ? $data['title'] : $slug;
-		$stub  = '<!-- ' . __( 'Innovate solution detail — primary copy is maintained in the theme. Add optional long-form content here.', 'innovare' ) . ' -->';
+		$stub  = '<!-- ' . __( 'Innovare solution detail — primary copy is maintained in the theme. Add optional long-form content here.', 'innovare' ) . ' -->';
 
 		if ( ! empty( $have[ $slug ] ) ) {
 			$post_id = (int) $have[ $slug ];
@@ -213,14 +213,14 @@ function andromeda_ensure_solution_detail_pages() {
 		}
 
 		update_post_meta( (int) $post_id, '_wp_page_template', $detail_template );
-		update_post_meta( (int) $post_id, '_andromeda_bootstrap_page', 'v1' );
+		update_post_meta( (int) $post_id, '_innovare_bootstrap_page', 'v1' );
 	}
 }
 
 /**
  * Point WordPress “Privacy Policy page” at the published /privacy/ page when unset or broken.
  */
-function andromeda_sync_privacy_policy_option() {
+function innovare_sync_privacy_policy_option() {
 	if ( wp_installing() ) {
 		return;
 	}
@@ -239,26 +239,26 @@ function andromeda_sync_privacy_policy_option() {
 /**
  * One hook: legal pages, solution children, then privacy option.
  */
-function andromeda_bootstrap_core_pages() {
+function innovare_bootstrap_core_pages() {
 	static $done = false;
 	if ( $done || wp_installing() ) {
 		return;
 	}
 	$done = true;
 
-	andromeda_migrate_privacy_page_slug();
-	andromeda_ensure_legal_pages();
-	andromeda_ensure_solution_detail_pages();
-	andromeda_sync_privacy_policy_option();
+	innovare_migrate_privacy_page_slug();
+	innovare_ensure_legal_pages();
+	innovare_ensure_solution_detail_pages();
+	innovare_sync_privacy_policy_option();
 }
-add_action( 'init', 'andromeda_bootstrap_core_pages', 20 );
+add_action( 'init', 'innovare_bootstrap_core_pages', 20 );
 
 /**
  * Remove obsolete option from older theme versions (it could block creation).
  */
-function andromeda_remove_stale_legal_seed_flag() {
-	if ( get_option( 'andromeda_seed_legal_pages_done', false ) ) {
-		delete_option( 'andromeda_seed_legal_pages_done' );
+function innovare_remove_stale_legal_seed_flag() {
+	if ( get_option( 'innovare_seed_legal_pages_done', false ) ) {
+		delete_option( 'innovare_seed_legal_pages_done' );
 	}
 }
-add_action( 'init', 'andromeda_remove_stale_legal_seed_flag', 5 );
+add_action( 'init', 'innovare_remove_stale_legal_seed_flag', 5 );

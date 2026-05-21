@@ -12,26 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register Innovate contact + social sections.
+ * Register Innovare contact + social sections.
  *
  * @param WP_Customize_Manager $wp_customize Customizer instance.
  */
-function andromeda_customizer_register( $wp_customize ) {
+function innovare_customizer_register( $wp_customize ) {
 
-	$mod_defaults = andromeda_theme_mod_defaults();
+	$mod_defaults = innovare_theme_mod_defaults();
 
-	$wp_customize->add_section( 'andromeda_contact_section', array(
-		'title'    => __( 'Innovate — Contact', 'innovare' ),
+	$wp_customize->add_section( 'innovare_contact_section', array(
+		'title'    => __( 'Innovare — Contact', 'innovare' ),
 		'priority' => 30,
 	) );
 
 	$contact_fields = array(
-		'andromeda_contact_phone'    => array( 'label' => __( 'Phone Number', 'innovare' ),    'default' => $mod_defaults['andromeda_contact_phone'] ),
-		'andromeda_contact_email'    => array( 'label' => __( 'Email Address', 'innovare' ),   'default' => $mod_defaults['andromeda_contact_email'] ),
-		'andromeda_contact_whatsapp' => array( 'label' => __( 'WhatsApp Number', 'innovare' ), 'default' => $mod_defaults['andromeda_contact_whatsapp'] ),
-		'andromeda_contact_hours'    => array( 'label' => __( 'Working Hours', 'innovare' ),   'default' => $mod_defaults['andromeda_contact_hours'] ),
-		'andromeda_contact_address'  => array( 'label' => __( 'Address', 'innovare' ),         'default' => $mod_defaults['andromeda_contact_address'] ),
-		'andromeda_contact_map'      => array( 'label' => __( 'Google Maps Embed URL', 'innovare' ), 'default' => $mod_defaults['andromeda_contact_map'] ),
+		'innovare_contact_phone'    => array( 'label' => __( 'Phone Number', 'innovare' ),    'default' => $mod_defaults['innovare_contact_phone'] ),
+		'innovare_contact_email'    => array( 'label' => __( 'Email Address', 'innovare' ),   'default' => $mod_defaults['innovare_contact_email'] ),
+		'innovare_contact_whatsapp' => array( 'label' => __( 'WhatsApp Number', 'innovare' ), 'default' => $mod_defaults['innovare_contact_whatsapp'] ),
+		'innovare_contact_hours'    => array( 'label' => __( 'Working Hours', 'innovare' ),   'default' => $mod_defaults['innovare_contact_hours'] ),
+		'innovare_contact_address'  => array( 'label' => __( 'Address', 'innovare' ),         'default' => $mod_defaults['innovare_contact_address'] ),
+		'innovare_contact_map'      => array( 'label' => __( 'Google Maps Embed URL', 'innovare' ), 'default' => $mod_defaults['innovare_contact_map'] ),
 	);
 
 	foreach ( $contact_fields as $id => $cfg ) {
@@ -42,22 +42,22 @@ function andromeda_customizer_register( $wp_customize ) {
 		) );
 		$wp_customize->add_control( $id, array(
 			'label'   => $cfg['label'],
-			'section' => 'andromeda_contact_section',
+			'section' => 'innovare_contact_section',
 			'type'    => 'text',
 		) );
 	}
 
-	$wp_customize->add_section( 'andromeda_social_section', array(
-		'title'    => __( 'Innovate — Social Links', 'innovare' ),
+	$wp_customize->add_section( 'innovare_social_section', array(
+		'title'    => __( 'Innovare — Social Links', 'innovare' ),
 		'priority' => 31,
 	) );
 
 	$socials = array(
-		'andromeda_social_facebook'  => array( 'label' => __( 'Facebook URL', 'innovare' ),   'default' => $mod_defaults['andromeda_social_facebook'] ),
-		'andromeda_social_linkedin'  => array( 'label' => __( 'LinkedIn URL', 'innovare' ),   'default' => $mod_defaults['andromeda_social_linkedin'] ),
-		'andromeda_social_instagram' => array( 'label' => __( 'Instagram URL', 'innovare' ),  'default' => $mod_defaults['andromeda_social_instagram'] ),
-		'andromeda_social_tiktok'    => array( 'label' => __( 'TikTok URL', 'innovare' ),     'default' => $mod_defaults['andromeda_social_tiktok'] ),
-		'andromeda_social_twitter'   => array( 'label' => __( 'X / Twitter URL', 'innovare' ), 'default' => $mod_defaults['andromeda_social_twitter'] ),
+		'innovare_social_facebook'  => array( 'label' => __( 'Facebook URL', 'innovare' ),   'default' => $mod_defaults['innovare_social_facebook'] ),
+		'innovare_social_linkedin'  => array( 'label' => __( 'LinkedIn URL', 'innovare' ),   'default' => $mod_defaults['innovare_social_linkedin'] ),
+		'innovare_social_instagram' => array( 'label' => __( 'Instagram URL', 'innovare' ),  'default' => $mod_defaults['innovare_social_instagram'] ),
+		'innovare_social_tiktok'    => array( 'label' => __( 'TikTok URL', 'innovare' ),     'default' => $mod_defaults['innovare_social_tiktok'] ),
+		'innovare_social_twitter'   => array( 'label' => __( 'X / Twitter URL', 'innovare' ), 'default' => $mod_defaults['innovare_social_twitter'] ),
 	);
 
 	foreach ( $socials as $id => $cfg ) {
@@ -68,41 +68,41 @@ function andromeda_customizer_register( $wp_customize ) {
 		) );
 		$wp_customize->add_control( $id, array(
 			'label'   => $cfg['label'],
-			'section' => 'andromeda_social_section',
+			'section' => 'innovare_social_section',
 			'type'    => 'url',
 		) );
 	}
 
-	$maintenance_defaults = andromeda_maintenance_defaults();
+	$maintenance_defaults = innovare_maintenance_defaults();
 
 	$wp_customize->add_section(
-		'andromeda_maintenance_section',
+		'innovare_maintenance_section',
 		array(
-			'title'       => __( 'Innovate — Maintenance', 'innovare' ),
-			'description' => __( 'Show a branded maintenance page (HTTP 503) to public visitors. Administrators can still browse and edit the site. Preview: add ?andromeda_maintenance_preview=1 to any front-end URL while logged in.', 'innovare' ),
+			'title'       => __( 'Innovare — Maintenance', 'innovare' ),
+			'description' => __( 'Show a branded maintenance page (HTTP 503) to public visitors. Administrators can still browse and edit the site. Preview: add ?innovare_maintenance_preview=1 to any front-end URL while logged in.', 'innovare' ),
 			'priority'    => 32,
 		)
 	);
 
 	$wp_customize->add_setting(
-		'andromeda_maintenance_mode',
+		'innovare_maintenance_mode',
 		array(
 			'default'           => false,
-			'sanitize_callback' => 'andromeda_sanitize_checkbox',
+			'sanitize_callback' => 'innovare_sanitize_checkbox',
 			'transport'         => 'refresh',
 		)
 	);
 	$wp_customize->add_control(
-		'andromeda_maintenance_mode',
+		'innovare_maintenance_mode',
 		array(
 			'label'   => __( 'Enable maintenance mode', 'innovare' ),
-			'section' => 'andromeda_maintenance_section',
+			'section' => 'innovare_maintenance_section',
 			'type'    => 'checkbox',
 		)
 	);
 
 	$wp_customize->add_setting(
-		'andromeda_maintenance_heading',
+		'innovare_maintenance_heading',
 		array(
 			'default'           => $maintenance_defaults['heading'],
 			'sanitize_callback' => 'sanitize_text_field',
@@ -110,16 +110,16 @@ function andromeda_customizer_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control(
-		'andromeda_maintenance_heading',
+		'innovare_maintenance_heading',
 		array(
 			'label'   => __( 'Maintenance heading', 'innovare' ),
-			'section' => 'andromeda_maintenance_section',
+			'section' => 'innovare_maintenance_section',
 			'type'    => 'text',
 		)
 	);
 
 	$wp_customize->add_setting(
-		'andromeda_maintenance_message',
+		'innovare_maintenance_message',
 		array(
 			'default'           => $maintenance_defaults['message'],
 			'sanitize_callback' => 'sanitize_textarea_field',
@@ -127,10 +127,10 @@ function andromeda_customizer_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control(
-		'andromeda_maintenance_message',
+		'innovare_maintenance_message',
 		array(
 			'label'   => __( 'Maintenance message', 'innovare' ),
-			'section' => 'andromeda_maintenance_section',
+			'section' => 'innovare_maintenance_section',
 			'type'    => 'textarea',
 		)
 	);
@@ -142,7 +142,7 @@ function andromeda_customizer_register( $wp_customize ) {
  * @param mixed $value Raw value.
  * @return bool
  */
-function andromeda_sanitize_checkbox( $value ) {
+function innovare_sanitize_checkbox( $value ) {
 	return (bool) $value;
 }
-add_action( 'customize_register', 'andromeda_customizer_register' );
+add_action( 'customize_register', 'innovare_customizer_register' );

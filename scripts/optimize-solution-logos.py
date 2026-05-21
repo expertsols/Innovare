@@ -4,6 +4,8 @@ Crop and resize solution brand logos to fit the aside brand box (360×72).
 
 Run from theme root:
   python scripts/optimize-solution-logos.py
+
+Add logo files under assets/images/solutions/ and extend this script as needed.
 """
 
 from __future__ import annotations
@@ -28,148 +30,66 @@ def content_bbox(im: Image.Image, dark_threshold: int = 42) -> tuple[int, int, i
     rgba = im.convert("RGBA")
     w, h = rgba.size
     px = rgba.load()
-    mask = Image.new("L", (w, h), 0)
-    mpx = mask.load()
-
+    min_x, min_y, max_x, max_y = w, h, 0, 0
+    found = False
     for y in range(h):
         for x in range(w):
             r, g, b, a = px[x, y]
-            if a < 16:
+            if a < 10:
                 continue
-            lum = _luminance(r, g, b)
-            if lum > dark_threshold:
-                mpx[x, y] = 255
+            if _luminance(r, g, b) <= dark_threshold:
                 continue
-            # Colored marks (blue/cyan/orange) on dark backgrounds.
-            if max(r, g, b) - min(r, g, b) > 22 and max(r, g, b) > 50:
-                mpx[x, y] = 255
-                continue
-            # Light cyan bar-chart fills.
-            if b > 90 and g > 70 and r < 120:
-                mpx[x, y] = 255
-
-    bbox = mask.getbbox()
-    if bbox:
-        return bbox
-    return rgba.getbbox() or (0, 0, w, h)
-
-
-def flatten_dark_to_white(im: Image.Image, threshold: int = 88) -> Image.Image:
-    """Replace dark backgrounds with white (for JPEG logos)."""
-    rgb = im.convert("RGB")
-    px = rgb.load()
-    w, h = rgb.size
-    for y in range(h):
-        for x in range(w):
-            r, g, b = px[x, y]
-            lum = _luminance(r, g, b)
-            chroma = max(r, g, b) - min(r, g, b)
-            if lum < threshold and chroma < 36:
-                px[x, y] = (255, 255, 255)
-    return rgb
+            found = True
+            min_x = min(min_x, x)
+            min_y = min(min_y, y)
+            max_x = max(max_x, x)
+            max_y = max(max_y, y)
+    if not found:
+        return (0, 0, w, h)
+    return (min_x, min_y, max_x + 1, max_y + 1)
 
 
 def fit_on_canvas(
     im: Image.Image,
-    canvas_w: int,
-    canvas_h: int,
+    width: int,
+    height: int,
     padding: int,
-    bg: tuple[int, ...],
-    transparent: bool,
+    bg_rgb: tuple[int, int, int],
+    transparent: bool = False,
 ) -> Image.Image:
-    crop = im.crop(content_bbox(im))
-    inner_w = max(canvas_w - padding * 2, 1)
-    inner_h = max(canvas_h - padding * 2, 1)
-    scale = min(inner_w / crop.width, inner_h / crop.height)
-    new_w = max(1, int(round(crop.width * scale)))
-    new_h = max(1, int(round(crop.height * scale)))
-    resized = crop.resize((new_w, new_h), Image.Resampling.LANCZOS)
-
+    bbox = content_bbox(im)
+    cropped = im.crop(bbox)
+    inner_w = width - 2 * padding
+    inner_h = height - 2 * padding
+    cropped.thumbnail((inner_w, inner_h), Image.Resampling.LANCZOS)
+    mode = "RGBA" if transparent else "RGB"
+    canvas = Image.new(mode, (width, height), (0, 0, 0, 0) if transparent else bg_rgb)
+    x = (width - cropped.width) // 2
+    y = (height - cropped.height) // 2
     if transparent:
-        canvas = Image.new("RGBA", (canvas_w, canvas_h), (0, 0, 0, 0))
-        if resized.mode != "RGBA":
-            resized = resized.convert("RGBA")
+        canvas.paste(cropped, (x, y), cropped if cropped.mode == "RGBA" else None)
     else:
-        canvas = Image.new("RGB", (canvas_w, canvas_h), bg[:3])
-
-    x = (canvas_w - new_w) // 2
-    y = (canvas_h - new_h) // 2
-    if transparent:
-        canvas.paste(resized, (x, y), resized)
-    else:
-        if resized.mode == "RGBA":
-            flat = Image.new("RGB", resized.size, bg[:3])
-            flat.paste(resized, mask=resized.split()[3])
-            resized = flat
-        else:
-            resized = resized.convert("RGB")
-        canvas.paste(resized, (x, y))
-
+        canvas.paste(cropped, (x, y))
     return canvas
 
 
-def knock_out_dark_background(im: Image.Image, threshold: int = 40) -> Image.Image:
-    rgba = im.convert("RGBA")
-    px = rgba.load()
-    w, h = rgba.size
-    for y in range(h):
-        for x in range(w):
-            r, g, b, a = px[x, y]
-            if a == 0:
-                continue
-            if _luminance(r, g, b) <= threshold and max(r, g, b) - min(r, g, b) < 24:
-                px[x, y] = (r, g, b, 0)
-    return rgba
-
-
-def process_skilledim() -> None:
-    src = SOLUTIONS_DIR / "skilledim-logo.png"
-    backup = SOLUTIONS_DIR / "skilledim-logo.source.png"
+def process_logo(filename: str, transparent: bool = True) -> None:
+    src = SOLUTIONS_DIR / filename
     if not src.exists():
         print(f"Skip: {src} not found")
         return
-
-    if not backup.exists():
-        Image.open(src).save(backup, format="PNG")
-
-    if src.exists():
-        existing = Image.open(src)
-        if existing.size == (TARGET_W, TARGET_H):
-            print(f"Skip: {src.name} already {TARGET_W}x{TARGET_H}")
-            return
-
-    im = Image.open(backup)
-    im = knock_out_dark_background(im)
-    out = fit_on_canvas(im, TARGET_W, TARGET_H, PADDING, (255, 255, 255), transparent=True)
-    out.save(src, format="PNG", optimize=True)
-    print(f"Updated {src.name}: {load_from.stat().st_size} bytes source -> {TARGET_W}x{TARGET_H} canvas")
-
-
-def process_silver() -> None:
-    src = SOLUTIONS_DIR / "silver-accounting-logo.jpeg"
-    backup = SOLUTIONS_DIR / "silver-accounting-logo.source.jpeg"
-    if not src.exists():
-        print(f"Skip: {src} not found")
-        return
-
-    # Re-read from backup if re-running so crop stays tight.
-    load_from = backup if backup.exists() else src
-    if not backup.exists():
-        Image.open(src).save(backup, format="JPEG", quality=95)
-
-    im = Image.open(load_from)
-    im = flatten_dark_to_white(im, threshold=92)
-    out = fit_on_canvas(im, TARGET_W, TARGET_H, PADDING, (255, 255, 255), transparent=False)
-    out.save(src, format="JPEG", quality=92, optimize=True)
-    print(f"Updated {src.name}: {im.size[0]}x{im.size[1]} source -> {TARGET_W}x{TARGET_H} canvas")
+    im = Image.open(src)
+    out = fit_on_canvas(im, TARGET_W, TARGET_H, PADDING, (255, 255, 255), transparent=transparent)
+    fmt = "PNG" if src.suffix.lower() == ".png" else "JPEG"
+    out.save(src, format=fmt, optimize=True)
+    print(f"Updated {src.name} -> {TARGET_W}x{TARGET_H}")
 
 
 def main() -> int:
     if not SOLUTIONS_DIR.is_dir():
         print(f"Missing directory: {SOLUTIONS_DIR}", file=sys.stderr)
         return 1
-    process_skilledim()
-    process_silver()
+    print("No bundled solution logos to process. Add files under assets/images/solutions/ and call process_logo().")
     return 0
 
 

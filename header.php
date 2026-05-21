@@ -18,22 +18,22 @@
 
 <a class="visually-hidden-focusable skip-link" href="#site-content"><?php esc_html_e( 'Skip to content', 'innovare' ); ?></a>
 
-<header id="masthead" class="site-header andromeda-header">
+<header id="masthead" class="site-header innovare-header">
 
-	<?php andromeda_topbar(); ?>
+	<?php innovare_topbar(); ?>
 
-	<nav class="navbar navbar-expand-lg andromeda-navbar" aria-label="<?php esc_attr_e( 'Primary navigation', 'innovare' ); ?>">
+	<nav class="navbar navbar-expand-lg innovare-navbar" aria-label="<?php esc_attr_e( 'Primary navigation', 'innovare' ); ?>">
 		<div class="container">
 
 			<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<?php andromeda_brand_logo( 'navbar' ); ?>
+				<?php innovare_brand_logo( 'navbar' ); ?>
 			</a>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#andromeda-primary-nav" aria-controls="andromeda-primary-nav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'innovare' ); ?>">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#innovare-primary-nav" aria-controls="innovare-primary-nav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'innovare' ); ?>">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="andromeda-primary-nav">
+			<div class="collapse navbar-collapse" id="innovare-primary-nav">
 				<?php
 				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu( array(
@@ -41,16 +41,16 @@
 						'container'       => false,
 						'menu_id'         => 'primary-menu',
 						'menu_class'      => 'navbar-nav ms-auto mb-2 mb-lg-0',
-						'fallback_cb'     => array( 'Andromeda_Bootstrap_Nav_Walker', 'fallback' ),
-						'walker'          => new Andromeda_Bootstrap_Nav_Walker(),
+						'fallback_cb'     => array( 'Innovare_Bootstrap_Nav_Walker', 'fallback' ),
+						'walker'          => new Innovare_Bootstrap_Nav_Walker(),
 						'depth'           => 2,
 					) );
 				} else {
-					Andromeda_Bootstrap_Nav_Walker::fallback( array() );
+					Innovare_Bootstrap_Nav_Walker::fallback( array() );
 				}
 				?>
 				<div class="navbar-cta">
-					<a class="btn btn-primary btn-sm rounded-pill px-3" href="<?php echo esc_url( andromeda_page_url( 'contact' ) ); ?>?type=quote">
+					<a class="btn btn-primary btn-sm rounded-pill px-3" href="<?php echo esc_url( innovare_page_url( 'contact' ) ); ?>?type=quote">
 						<?php esc_html_e( 'Get a Quote', 'innovare' ); ?>
 						<i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
 					</a>
@@ -61,4 +61,4 @@
 
 </header>
 
-<main id="site-content" class="site-main andromeda-main">
+<main id="site-content" class="site-main innovare-main">

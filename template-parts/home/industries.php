@@ -16,7 +16,7 @@ $industries = array(
 	array( 'icon' => 'sme',           'title' => __( 'SMEs', 'innovare' ),              'desc' => __( 'Right-sized IT with predictable cost, real accountability and room to grow.', 'innovare' ) ),
 );
 ?>
-<section class="andromeda-section andromeda-industries" aria-labelledby="industries-heading">
+<section class="innovare-section innovare-industries" aria-labelledby="industries-heading">
 	<div class="container">
 
 		<div class="section-heading">
@@ -29,7 +29,7 @@ $industries = array(
 			<?php foreach ( $industries as $i ) : ?>
 				<div class="col-sm-6 col-lg-4">
 					<div class="industry-card">
-						<span class="industry-card-icon"><?php andromeda_icon( $i['icon'] ); ?></span>
+						<span class="industry-card-icon"><?php innovare_icon( $i['icon'] ); ?></span>
 						<div>
 							<h3 class="industry-card-title"><?php echo esc_html( $i['title'] ); ?></h3>
 							<p class="industry-card-desc"><?php echo esc_html( $i['desc'] ); ?></p>

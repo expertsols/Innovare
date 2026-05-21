@@ -8,25 +8,25 @@
 get_header();
 ?>
 
-<section class="andromeda-section andromeda-generic-page">
+<section class="innovare-section innovare-generic-page">
 	<div class="container">
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article id="page-<?php the_ID(); ?>" <?php post_class( 'andromeda-article' ); ?>>
-				<header class="andromeda-article-header">
-					<h1 class="andromeda-article-title"><?php the_title(); ?></h1>
+			<article id="page-<?php the_ID(); ?>" <?php post_class( 'innovare-article' ); ?>>
+				<header class="innovare-article-header">
+					<h1 class="innovare-article-title"><?php the_title(); ?></h1>
 				</header>
 
 				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="andromeda-article-thumb mb-4">
-						<?php the_post_thumbnail( 'andromeda-hero', array( 'loading' => 'eager', 'class' => 'img-fluid rounded-4' ) ); ?>
+					<div class="innovare-article-thumb mb-4">
+						<?php the_post_thumbnail( 'innovare-hero', array( 'loading' => 'eager', 'class' => 'img-fluid rounded-4' ) ); ?>
 					</div>
 				<?php endif; ?>
 
-				<div class="andromeda-article-content entry-content">
+				<div class="innovare-article-content entry-content">
 					<?php the_content(); ?>
 					<?php
 					wp_link_pages( array(
-						'before' => '<nav class="andromeda-link-pages">' . esc_html__( 'Pages:', 'innovare' ),
+						'before' => '<nav class="innovare-link-pages">' . esc_html__( 'Pages:', 'innovare' ),
 						'after'  => '</nav>',
 					) );
 					?>

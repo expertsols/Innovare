@@ -7,7 +7,7 @@
 
 get_header();
 
-andromeda_page_header(
+innovare_page_header(
 	__( 'Search', 'innovare' ),
 	/* translators: search keyword */
 	sprintf( __( 'Results for: %s', 'innovare' ), esc_html( get_search_query() ) ),
@@ -15,7 +15,7 @@ andromeda_page_header(
 );
 ?>
 
-<section class="andromeda-section">
+<section class="innovare-section">
 	<div class="container">
 
 		<div class="row mb-4">
@@ -31,7 +31,7 @@ andromeda_page_header(
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'insight-card' ); ?>>
 							<a class="insight-card-media" href="<?php the_permalink(); ?>">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'andromeda-card', array( 'loading' => 'lazy', 'class' => 'img-fluid' ) ); ?>
+									<?php the_post_thumbnail( 'innovare-card', array( 'loading' => 'lazy', 'class' => 'img-fluid' ) ); ?>
 								<?php else : ?>
 									<span class="insight-card-placeholder"><i class="bi bi-search" aria-hidden="true"></i></span>
 								<?php endif; ?>
@@ -44,14 +44,14 @@ andromeda_page_header(
 					</div>
 				<?php endwhile; ?>
 			</div>
-			<nav class="andromeda-pagination" aria-label="<?php esc_attr_e( 'Posts navigation', 'innovare' ); ?>">
+			<nav class="innovare-pagination" aria-label="<?php esc_attr_e( 'Posts navigation', 'innovare' ); ?>">
 				<?php the_posts_pagination(); ?>
 			</nav>
 		<?php else : ?>
-			<div class="andromeda-empty text-center py-5">
+			<div class="innovare-empty text-center py-5">
 				<h2><?php esc_html_e( 'No results matched your search', 'innovare' ); ?></h2>
 				<p><?php esc_html_e( 'Try different keywords or browse our services.', 'innovare' ); ?></p>
-				<a class="btn btn-primary" href="<?php echo esc_url( andromeda_page_url( 'services' ) ); ?>"><?php esc_html_e( 'See services', 'innovare' ); ?></a>
+				<a class="btn btn-primary" href="<?php echo esc_url( innovare_page_url( 'services' ) ); ?>"><?php esc_html_e( 'See services', 'innovare' ); ?></a>
 			</div>
 		<?php endif; ?>
 

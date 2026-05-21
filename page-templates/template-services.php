@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovate — Services
+ * Template Name: Innovare — Services
  *
  * Enterprise IT services catalogue. Leads with a visual "Technology Procurement"
  * feature (4 vendor-category tiles + a 4-step workflow strip), then the four
@@ -166,7 +166,7 @@ $procurement_flow = array(
 	array( 'step' => '04', 'icon' => 'support',    'title' => __( 'Support', 'innovare' ),   'desc' => __( 'Warranty, replacements and lifecycle care.', 'innovare' ) ),
 );
 
-andromeda_page_header(
+innovare_page_header(
 	__( 'Services', 'innovare' ),
 	__( 'A complete IT services catalogue for modern businesses', 'innovare' ),
 	__( 'From helpdesk through to architecture — one accountable partner for the operational and strategic work behind your technology.', 'innovare' )
@@ -213,7 +213,7 @@ $contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/con
 						</div>
 						<div class="procurement-flow-body">
 							<div class="procurement-flow-title">
-								<?php andromeda_icon( $step['icon'] ); ?>
+								<?php innovare_icon( $step['icon'] ); ?>
 								<strong><?php echo esc_html( $step['title'] ); ?></strong>
 							</div>
 							<p><?php echo esc_html( $step['desc'] ); ?></p>
@@ -305,7 +305,7 @@ $contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/con
 	</div>
 </section>
 
-<section class="andromeda-section andromeda-services-page">
+<section class="innovare-section innovare-services-page">
 	<div class="container">
 
 		<?php foreach ( $groups as $g ) : ?>
@@ -325,7 +325,7 @@ $contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/con
 				<div class="row align-items-start gx-lg-5 gy-4">
 					<div class="col-lg-4">
 						<div class="service-group-head">
-							<span class="service-group-icon"><?php andromeda_icon( $g['icon'] ); ?></span>
+							<span class="service-group-icon"><?php innovare_icon( $g['icon'] ); ?></span>
 							<h2><?php echo esc_html( $g['title'] ); ?></h2>
 							<p><?php echo esc_html( $g['intro'] ); ?></p>
 							<a class="service-group-cta" href="<?php echo esc_url( $cta_url ); ?>" aria-label="<?php echo esc_attr( $cta_aria ); ?>">

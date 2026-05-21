@@ -4,7 +4,7 @@
  *
  * Social media here is operational proof of real on-site infrastructure work,
  * not a decorative footer block. Connects to Facebook, LinkedIn, Instagram,
- * TikTok and X/Twitter (configured via Customizer → Innovate — Social Links).
+ * TikTok and X/Twitter (configured via Customizer → Innovare — Social Links).
  *
  * @package Innovare
  */
@@ -18,7 +18,7 @@ $tiles = array(
 	array( 'icon' => 'infrastructure', 'title' => __( 'Server & Network Work', 'innovare' ),      'desc' => __( 'Behind-the-scenes engineering that keeps systems stable.', 'innovare' ) ),
 );
 ?>
-<section class="andromeda-section andromeda-social-proof" aria-labelledby="follow-heading">
+<section class="innovare-section innovare-social-proof" aria-labelledby="follow-heading">
 	<div class="container">
 
 		<div class="row align-items-end mb-4 mb-lg-5 gy-3">
@@ -28,7 +28,7 @@ $tiles = array(
 				<p class="mb-0"><?php esc_html_e( 'We publish operational updates, deployment snapshots and field notes from real customer environments. Follow us to see how an engineering-led IT team actually operates.', 'innovare' ); ?></p>
 			</div>
 			<div class="col-lg-4 text-lg-end">
-				<?php andromeda_social_icons( 'social-proof-icons' ); ?>
+				<?php innovare_social_icons( 'social-proof-icons' ); ?>
 			</div>
 		</div>
 
@@ -37,7 +37,7 @@ $tiles = array(
 				<div class="col-sm-6 col-lg-4">
 					<div class="proof-card">
 						<div class="proof-card-media">
-							<?php andromeda_icon( $tile['icon'] ); ?>
+							<?php innovare_icon( $tile['icon'] ); ?>
 						</div>
 						<div class="proof-card-body">
 							<h3 class="proof-card-title"><?php echo esc_html( $tile['title'] ); ?></h3>

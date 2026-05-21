@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return string[]
  */
-function andromeda_footer_column_sidebar_ids() {
+function innovare_footer_column_sidebar_ids() {
 	return array( 'footer-1', 'footer-2', 'footer-3', 'footer-4' );
 }
 
@@ -23,7 +23,7 @@ function andromeda_footer_column_sidebar_ids() {
  *
  * @return string[]
  */
-function andromeda_legacy_footer_widget_markers() {
+function innovare_legacy_footer_widget_markers() {
 	return array(
 		'Top Notch',
 		'MP_EMMET',
@@ -42,7 +42,7 @@ function andromeda_legacy_footer_widget_markers() {
  *
  * @return string[]
  */
-function andromeda_legacy_footer_widget_bases() {
+function innovare_legacy_footer_widget_bases() {
 	return array(
 		'theme-about',
 		'theme_about',
@@ -63,7 +63,7 @@ function andromeda_legacy_footer_widget_bases() {
  * @param string $widget_id Widget instance ID (e.g. theme-about-3).
  * @return array{0: string, 1: int}|null
  */
-function andromeda_parse_sidebar_widget_id( $widget_id ) {
+function innovare_parse_sidebar_widget_id( $widget_id ) {
 	if ( ! preg_match( '/^(.+)-(\d+)$/', (string) $widget_id, $matches ) ) {
 		return null;
 	}
@@ -78,8 +78,8 @@ function andromeda_parse_sidebar_widget_id( $widget_id ) {
  * @param string[] $markers   Legacy strings to detect.
  * @return bool
  */
-function andromeda_widget_has_legacy_marker( $widget_id, $markers ) {
-	$parsed = andromeda_parse_sidebar_widget_id( $widget_id );
+function innovare_widget_has_legacy_marker( $widget_id, $markers ) {
+	$parsed = innovare_parse_sidebar_widget_id( $widget_id );
 	if ( ! $parsed ) {
 		return false;
 	}
@@ -111,15 +111,15 @@ function andromeda_widget_has_legacy_marker( $widget_id, $markers ) {
  * @param string $widget_id Widget instance ID.
  * @return bool
  */
-function andromeda_widget_is_legacy_footer_widget( $widget_id ) {
-	$parsed = andromeda_parse_sidebar_widget_id( $widget_id );
+function innovare_widget_is_legacy_footer_widget( $widget_id ) {
+	$parsed = innovare_parse_sidebar_widget_id( $widget_id );
 	if ( ! $parsed ) {
 		return false;
 	}
 
 	$base = $parsed[0];
 
-	foreach ( andromeda_legacy_footer_widget_bases() as $legacy_base ) {
+	foreach ( innovare_legacy_footer_widget_bases() as $legacy_base ) {
 		if ( $base === $legacy_base ) {
 			return true;
 		}
@@ -129,7 +129,7 @@ function andromeda_widget_is_legacy_footer_widget( $widget_id ) {
 		return true;
 	}
 
-	return andromeda_widget_has_legacy_marker( $widget_id, andromeda_legacy_footer_widget_markers() );
+	return innovare_widget_has_legacy_marker( $widget_id, innovare_legacy_footer_widget_markers() );
 }
 
 /**
@@ -138,7 +138,7 @@ function andromeda_widget_is_legacy_footer_widget( $widget_id ) {
  * @param string $sidebar_id Sidebar ID.
  * @return bool
  */
-function andromeda_footer_sidebar_has_legacy_widgets( $sidebar_id ) {
+function innovare_footer_sidebar_has_legacy_widgets( $sidebar_id ) {
 	if ( ! function_exists( 'wp_get_sidebars_widgets' ) ) {
 		return false;
 	}
@@ -149,7 +149,7 @@ function andromeda_footer_sidebar_has_legacy_widgets( $sidebar_id ) {
 	}
 
 	foreach ( $sidebars[ $sidebar_id ] as $widget_id ) {
-		if ( andromeda_widget_is_legacy_footer_widget( $widget_id ) ) {
+		if ( innovare_widget_is_legacy_footer_widget( $widget_id ) ) {
 			return true;
 		}
 	}
@@ -163,12 +163,12 @@ function andromeda_footer_sidebar_has_legacy_widgets( $sidebar_id ) {
  * @param string[]|null $sidebar_ids Sidebar IDs to clear; all footer columns when null.
  * @return bool True when sidebars_widgets was updated.
  */
-function andromeda_clear_footer_sidebars( $sidebar_ids = null ) {
+function innovare_clear_footer_sidebars( $sidebar_ids = null ) {
 	if ( ! function_exists( 'wp_get_sidebars_widgets' ) || ! function_exists( 'wp_set_sidebars_widgets' ) ) {
 		return false;
 	}
 
-	$sidebar_ids = null === $sidebar_ids ? andromeda_footer_column_sidebar_ids() : array_values( (array) $sidebar_ids );
+	$sidebar_ids = null === $sidebar_ids ? innovare_footer_column_sidebar_ids() : array_values( (array) $sidebar_ids );
 	$sidebars    = wp_get_sidebars_widgets();
 
 	if ( ! is_array( $sidebars ) ) {
@@ -194,27 +194,27 @@ function andromeda_clear_footer_sidebars( $sidebar_ids = null ) {
  * Whether a footer column should render bundled theme links instead of widgets.
  *
  * Legacy widgets from the previous theme are ignored. Custom footer widgets are
- * opt-in via the `andromeda_footer_use_widgets` theme mod.
+ * opt-in via the `innovare_footer_use_widgets` theme mod.
  *
  * @param string $sidebar_id Footer sidebar ID.
  * @return bool
  */
-function andromeda_use_footer_column_defaults( $sidebar_id ) {
+function innovare_use_footer_column_defaults( $sidebar_id ) {
 	if ( ! is_active_sidebar( $sidebar_id ) ) {
 		return true;
 	}
 
-	if ( andromeda_footer_sidebar_has_legacy_widgets( $sidebar_id ) ) {
+	if ( innovare_footer_sidebar_has_legacy_widgets( $sidebar_id ) ) {
 		return true;
 	}
 
-	return ! (bool) get_theme_mod( 'andromeda_footer_use_widgets', false );
+	return ! (bool) get_theme_mod( 'innovare_footer_use_widgets', false );
 }
 
 /**
  * Remove legacy footer widgets as soon as they are detected.
  */
-function andromeda_maybe_purge_legacy_footer_widgets() {
+function innovare_maybe_purge_legacy_footer_widgets() {
 	if ( wp_installing() || ! function_exists( 'wp_get_sidebars_widgets' ) ) {
 		return;
 	}
@@ -226,14 +226,14 @@ function andromeda_maybe_purge_legacy_footer_widgets() {
 	$done = true;
 
 	$to_clear = array();
-	foreach ( andromeda_footer_column_sidebar_ids() as $sidebar_id ) {
-		if ( andromeda_footer_sidebar_has_legacy_widgets( $sidebar_id ) ) {
+	foreach ( innovare_footer_column_sidebar_ids() as $sidebar_id ) {
+		if ( innovare_footer_sidebar_has_legacy_widgets( $sidebar_id ) ) {
 			$to_clear[] = $sidebar_id;
 		}
 	}
 
 	if ( $to_clear ) {
-		andromeda_clear_footer_sidebars( $to_clear );
+		innovare_clear_footer_sidebars( $to_clear );
 	}
 }
-add_action( 'init', 'andromeda_maybe_purge_legacy_footer_widgets', 9 );
+add_action( 'init', 'innovare_maybe_purge_legacy_footer_widgets', 9 );

@@ -41,7 +41,7 @@ if ( ! function_exists( 'wp_update_post' ) ) {
 	exit( 1 );
 }
 
-$new_slug = function_exists( 'andromeda_about_page_slug' ) ? andromeda_about_page_slug() : 'about';
+$new_slug = function_exists( 'innovare_about_page_slug' ) ? innovare_about_page_slug() : 'about';
 $old_slug  = 'company';
 
 $existing_new = get_page_by_path( $new_slug );
@@ -64,7 +64,7 @@ if ( $old_page instanceof WP_Post ) {
 } elseif ( $existing_new instanceof WP_Post ) {
 	echo "Page already uses slug \"{$new_slug}\" (ID {$existing_new->ID}). Nothing to rename.\n";
 } else {
-	echo "No page with slug \"{$old_slug}\" found. Create a page and assign template \"Innovate — Company\", or set slug to \"{$new_slug}\" in wp-admin.\n";
+	echo "No page with slug \"{$old_slug}\" found. Create a page and assign template \"Innovare — Company\", or set slug to \"{$new_slug}\" in wp-admin.\n";
 }
 
 $home = trailingslashit( home_url() );

@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Innovate — Solution Detail
+ * Template Name: Innovare — Solution Detail
  *
  * Renders a single solution's detail page. The template reads the current
  * page's slug (post_name) and looks up the matching solution from
- * andromeda_get_solutions(). If no match is found, falls back to redirecting
+ * innovare_get_solutions(). If no match is found, falls back to redirecting
  * to the Solutions listing page.
  *
  * Expected URL: /solutions/<slug>/
@@ -15,19 +15,19 @@
 get_header();
 
 $page_slug = get_post_field( 'post_name', get_queried_object_id() );
-$solution  = andromeda_get_solution( $page_slug );
+$solution  = innovare_get_solution( $page_slug );
 
 // If the slug doesn't match a known solution, gracefully fall back to the
 // Solutions listing — better UX than a blank page or a hard 404.
 if ( ! $solution ) {
-	$fallback = andromeda_page_url( 'solutions' );
+	$fallback = innovare_page_url( 'solutions' );
 	if ( $fallback ) {
 		wp_safe_redirect( $fallback, 302 );
 		exit;
 	}
 }
 
-$contact_url   = andromeda_page_url( 'contact' );
+$contact_url   = innovare_page_url( 'contact' );
 $discuss_url   = add_query_arg(
 	array(
 		'type'    => 'quote',
@@ -72,14 +72,14 @@ if ( $explore_is_anchor ) {
 	$explore_icon = 'bi-arrow-right';
 }
 
-andromeda_page_header(
+innovare_page_header(
 	$solution['badge'],
 	$solution['title'],
 	$solution['lede']
 );
 ?>
 
-<section class="andromeda-section solution-detail-intro">
+<section class="innovare-section solution-detail-intro">
 	<div class="container">
 		<div class="row gx-lg-5 gy-4 align-items-start">
 			<div class="col-lg-8">
@@ -189,7 +189,7 @@ andromeda_page_header(
 </section>
 
 <?php if ( ! empty( $solution['whats_included'] ) ) : ?>
-<section id="features" class="andromeda-section solution-detail-included" aria-labelledby="included-heading">
+<section id="features" class="innovare-section solution-detail-included" aria-labelledby="included-heading">
 	<div class="container">
 		<div class="section-heading mb-4 mb-lg-5">
 			<span class="eyebrow"><?php esc_html_e( "What's included", 'innovare' ); ?></span>
@@ -222,7 +222,7 @@ andromeda_page_header(
 					<div class="col-md-6 col-lg-4">
 						<div class="service-item">
 							<i class="bi bi-check2-circle" aria-hidden="true"></i>
-							<span><?php echo esc_html( is_array( $item ) ? andromeda_solution_included_label( $item ) : $item ); ?></span>
+							<span><?php echo esc_html( is_array( $item ) ? innovare_solution_included_label( $item ) : $item ); ?></span>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -233,7 +233,7 @@ andromeda_page_header(
 <?php endif; ?>
 
 <?php if ( ! empty( $solution['outcomes'] ) ) : ?>
-<section class="andromeda-section solution-detail-outcomes" aria-labelledby="outcomes-heading">
+<section class="innovare-section solution-detail-outcomes" aria-labelledby="outcomes-heading">
 	<div class="container">
 		<div class="row gx-lg-5 gy-4 align-items-start">
 			<div class="col-lg-5">
@@ -259,7 +259,7 @@ andromeda_page_header(
 <?php endif; ?>
 
 <?php if ( ! empty( $solution['engagement'] ) ) : ?>
-<section class="andromeda-section solution-detail-engagement" aria-labelledby="engagement-heading">
+<section class="innovare-section solution-detail-engagement" aria-labelledby="engagement-heading">
 	<div class="container">
 		<div class="section-heading mb-4 mb-lg-5">
 			<span class="eyebrow"><?php esc_html_e( 'How we engage', 'innovare' ); ?></span>
@@ -296,7 +296,7 @@ if ( have_posts() ) :
 		$raw_content = trim( wp_strip_all_tags( get_the_content() ) );
 		if ( $raw_content && strlen( $raw_content ) > 30 ) :
 ?>
-			<section class="andromeda-section solution-detail-prose">
+			<section class="innovare-section solution-detail-prose">
 				<div class="container">
 					<div class="row justify-content-center">
 						<div class="col-lg-10 col-xl-8">

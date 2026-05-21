@@ -18,15 +18,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return bool
  */
-function andromeda_has_seo_plugin() {
+function innovare_has_seo_plugin() {
 	return defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'AIOSEO_VERSION' );
 }
 
 /**
  * Output baseline Open Graph + Twitter Card tags.
  */
-function andromeda_open_graph_tags() {
-	if ( andromeda_has_seo_plugin() ) {
+function innovare_open_graph_tags() {
+	if ( innovare_has_seo_plugin() ) {
 		return;
 	}
 
@@ -56,7 +56,7 @@ function andromeda_open_graph_tags() {
 		}
 	}
 
-	echo "\n<!-- Innovate baseline OG tags -->\n";
+	echo "\n<!-- Innovare baseline OG tags -->\n";
 	printf( '<meta property="og:type" content="%s" />' . "\n", is_singular() ? 'article' : 'website' );
 	printf( '<meta property="og:site_name" content="%s" />' . "\n", esc_attr( $site_name ) );
 	printf( '<meta property="og:title" content="%s" />' . "\n", esc_attr( $title ) );
@@ -76,13 +76,13 @@ function andromeda_open_graph_tags() {
 		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 	}
 }
-add_action( 'wp_head', 'andromeda_open_graph_tags', 5 );
+add_action( 'wp_head', 'innovare_open_graph_tags', 5 );
 
 /**
  * Inject Organization JSON-LD on the home page.
  */
-function andromeda_organization_schema() {
-	if ( andromeda_has_seo_plugin() || ! is_front_page() ) {
+function innovare_organization_schema() {
+	if ( innovare_has_seo_plugin() || ! is_front_page() ) {
 		return;
 	}
 
@@ -98,12 +98,12 @@ function andromeda_organization_schema() {
 	if ( $custom_logo_id ) {
 		$schema['logo'] = wp_get_attachment_image_url( $custom_logo_id, 'full' );
 	} else {
-		$schema['logo'] = INNOVARE_URI . 'assets/images/andromedalinks-logo.png';
+		$schema['logo'] = INNOVARE_URI . 'assets/images/innovare-logo.png';
 	}
 
-	$phone   = get_theme_mod( 'andromeda_contact_phone', andromeda_default_contact_phone() );
-	$email   = get_theme_mod( 'andromeda_contact_email', 'info@innovate.com' );
-	$address = get_theme_mod( 'andromeda_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
+	$phone   = get_theme_mod( 'innovare_contact_phone', innovare_default_contact_phone() );
+	$email   = get_theme_mod( 'innovare_contact_email', 'info@innovare.com' );
+	$address = get_theme_mod( 'innovare_contact_address', 'P-46, Siddiq Trade Center, Gulberg II, Lahore' );
 
 	if ( $phone ) {
 		$schema['telephone'] = preg_replace( '/[^+\d]/', '', $phone );
@@ -121,11 +121,11 @@ function andromeda_organization_schema() {
 	}
 
 	$social = array_filter( array(
-		get_theme_mod( 'andromeda_social_facebook', '' ),
-		get_theme_mod( 'andromeda_social_linkedin', '' ),
-		get_theme_mod( 'andromeda_social_instagram', '' ),
-		get_theme_mod( 'andromeda_social_tiktok', '' ),
-		get_theme_mod( 'andromeda_social_twitter', '' ),
+		get_theme_mod( 'innovare_social_facebook', '' ),
+		get_theme_mod( 'innovare_social_linkedin', '' ),
+		get_theme_mod( 'innovare_social_instagram', '' ),
+		get_theme_mod( 'innovare_social_tiktok', '' ),
+		get_theme_mod( 'innovare_social_twitter', '' ),
 	) );
 	if ( ! empty( $social ) ) {
 		$schema['sameAs'] = array_values( $social );
@@ -133,4 +133,4 @@ function andromeda_organization_schema() {
 
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
 }
-add_action( 'wp_head', 'andromeda_organization_schema', 6 );
+add_action( 'wp_head', 'innovare_organization_schema', 6 );

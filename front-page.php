@@ -1,6 +1,6 @@
 <?php
 /**
- * Front Page — Innovate homepage.
+ * Front Page — Innovare homepage.
  *
  * Modular sections per the enterprise IT brief:
  *

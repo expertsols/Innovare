@@ -1,28 +1,28 @@
 <?php
 /**
- * Template Name: Innovate — Company
+ * Template Name: Innovare — Company
  *
- * About page for Innovate — a managed IT and business technology partner.
+ * About page for Innovare — a managed IT and business technology partner.
  *
  * Sections:
- *  - About Innovate
+ *  - About Innovare
  *  - Mission & Vision
  *  - Operational Excellence + Technology Expertise + Engineering-first mindset
  *  - Industries Served
  *  - Social Presence
  *  - Core team (stored in wp_options — see inc/team-data.php)
  *
- * Page slug in WordPress should be `about` (legacy `about-andromeda-links` redirects).
+ * Page slug in WordPress should be `about` (older About URLs redirect here).
  *
  * @package Innovare
  */
 
 get_header();
 
-andromeda_page_header(
-	__( 'About Innovate', 'innovare' ),
+innovare_page_header(
+	__( 'About Innovare', 'innovare' ),
 	__( 'A modern IT infrastructure & business technology partner', 'innovare' ),
-	__( 'Innovate designs, deploys, secures and manages the technology that keeps organizations running — with an accountable engineering team and operational discipline.', 'innovare' )
+	__( 'Innovare designs, deploys, secures and manages the technology that keeps organizations running — with an accountable engineering team and operational discipline.', 'innovare' )
 );
 
 $pillars = array(
@@ -57,15 +57,15 @@ $industries = array(
 );
 ?>
 
-<section class="andromeda-section andromeda-about-page">
+<section class="innovare-section innovare-about-page">
 	<div class="container">
 
 		<div class="row align-items-center gx-lg-5 gy-4 mb-5 mb-lg-6">
 			<div class="col-lg-6">
-				<span class="eyebrow"><?php esc_html_e( 'About Innovate', 'innovare' ); ?></span>
+				<span class="eyebrow"><?php esc_html_e( 'About Innovare', 'innovare' ); ?></span>
 				<h2><?php esc_html_e( 'A focused IT infrastructure & managed services team', 'innovare' ); ?></h2>
 				<p>
-					<?php esc_html_e( 'Innovate is an IT infrastructure and business technology company. We work with growing organizations across education, government, corporate offices, manufacturing and SME sectors — providing managed IT services, enterprise infrastructure, network security, business continuity and cloud solutions under one accountable partnership.', 'innovare' ); ?>
+					<?php esc_html_e( 'Innovare is an IT infrastructure and business technology company. We work with growing organizations across education, government, corporate offices, manufacturing and SME sectors — providing managed IT services, enterprise infrastructure, network security, business continuity and cloud solutions under one accountable partnership.', 'innovare' ); ?>
 				</p>
 				<p>
 					<?php esc_html_e( 'Our model is deliberately simple: a small team of engineers, clear SLAs, honest reporting and long-term relationships. We are not a reseller and we are not a break-fix vendor.', 'innovare' ); ?>
@@ -97,7 +97,7 @@ $industries = array(
 			<?php foreach ( $pillars as $p ) : ?>
 				<div class="col-sm-6 col-lg-3">
 					<div class="value-card">
-						<span class="value-card-icon"><?php andromeda_icon( $p['icon'] ); ?></span>
+						<span class="value-card-icon"><?php innovare_icon( $p['icon'] ); ?></span>
 						<h3 class="value-card-title"><?php echo esc_html( $p['title'] ); ?></h3>
 						<p class="value-card-desc"><?php echo esc_html( $p['desc'] ); ?></p>
 					</div>
@@ -120,7 +120,7 @@ $industries = array(
 				<?php foreach ( $industries as $i ) : ?>
 					<div class="col-6 col-md-4 col-lg">
 						<div class="company-industry-card">
-							<span class="company-industry-icon"><?php andromeda_icon( $i['icon'] ); ?></span>
+							<span class="company-industry-icon"><?php innovare_icon( $i['icon'] ); ?></span>
 							<strong><?php echo esc_html( $i['title'] ); ?></strong>
 						</div>
 					</div>
@@ -136,7 +136,7 @@ $industries = array(
 					<p class="mb-0"><?php esc_html_e( 'We regularly publish operational updates, deployment snapshots and field notes from real engagements. Follow us to see how an engineering-led IT team actually operates.', 'innovare' ); ?></p>
 				</div>
 				<div class="col-lg-4 text-lg-end">
-					<?php andromeda_social_icons( 'about-socials' ); ?>
+					<?php innovare_social_icons( 'about-socials' ); ?>
 				</div>
 			</div>
 		</div>

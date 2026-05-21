@@ -1,6 +1,8 @@
-# Innovate — WordPress theme
+# Innovare — WordPress theme
 
-A modern, lightweight **standalone** WordPress theme for **Innovate** — positioning the business as a **Managed IT & Business Technology Partner**.
+A modern, lightweight **standalone** WordPress theme for **Innovare** — positioning the business as a **Managed IT & Business Technology Partner**.
+
+**Author / owner:** [expertsols](https://expertsols.com/)
 
 Built with **Bootstrap 5.3**, custom page templates, reusable template parts, and Gutenberg-friendly markup. No Elementor, no page builders, no parent theme.
 
@@ -10,7 +12,7 @@ Built with **Bootstrap 5.3**, custom page templates, reusable template parts, an
 
 ## What you get
 
-- **No parent theme** — activate **Innovate** only
+- **No parent theme** — activate **Innovare** only
 - Sticky responsive Bootstrap 5 navbar with **Get a Quote** CTA
 - Custom **front-page** assembled from modular sections
 - Page templates for **Services, Solutions, solution detail pages, Insights, Company, Contact**, plus **Privacy / Terms / Sitemap** helpers
@@ -26,12 +28,13 @@ Built with **Bootstrap 5.3**, custom page templates, reusable template parts, an
 
 ## Theme folder and slug
 
-WordPress derives the theme **slug** from the **directory name** under `wp-content/themes/`. The folder may be named **`Innovare`** (or `innovare`); the **Appearance → Themes** label comes from `style.css` (**Theme Name: Innovate**).
+WordPress derives the theme **slug** from the **directory name** under `wp-content/themes/`. The folder may be named **`Innovare`** (or `innovare`); the **Appearance → Themes** label comes from `style.css` (**Theme Name: Innovare**).
 
 Constants in `functions.php`:
 
 - **`INNOVARE_VERSION`** — asset cache-busting
 - **`INNOVARE_DIR`** / **`INNOVARE_URI`** — `get_template_directory()` / `get_template_directory_uri()` (standalone theme paths)
+- **`INNOVARE_THEME_AUTHOR`** / **`INNOVARE_THEME_AUTHOR_URI`** — expertsols / https://expertsols.com/
 
 ---
 
@@ -58,7 +61,7 @@ Terms, Sitemap (footer + sitemap page)
 ```
 innovare/   (or your theme directory name)
 ├── style.css                              # Theme header (Theme Name: Innovare)
-├── functions.php                          # INNOVARE_* constants; loads /inc
+├── functions.php                          # innovare_* constants; loads /inc
 ├── README.md
 ├── header.php
 ├── footer.php
@@ -123,18 +126,18 @@ innovare/   (or your theme directory name)
 
 ### 1. Install the theme
 
-Copy the theme folder into `wp-content/themes/` and activate **Innovate** under **Appearance → Themes**.
+Copy the theme folder into `wp-content/themes/` and activate **Innovare** under **Appearance → Themes**.
 
 **Automatic site setup** runs on theme activation, when the bootstrap version is bumped on deploy, and on each request (`inc/site-bootstrap.php`, currently **v2**):
 
 - Creates core pages: **Home**, **Services**, **Solutions**, **Insights**, **Company** (`about`), **Contact**
-- Assigns **Innovate** page templates and syncs solution detail pages under `/solutions/`
+- Assigns **Innovare** page templates and syncs solution detail pages under `/solutions/`
 - Ensures **Privacy**, **Terms**, and **Sitemap** pages
 - Sets **Settings → Reading** to a static front page (**Home**) when unset
 - Creates and assigns **Primary Navigation** when no menu is assigned
 - Seeds **Customizer** contact, WhatsApp, address, map, and social URLs when empty
 - Stores **solution content** (modules, outcomes, engagement, summaries) in **`wp_options`** and syncs from theme defaults
-- Runs phone migrations (**+92 333 4106911**) and legacy About slug fixes (`company`, `about-andromeda-links` → **`about`**)
+- Runs phone migrations (**+92 333 4106911**) and legacy About slug fixes (`company`, older slugs → **`about`**)
 
 **Manual re-run after deploy:** **Appearance → Site Setup**, or CLI:
 
@@ -147,26 +150,26 @@ php wp-content/themes/Innovare/scripts/bootstrap-site-content.php
 | Page title (example) | Slug | Template |
 | -------------------- | ---- | -------- |
 | Home | `home` | Default (`front-page.php` is used for the front page) |
-| Services | `services` | **Innovate — Services** |
-| Solutions | `solutions` | **Innovate — Solutions** |
-| Insights | `insights` | **Innovate — Insights** |
-| Company | `about` | **Innovate — Company** |
-| Contact | `contact` | **Innovate — Contact** |
+| Services | `services` | **Innovare — Services** |
+| Solutions | `solutions` | **Innovare — Solutions** |
+| Insights | `insights` | **Innovare — Insights** |
+| Company | `about` | **Innovare — Company** |
+| Contact | `contact` | **Innovare — Contact** |
 
 **Settings → Reading**
 
 - **Your homepage displays** → **A static page**
 - **Homepage** → your **Home** page
-- **Posts page** — **Recommended:** do **not** point “Posts page” at the same URL as the Insights page. Use the **Insights** page (`/insights/`) with the Innovate template for the blog experience.
+- **Posts page** — **Recommended:** do **not** point “Posts page” at the same URL as the Insights page. Use the **Insights** page (`/insights/`) with the Innovare template for the blog experience.
 
 ### 3. First load — automatic bootstrap
 
 On **`init`**, `inc/legal-pages.php`:
 
-1. Migrates legacy **`privacy-policy`** → **`privacy`** once (option `andromeda_privacy_slug_migrated_v1`).
+1. Migrates legacy **`privacy-policy`** → **`privacy`** once (option `innovare_privacy_slug_migrated_v1`).
 2. Ensures **published** pages: **`privacy`**, **`terms`**, **`sitemap`** (legal / sitemap templates).
 3. Syncs **Settings → Privacy** when needed.
-4. Under **Solutions**, creates **child pages** from `inc/solutions-data.php` (template **Innovate — Solution Detail**) so `/solutions/{slug}/` works.
+4. Under **Solutions**, creates **child pages** from `inc/solutions-data.php` (template **Innovare — Solution Detail**) so `/solutions/{slug}/` works.
 
 The **`solutions`** parent page must exist and be **published** before children are created. Load any front-end or admin URL once after creating **Solutions**.
 
@@ -183,10 +186,10 @@ The **`solutions`** parent page must exist and be **published** before children 
 
 **Appearance → Customize**
 
-- **Innovate — Contact** — phone, email, WhatsApp, hours, address, map embed URL  
-- **Innovate — Social Links** — social URLs  
+- **Innovare — Contact** — phone, email, WhatsApp, hours, address, map embed URL  
+- **Innovare — Social Links** — social URLs  
 
-(Internal setting IDs may still use the `andromeda_` prefix for backward compatibility.)
+(Internal setting IDs may still use the `innovare_` prefix for backward compatibility.)
 
 ### 7. Footer widgets (optional)
 
@@ -206,7 +209,7 @@ Windows (XAMPP) example:
 d:\xampp\php\php.exe d:\path\to\wordpress\wp-content\themes\innovare\scripts\seed-insights-demo-posts.php
 ```
 
-Re-run removes posts tagged `_andromeda_insights_demo` and recreates them.
+Re-run removes posts tagged `_innovare_insights_demo` and recreates them.
 
 ---
 
@@ -235,7 +238,7 @@ Re-run removes posts tagged `_andromeda_insights_demo` and recreates them.
 ## `wp-config.php` (optional)
 
 ```php
-define( 'INNOVARE_USE_LOCAL_BOOTSTRAP', true );
+define( 'innovare_USE_LOCAL_BOOTSTRAP', true );
 ```
 
 When `true`, Bootstrap loads from `assets/vendor/bootstrap/` instead of the CDN (see `inc/enqueue.php`). Bootstrap Icons may still use the CDN unless you change the enqueue.
@@ -246,9 +249,9 @@ When `true`, Bootstrap loads from `assets/vendor/bootstrap/` instead of the CDN 
 
 | Filter | File | Purpose |
 | ------ | ---- | ------- |
-| `andromeda_insights_url_base` | `inc/insights-rewrites.php` | Change the URL prefix for posts (default `insights`; should match the Insights **page** slug). |
+| `innovare_insights_url_base` | `inc/insights-rewrites.php` | Change the URL prefix for posts (default `insights`; should match the Insights **page** slug). |
 
-Many PHP functions and CSS classes still use the **`andromeda_*`** prefix for stability; only user-facing strings and the text domain **`innovare`** were aligned to the new brand where updated.
+PHP functions, CSS classes, Customizer keys, and options use the **`innovare_*`** prefix. Legacy storage from prior theme versions is migrated automatically on bootstrap (see `inc/legacy-prefix-migration.php`). The text domain is **`innovare`**.
 
 ---
 
@@ -256,11 +259,11 @@ Many PHP functions and CSS classes still use the **`andromeda_*`** prefix for st
 
 | Function | Location | Purpose |
 | -------- | -------- | ------- |
-| `andromeda_page_url( $slug )` | `inc/helpers.php` | Permalink for a page by slug, or constructed URL if missing. |
-| `andromeda_privacy_policy_url()` | `inc/helpers.php` | Privacy URL (prefers **`/privacy/`**). |
-| `andromeda_about_page_slug()` | `inc/helpers.php` | Company page slug (`about`). Legacy slugs (e.g. **`/company/`**, **`/about-andromeda-links/`**) redirect. |
-| `andromeda_solution_page_url( $slug )` | `inc/solutions-data.php` | Detail URL or fallback. |
-| `andromeda_get_solutions()` / `andromeda_get_solution()` | `inc/solutions-data.php` | Solution listing + detail data. |
+| `innovare_page_url( $slug )` | `inc/helpers.php` | Permalink for a page by slug, or constructed URL if missing. |
+| `innovare_privacy_policy_url()` | `inc/helpers.php` | Privacy URL (prefers **`/privacy/`**). |
+| `innovare_about_page_slug()` | `inc/helpers.php` | Company page slug (`about`). Legacy slugs (e.g. **`/company/`**, **`/about-us/`**) redirect. |
+| `innovare_solution_page_url( $slug )` | `inc/solutions-data.php` | Detail URL or fallback. |
+| `innovare_get_solutions()` / `innovare_get_solution()` | `inc/solutions-data.php` | Solution listing + detail data. |
 
 ---
 
@@ -275,7 +278,7 @@ Many PHP functions and CSS classes still use the **`andromeda_*`** prefix for st
 
 ## Editing content
 
-- **Insights** (`/insights/`): hero uses sticky posts; masonry uses **`andromeda-thumb`** (image size in `inc/theme-setup.php`).
+- **Insights** (`/insights/`): hero uses sticky posts; masonry uses **`innovare-thumb`** (image size in `inc/theme-setup.php`).
 - **Services**: `page-templates/template-services.php` (`$groups`, `$vendor_partners`, etc.).
 - **Solutions**: listing in `template-solutions.php` / `page-templates/template-solutions.php`; shared data in **`inc/solutions-data.php`**.
 - **Company**: `page-templates/template-company.php` — pillars, industries, **`$core_team`**, etc.
@@ -305,14 +308,14 @@ Navbar CTA → `/contact/?type=quote`. Contact template reads query args and adj
 
 Default: Bootstrap **5.3.3** from jsDelivr (`inc/enqueue.php`).
 
-Self-host: add `bootstrap.min.css` and `bootstrap.bundle.min.js` under `assets/vendor/bootstrap/`, then set **`INNOVARE_USE_LOCAL_BOOTSTRAP`** to `true` in `wp-config.php`.
+Self-host: add `bootstrap.min.css` and `bootstrap.bundle.min.js` under `assets/vendor/bootstrap/`, then set **`innovare_USE_LOCAL_BOOTSTRAP`** to `true` in `wp-config.php`.
 
 ---
 
 ## Performance & accessibility
 
 - No Node build step.
-- Image sizes: `andromeda-hero`, `andromeda-card`, `andromeda-thumb` in `inc/theme-setup.php`.
+- Image sizes: `innovare-hero`, `innovare-card`, `innovare-thumb` in `inc/theme-setup.php`.
 - Reduced-motion support in `assets/css/custom.css`.
 - Skip link, keyboard-friendly nav, form labels and invalid feedback, meaningful `aria-label`s where icons are decorative.
 
@@ -320,7 +323,18 @@ Self-host: add `bootstrap.min.css` and `bootstrap.bundle.min.js` under `assets/v
 
 ## Logo asset
 
-Default logo path references **`assets/images/andromedalinks-logo.png`** (legacy filename). Replace that file with your Innovate logo or point `inc/helpers.php` / `inc/seo.php` at your own filename under `assets/images/`.
+Default logo path: **`assets/images/innovare-logo.png`**. Add your logo there or update the path in `inc/helpers.php` and `inc/seo.php`.
+
+---
+
+## Credits
+
+| | |
+| --- | --- |
+| **Theme** | Innovare |
+| **Author** | expertsols |
+| **Website** | https://expertsols.com/ |
+| **Repository** | https://github.com/expertsols/innovare |
 
 ---
 

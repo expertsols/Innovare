@@ -1,6 +1,6 @@
 <?php
 /**
- * CLI: full Innovate site import / bootstrap.
+ * CLI: full Innovare site import / bootstrap.
  *
  * Run from anywhere:
  *
@@ -37,16 +37,16 @@ if ( ! $wp_load ) {
 
 require $wp_load;
 
-if ( ! function_exists( 'andromeda_run_site_bootstrap' ) ) {
-	fwrite( STDERR, "Theme bootstrap not loaded. Activate the Innovate theme first.\n" );
+if ( ! function_exists( 'innovare_run_site_bootstrap' ) ) {
+	fwrite( STDERR, "Theme bootstrap not loaded. Activate the Innovare theme first.\n" );
 	exit( 1 );
 }
 
-$version_before = (int) get_option( 'andromeda_site_bootstrap_version', 0 );
-$result         = andromeda_run_site_bootstrap( true );
-$version_after  = (int) get_option( 'andromeda_site_bootstrap_version', 0 );
+$version_before = (int) get_option( 'innovare_site_bootstrap_version', 0 );
+$result         = innovare_run_site_bootstrap( true );
+$version_after  = (int) get_option( 'innovare_site_bootstrap_version', 0 );
 
-echo "Innovate site setup complete.\n";
+echo "Innovare site setup complete.\n";
 echo 'Bootstrap version: ' . $version_before . ' -> ' . $version_after . "\n";
 
 if ( ! empty( $result['pages']['created'] ) ) {

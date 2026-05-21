@@ -6,7 +6,7 @@
  *
  *   php wp-content/themes/innovare/scripts/seed-insights-demo-posts.php
  *
- * Re-run safe: removes any posts marked `_andromeda_insights_demo` then recreates them.
+ * Re-run safe: removes any posts marked `_innovare_insights_demo` then recreates them.
  *
  * @package Innovare
  */
@@ -44,7 +44,7 @@ require_once ABSPATH . 'wp-admin/includes/image.php';
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/media.php';
 
-$demo_meta_key   = '_andromeda_insights_demo';
+$demo_meta_key   = '_innovare_insights_demo';
 $demo_meta_value = 'v1';
 
 // Remove previous demo posts.
@@ -69,7 +69,7 @@ foreach ( $existing as $eid ) {
  * @param string $slug Category slug.
  * @return int
  */
-function andromeda_seed_ensure_cat( $name, $slug ) {
+function innovare_seed_ensure_cat( $name, $slug ) {
 	$term = get_term_by( 'slug', $slug, 'category' );
 	if ( $term && ! is_wp_error( $term ) ) {
 		return (int) $term->term_id;
@@ -81,14 +81,14 @@ function andromeda_seed_ensure_cat( $name, $slug ) {
 	return (int) $r['term_id'];
 }
 
-$cat_networking    = andromeda_seed_ensure_cat( 'Networking', 'networking' );
-$cat_security      = andromeda_seed_ensure_cat( 'Security', 'security' );
-$cat_continuity    = andromeda_seed_ensure_cat( 'Continuity', 'continuity' );
-$cat_infrastructure = andromeda_seed_ensure_cat( 'Infrastructure', 'infrastructure' );
+$cat_networking    = innovare_seed_ensure_cat( 'Networking', 'networking' );
+$cat_security      = innovare_seed_ensure_cat( 'Security', 'security' );
+$cat_continuity    = innovare_seed_ensure_cat( 'Continuity', 'continuity' );
+$cat_infrastructure = innovare_seed_ensure_cat( 'Infrastructure', 'infrastructure' );
 
 $posts_def = array(
 	array(
-		'slug'    => 'andromeda-demo-office-wifi-basics',
+		'slug'    => 'innovare-demo-office-wifi-basics',
 		'title'   => 'Designing dependable office WiFi for growing teams',
 		'cat'     => $cat_networking,
 		'excerpt' => 'Coverage, capacity and clean handoffs — what we look at before we touch a single access point.',
@@ -97,7 +97,7 @@ $posts_def = array(
 		'pic_id'  => 1015,
 	),
 	array(
-		'slug'    => 'andromeda-demo-backup-rpo-rto',
+		'slug'    => 'innovare-demo-backup-rpo-rto',
 		'title'   => 'Translating RPO and RTO into a backup architecture you can test',
 		'cat'     => $cat_continuity,
 		'excerpt' => 'Paper policies fail when disks fail. Here is how we turn recovery targets into engineered reality.',
@@ -106,7 +106,7 @@ $posts_def = array(
 		'pic_id'  => 1018,
 	),
 	array(
-		'slug'    => 'andromeda-demo-m365-hardening',
+		'slug'    => 'innovare-demo-m365-hardening',
 		'title'   => 'A practical Microsoft 365 hardening checklist for SMEs',
 		'cat'     => $cat_security,
 		'excerpt' => 'Identity, mail flow and collaboration settings that close the gaps we see most often on tenant reviews.',
@@ -115,7 +115,7 @@ $posts_def = array(
 		'pic_id'  => 1019,
 	),
 	array(
-		'slug'    => 'andromeda-demo-firewall-rules',
+		'slug'    => 'innovare-demo-firewall-rules',
 		'title'   => 'Firewall rules that match the business, not the vendor defaults',
 		'cat'     => $cat_security,
 		'excerpt' => 'Why “allow any” creep happens — and how we document intent so audits and incidents are survivable.',
@@ -124,7 +124,7 @@ $posts_def = array(
 		'pic_id'  => 1020,
 	),
 	array(
-		'slug'    => 'andromeda-demo-infra-mistakes',
+		'slug'    => 'innovare-demo-infra-mistakes',
 		'title'   => 'Seven infrastructure mistakes we undo in the first month of an engagement',
 		'cat'     => $cat_infrastructure,
 		'excerpt' => 'Flat networks, mystery servers and “temporary” VPNs — patterns we replace with something measurable.',
@@ -133,7 +133,7 @@ $posts_def = array(
 		'pic_id'  => 1021,
 	),
 	array(
-		'slug'    => 'andromeda-demo-branch-connectivity',
+		'slug'    => 'innovare-demo-branch-connectivity',
 		'title'   => 'Multi-site connectivity without a spaghetti diagram',
 		'cat'     => $cat_networking,
 		'excerpt' => 'Templates for branch rollouts that keep HQ and field sites on the same policy baseline.',
@@ -142,7 +142,7 @@ $posts_def = array(
 		'pic_id'  => 1022,
 	),
 	array(
-		'slug'    => 'andromeda-demo-identity-lifecycle',
+		'slug'    => 'innovare-demo-identity-lifecycle',
 		'title'   => 'User lifecycle hygiene that makes offboarding boring (in a good way)',
 		'cat'     => $cat_security,
 		'excerpt' => 'Joiners, movers and leavers — tying directory, mailboxes and SaaS seats to one accountable runbook.',
@@ -151,7 +151,7 @@ $posts_def = array(
 		'pic_id'  => 1033,
 	),
 	array(
-		'slug'    => 'andromeda-demo-field-notes-2026',
+		'slug'    => 'innovare-demo-field-notes-2026',
 		'title'   => 'Field notes: what “stable IT” looks like after the first 90 days',
 		'cat'     => $cat_infrastructure,
 		'excerpt' => 'Signals we track with clients — tickets trending down, documented changes up, and leadership reading the same numbers.',
@@ -160,7 +160,7 @@ $posts_def = array(
 		'pic_id'  => 1062,
 	),
 	array(
-		'slug'    => 'andromeda-demo-dr-tabletop',
+		'slug'    => 'innovare-demo-dr-tabletop',
 		'title'   => 'Running a disaster-recovery tabletop that engineers actually respect',
 		'cat'     => $cat_continuity,
 		'excerpt' => 'Scenarios that reflect your dependencies, not generic ransomware bingo — and how we capture follow-ups.',
@@ -176,7 +176,7 @@ $created = 0;
 foreach ( $posts_def as $def ) {
 	$p1 = 'Operations leaders rarely get a quiet week — which is why we write infrastructure changes in small batches, with rollback paths and owners named in the ticket.';
 	$p2 = 'This article expands on patterns we use on real engagements. Replace or extend it from the WordPress editor; it is safe demo content tagged for removal by the seed script.';
-	$p3 = 'Demo post for Innovate Insights layout — delete via re-running the seed script or remove the _andromeda_insights_demo meta in the database.';
+	$p3 = 'Demo post for Innovare Insights layout — delete via re-running the seed script or remove the _innovare_insights_demo meta in the database.';
 
 	$post_id = wp_insert_post(
 		array(
@@ -207,7 +207,7 @@ foreach ( $posts_def as $def ) {
 	$tmp     = download_url( $img_url );
 	if ( ! is_wp_error( $tmp ) ) {
 		$file_array = array(
-			'name'     => 'andromeda-demo-' . $def['slug'] . '.jpg',
+			'name'     => 'innovare-demo-' . $def['slug'] . '.jpg',
 			'tmp_name' => $tmp,
 		);
 		$att_id = media_handle_sideload( $file_array, $post_id, 'Insights demo image for ' . $def['title'] );

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Innovate — Solutions
+ * Template Name: Innovare — Solutions
  *
  * Solution-led page (NOT a product listing). Each entry frames an outcome
  * and the underlying engagement model for IT infrastructure and technology.
@@ -16,23 +16,23 @@
 
 get_header();
 
-$solutions   = andromeda_get_solutions();
-$contact_url = andromeda_page_url( 'contact' );
+$solutions   = innovare_get_solutions();
+$contact_url = innovare_page_url( 'contact' );
 
-andromeda_page_header(
+innovare_page_header(
 	__( 'Solutions', 'innovare' ),
 	__( 'Technology solutions built around real business outcomes', 'innovare' ),
 	__( 'Pre-shaped engagements that combine infrastructure, managed support and cloud platforms into one accountable solution.', 'innovare' )
 );
 ?>
 
-<section class="andromeda-section andromeda-solutions-page">
+<section class="innovare-section innovare-solutions-page">
 	<div class="container">
 
 		<div class="row g-3 g-lg-4">
 			<?php foreach ( $solutions as $slug => $s ) : ?>
 				<?php
-				$detail_url   = andromeda_get_solution_url( $slug );
+				$detail_url   = innovare_get_solution_url( $slug );
 				$discuss_url  = add_query_arg(
 					array(
 						'type'    => 'quote',
@@ -49,7 +49,7 @@ andromeda_page_header(
 				<div class="col-md-6 col-lg-4" id="<?php echo esc_attr( $anchor ); ?>">
 					<article class="solution-card">
 						<div class="solution-card-head">
-							<span class="solution-card-icon"><?php andromeda_icon( $s['icon'] ); ?></span>
+							<span class="solution-card-icon"><?php innovare_icon( $s['icon'] ); ?></span>
 							<span class="solution-card-badge"><?php echo esc_html( $s['badge'] ); ?></span>
 						</div>
 						<h2 class="solution-card-title"><?php echo esc_html( $s['title'] ); ?></h2>
@@ -58,7 +58,7 @@ andromeda_page_header(
 						<?php if ( $points ) : ?>
 							<ul class="solution-card-list">
 								<?php foreach ( $points as $point ) : ?>
-									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( andromeda_solution_included_label( $point ) ); ?></li>
+									<li><i class="bi bi-check2 me-2" aria-hidden="true"></i><?php echo esc_html( innovare_solution_included_label( $point ) ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>

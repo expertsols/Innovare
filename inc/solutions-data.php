@@ -1,6 +1,6 @@
 <?php
 /**
- * Innovate — Solutions data.
+ * Innovare — Solutions data.
  *
  * Single source of truth for the Solutions listing (template-solutions.php)
  * AND the per-solution detail pages (template-solution-detail.php).
@@ -16,28 +16,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Bump when bundled solution defaults change — triggers DB sync on bootstrap. */
-define( 'ANDROMEDA_SOLUTIONS_DATA_VERSION', 2 );
+define( 'INNOVARE_SOLUTIONS_DATA_VERSION', 2 );
 
 /** wp_options key for stored solution content. */
-define( 'ANDROMEDA_SOLUTIONS_OPTION', 'andromeda_solutions_data' );
+define( 'INNOVARE_SOLUTIONS_OPTION', 'innovare_solutions_data' );
 
 /** wp_options key for stored solutions data version. */
-define( 'ANDROMEDA_SOLUTIONS_VERSION_OPTION', 'andromeda_solutions_data_version' );
+define( 'INNOVARE_SOLUTIONS_VERSION_OPTION', 'innovare_solutions_data_version' );
 
 /**
  * Return all solutions from the database (seeded from theme defaults).
  *
  * @return array<string, array>
  */
-function andromeda_get_solutions() {
+function innovare_get_solutions() {
 	$cached = wp_cache_get( 'innovare_solutions', 'innovare' );
 	if ( false !== $cached ) {
 		return $cached;
 	}
 
-	$stored = get_option( ANDROMEDA_SOLUTIONS_OPTION, null );
+	$stored = get_option( INNOVARE_SOLUTIONS_OPTION, null );
 	if ( ! is_array( $stored ) || empty( $stored ) ) {
-		$stored = andromeda_get_solutions_defaults();
+		$stored = innovare_get_solutions_defaults();
 	}
 
 	wp_cache_set( 'innovare_solutions', $stored, 'innovare' );
@@ -50,7 +50,7 @@ function andromeda_get_solutions() {
  *
  * @return array<string, array>
  */
-function andromeda_get_solutions_defaults() {
+function innovare_get_solutions_defaults() {
 	$solutions = array(
 
 		'microsoft-365' => array(
@@ -224,26 +224,26 @@ function andromeda_get_solutions_defaults() {
  * @param bool $force_reset When true, overwrite all stored solution content.
  * @return array{updated: bool, version: int, forced: bool}
  */
-function andromeda_seed_solutions_data( $force_reset = false ) {
-	$defaults   = andromeda_get_solutions_defaults();
-	$theme_ver  = ANDROMEDA_SOLUTIONS_DATA_VERSION;
-	$stored_ver = (int) get_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, 0 );
-	$existing   = get_option( ANDROMEDA_SOLUTIONS_OPTION, null );
+function innovare_seed_solutions_data( $force_reset = false ) {
+	$defaults   = innovare_get_solutions_defaults();
+	$theme_ver  = INNOVARE_SOLUTIONS_DATA_VERSION;
+	$stored_ver = (int) get_option( INNOVARE_SOLUTIONS_VERSION_OPTION, 0 );
+	$existing   = get_option( INNOVARE_SOLUTIONS_OPTION, null );
 
 	$needs_seed = ! is_array( $existing ) || empty( $existing );
 	$needs_sync = $stored_ver < $theme_ver;
 	$updated    = false;
 
 	if ( $force_reset || $needs_seed || $needs_sync ) {
-		update_option( ANDROMEDA_SOLUTIONS_OPTION, $defaults, false );
-		update_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, $theme_ver, false );
-		andromeda_clear_solutions_cache();
+		update_option( INNOVARE_SOLUTIONS_OPTION, $defaults, false );
+		update_option( INNOVARE_SOLUTIONS_VERSION_OPTION, $theme_ver, false );
+		innovare_clear_solutions_cache();
 		$updated = true;
 	}
 
 	return array(
 		'updated' => $updated,
-		'version' => (int) get_option( ANDROMEDA_SOLUTIONS_VERSION_OPTION, $theme_ver ),
+		'version' => (int) get_option( INNOVARE_SOLUTIONS_VERSION_OPTION, $theme_ver ),
 		'forced'  => (bool) $force_reset,
 	);
 }
@@ -253,14 +253,14 @@ function andromeda_seed_solutions_data( $force_reset = false ) {
  *
  * @return array{updated: bool, version: int, forced: bool}
  */
-function andromeda_reset_solutions_data() {
-	return andromeda_seed_solutions_data( true );
+function innovare_reset_solutions_data() {
+	return innovare_seed_solutions_data( true );
 }
 
 /**
  * Clear cached solution data.
  */
-function andromeda_clear_solutions_cache() {
+function innovare_clear_solutions_cache() {
 	wp_cache_delete( 'innovare_solutions', 'innovare' );
 }
 
@@ -270,8 +270,8 @@ function andromeda_clear_solutions_cache() {
  * @param string $slug Solution slug.
  * @return array|null
  */
-function andromeda_get_solution( $slug ) {
-	$all = andromeda_get_solutions();
+function innovare_get_solution( $slug ) {
+	$all = innovare_get_solutions();
 	$slug = sanitize_key( $slug );
 	return isset( $all[ $slug ] ) ? $all[ $slug ] : null;
 }
@@ -283,7 +283,7 @@ function andromeda_get_solution( $slug ) {
  * @param string $slug Solution slug.
  * @return string|null
  */
-function andromeda_get_solution_url( $slug ) {
+function innovare_get_solution_url( $slug ) {
 	$slug = sanitize_key( $slug );
 	if ( ! $slug ) {
 		return null;
@@ -298,18 +298,18 @@ function andromeda_get_solution_url( $slug ) {
 /**
  * URL for a solution detail page, or the solutions listing with anchor as fallback.
  *
- * @param string $slug Solution key from andromeda_get_solutions().
+ * @param string $slug Solution key from innovare_get_solutions().
  * @return string
  */
-function andromeda_solution_page_url( $slug ) {
+function innovare_solution_page_url( $slug ) {
 	$slug = sanitize_key( $slug );
-	$direct = andromeda_get_solution_url( $slug );
+	$direct = innovare_get_solution_url( $slug );
 	if ( $direct ) {
 		return $direct;
 	}
 
-	$solution = andromeda_get_solution( $slug );
+	$solution = innovare_get_solution( $slug );
 	$anchor   = ( $solution && ! empty( $solution['anchor'] ) ) ? sanitize_key( (string) $solution['anchor'] ) : $slug;
 
-	return andromeda_page_url( 'solutions' ) . '#' . $anchor;
+	return innovare_page_url( 'solutions' ) . '#' . $anchor;
 }
